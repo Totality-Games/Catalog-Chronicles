@@ -1,5 +1,5 @@
 import './style.css';
-import { Engine, Resolution } from 'excalibur';
+import { DisplayMode, Engine, Resolution } from 'excalibur';
 
 import { uiManager } from './Managers/UIManager';
 import { allScenes } from './Scenes/allScenes';
@@ -9,6 +9,7 @@ const game = new Engine({
   pixelArt: true,
   pixelRatio: 2,
   resolution: Resolution.SNES,
+  // displayMode: DisplayMode.FitContainerAndFill,
   scenes: { ...allScenes },
 });
 

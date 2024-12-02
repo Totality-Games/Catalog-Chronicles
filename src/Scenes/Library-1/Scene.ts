@@ -33,7 +33,7 @@ class Library1 extends Scene {
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(32, 32), Library1Resources);
+    const player = new MainGuy(vec(200, 200), Library1Resources);
     engine.currentScene.add(player);
     engine.currentScene.camera.zoom = 0.8;
     musicManager.startMusic(Library1Resources);

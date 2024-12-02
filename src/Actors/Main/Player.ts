@@ -108,10 +108,10 @@ export class MainGuy extends Actor {
     const playerSpriteSheet = SpriteSheet.fromImageSource({
       image: this.resources.HeroSpriteSheetPng as ImageSource,
       grid: {
-        spriteWidth: 24,
+        spriteWidth: 32,
         spriteHeight: 32,
-        rows: 4,
-        columns: 3,
+        rows: 13,
+        columns: 4,
       },
     });
 
