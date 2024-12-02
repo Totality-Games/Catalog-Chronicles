@@ -55,7 +55,7 @@ export class MainGuy extends Actor {
     });
 
     this.z = 200;
-    this.scale = new Vector(2, 2);
+    this.scale = new Vector(2.5, 2.5);
     this.direction = direction ?? DIRECTIONS.DOWN;
     this.resources = resources;
     this.playerState = SCENE_STATE.PLAYING;
@@ -238,20 +238,52 @@ export class MainGuy extends Actor {
     const rightWalk = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 2) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(0, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 2) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(1, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 2) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(2, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 2) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(3, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(0, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
       ],
     });
@@ -260,20 +292,52 @@ export class MainGuy extends Actor {
     const leftWalk = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 1) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(0, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 1) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(1, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 1) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(2, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 1) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(3, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(0, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
       ],
     });
@@ -282,20 +346,44 @@ export class MainGuy extends Actor {
     const upWalk = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 3) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(1, 11) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(2, 11) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 3) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(3, 11) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(2, 11) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 11) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 12) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 12) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 12) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 12) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 12) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
       ],
     });
@@ -304,27 +392,51 @@ export class MainGuy extends Actor {
     const downWalk = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(0, 0) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 0) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(2, 0) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(3, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
         {
-          graphic: playerSpriteSheet.getSprite(1, 0) as Sprite,
-          duration: Config.PlayerFrameSpeed,
+          graphic: playerSpriteSheet.getSprite(2, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 5) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 6) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 6) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 6) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 6) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 6) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
         },
       ],
     });
     this.graphics.add('down-walk', downWalk);
 
     // const rightRun = new Animation({
-    //   frames: [
+    //   frames:
     //     {
     //       graphic: playerRunningSpriteSheet.getSprite(0, 1) as Sprite,
     //       duration: Config.PlayerRunningFrameSpeed,
