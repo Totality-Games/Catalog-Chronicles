@@ -118,6 +118,26 @@ export class MainGuy extends Actor {
     const downIdle = new Animation({
       frames: [
         {
+          graphic: playerSpriteSheet.getSprite(0, 0),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 0),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 0),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 0),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 0),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
           graphic: playerSpriteSheet.getSprite(1, 0),
           duration: Config.PlayerFrameSpeed,
         },
@@ -128,7 +148,27 @@ export class MainGuy extends Actor {
     const leftIdle = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(1, 1) as Sprite,
+          graphic: playerSpriteSheet.getSprite(0, 2),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 2),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 2),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 2),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 2),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 2),
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -138,7 +178,27 @@ export class MainGuy extends Actor {
     const rightIdle = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(1, 2) as Sprite,
+          graphic: playerSpriteSheet.getSprite(0, 1),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 1),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 1),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 1),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 1),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 1),
           duration: Config.PlayerFrameSpeed,
         },
       ],
@@ -148,7 +208,27 @@ export class MainGuy extends Actor {
     const upIdle = new Animation({
       frames: [
         {
-          graphic: playerSpriteSheet.getSprite(1, 3) as Sprite,
+          graphic: playerSpriteSheet.getSprite(0, 3),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 3),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 3),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(3, 3),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(2, 3),
+          duration: Config.PlayerFrameSpeed,
+        },
+        {
+          graphic: playerSpriteSheet.getSprite(1, 3),
           duration: Config.PlayerFrameSpeed,
         },
       ],
