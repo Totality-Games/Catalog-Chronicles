@@ -31,20 +31,18 @@ export class MainGuy extends Actor {
   public direction: DIRECTIONS;
   public resources: {
     HeroSpriteSheetPng: ImageSource;
-    HeroRunningSpriteSheetPng: ImageSource;
-    CollisionSound: Sound;
-    WalkingSound: Sound;
-    TalkingSound: Sound;
+    // CollisionSound: Sound;
+    // WalkingSound: Sound;
+    // TalkingSound: Sound;
   };
   private engine: Engine | undefined;
   constructor(
     pos: Vector,
     resources: {
       HeroSpriteSheetPng: ImageSource;
-      HeroRunningSpriteSheetPng: ImageSource;
-      CollisionSound: Sound;
-      WalkingSound: Sound;
-      TalkingSound: Sound;
+      // CollisionSound: Sound;
+      // WalkingSound: Sound;
+      // TalkingSound: Sound;
     },
     direction?: DIRECTIONS
   ) {
@@ -93,7 +91,7 @@ export class MainGuy extends Actor {
       if (this.nearToObject === other.owner) {
         return;
       }
-      this.resources.CollisionSound.play(0.1);
+      // this.resources.CollisionSound.play(0.1);
       this.nearToObject = other.owner;
       this.nearToNPC = null;
     } else {
@@ -114,16 +112,6 @@ export class MainGuy extends Actor {
         spriteHeight: 32,
         rows: 4,
         columns: 3,
-      },
-    });
-
-    const playerRunningSpriteSheet = SpriteSheet.fromImageSource({
-      image: this.resources.HeroRunningSpriteSheetPng as ImageSource,
-      grid: {
-        spriteWidth: 24,
-        spriteHeight: 32,
-        rows: 4,
-        columns: 5,
       },
     });
 
@@ -255,109 +243,109 @@ export class MainGuy extends Actor {
     });
     this.graphics.add('down-walk', downWalk);
 
-    const rightRun = new Animation({
-      frames: [
-        {
-          graphic: playerRunningSpriteSheet.getSprite(0, 1) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(1, 1) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(2, 1) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(3, 1) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(4, 1) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-      ],
-    });
-    this.graphics.add('right-run', rightRun);
+    // const rightRun = new Animation({
+    //   frames: [
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(0, 1) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(1, 1) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(2, 1) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(3, 1) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(4, 1) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //   ],
+    // });
+    // this.graphics.add('right-run', rightRun);
 
-    const leftRun = new Animation({
-      frames: [
-        {
-          graphic: playerRunningSpriteSheet.getSprite(0, 2) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(1, 2) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(2, 2) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(3, 2) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(4, 2) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-      ],
-    });
-    this.graphics.add('left-run', leftRun);
+    // const leftRun = new Animation({
+    //   frames: [
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(0, 2) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(1, 2) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(2, 2) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(3, 2) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(4, 2) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //   ],
+    // });
+    // this.graphics.add('left-run', leftRun);
 
-    const upRun = new Animation({
-      frames: [
-        {
-          graphic: playerRunningSpriteSheet.getSprite(0, 3) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(1, 3) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(2, 3) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(3, 3) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(4, 3) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-      ],
-    });
-    this.graphics.add('up-run', upRun);
+    // const upRun = new Animation({
+    //   frames: [
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(0, 3) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(1, 3) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(2, 3) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(3, 3) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(4, 3) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //   ],
+    // });
+    // this.graphics.add('up-run', upRun);
 
-    const downRun = new Animation({
-      frames: [
-        {
-          graphic: playerRunningSpriteSheet.getSprite(0, 0) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(1, 0) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(2, 0) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(3, 0) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-        {
-          graphic: playerRunningSpriteSheet.getSprite(4, 0) as Sprite,
-          duration: Config.PlayerRunningFrameSpeed,
-        },
-      ],
-    });
-    this.graphics.add('down-run', downRun);
+    // const downRun = new Animation({
+    //   frames: [
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(0, 0) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(1, 0) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(2, 0) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(3, 0) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //     {
+    //       graphic: playerRunningSpriteSheet.getSprite(4, 0) as Sprite,
+    //       duration: Config.PlayerRunningFrameSpeed,
+    //     },
+    //   ],
+    // });
+    // this.graphics.add('down-run', downRun);
   }
 
   pauseGame(engine: Engine) {
@@ -400,8 +388,8 @@ export class MainGuy extends Actor {
             this.playerState = SCENE_STATE.TALKING;
             uiManager.update_state(SCENE_STATE.TALKING);
             uiManager.dialogNPC(
-              this.nearToNPC.name,
-              this.resources.TalkingSound
+              this.nearToNPC.name
+              // this.resources.TalkingSound
             );
           }
           if (this.nearToObject) {
@@ -458,37 +446,37 @@ export class MainGuy extends Actor {
     // running
     if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
-        movementSounds(this.resources.WalkingSound, 'run');
+        // movementSounds(this.resources.WalkingSound, 'run');
         movePlayer(Config.PlayerRunningSpeed, 0, DIRECTIONS.RIGHT, 'run');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
-        movementSounds(this.resources.WalkingSound, 'run');
+        // movementSounds(this.resources.WalkingSound, 'run');
         movePlayer(-Config.PlayerRunningSpeed, 0, DIRECTIONS.LEFT, 'run');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
-        movementSounds(this.resources.WalkingSound, 'run');
+        // movementSounds(this.resources.WalkingSound, 'run');
         movePlayer(0, -Config.PlayerRunningSpeed, DIRECTIONS.UP, 'run');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
-        movementSounds(this.resources.WalkingSound, 'run');
+        // movementSounds(this.resources.WalkingSound, 'run');
         movePlayer(0, Config.PlayerRunningSpeed, DIRECTIONS.DOWN, 'run');
       }
     } else {
       // walking
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
-        movementSounds(this.resources.WalkingSound, 'walk');
+        // movementSounds(this.resources.WalkingSound, 'walk');
         movePlayer(Config.PlayerSpeed, 0, DIRECTIONS.RIGHT, 'walk');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
-        movementSounds(this.resources.WalkingSound, 'walk');
+        // movementSounds(this.resources.WalkingSound, 'walk');
         movePlayer(-Config.PlayerSpeed, 0, DIRECTIONS.LEFT, 'walk');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
-        movementSounds(this.resources.WalkingSound, 'walk');
+        // movementSounds(this.resources.WalkingSound, 'walk');
         movePlayer(0, -Config.PlayerSpeed, DIRECTIONS.UP, 'walk');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
-        movementSounds(this.resources.WalkingSound, 'walk');
+        // movementSounds(this.resources.WalkingSound, 'walk');
         movePlayer(0, Config.PlayerSpeed, DIRECTIONS.DOWN, 'walk');
       }
     }

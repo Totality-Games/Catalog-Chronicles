@@ -5,7 +5,7 @@ class MusicManager {
   public location: LOCATIONS;
   private currectSong?: Sound;
   constructor() {
-    this.location = LOCATIONS.IRONCLAW_PORT;
+    this.location = LOCATIONS.LIBRARY1;
   }
 
   public updateLocation(location: LOCATIONS) {

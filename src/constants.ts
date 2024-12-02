@@ -1,15 +1,7 @@
 // enums
 export enum LOCATIONS {
   // common interiors
-  THIRSTY_PELIKAN = 'THIRSTY_PELIKAN',
-  SHOP = 'SHOP',
-  TEMPLE = 'TEMPLE',
-  PALACE = 'PALACE',
-  // cities:
-  IRONCLAW_PORT = 'IRONCLAW_PORT',
-  SWAMBY = 'SWAMBY',
-  // routes:
-  ROUTES = 'ROUTES',
+  LIBRARY1 = 'LIBRARY1',
 }
 export enum DIRECTIONS {
   UP = 'up',
@@ -32,19 +24,6 @@ export enum SEXES {
   MALE = 'MALE',
   FEMALE = 'FEMALE',
 }
-export enum RACES {
-  ACCURSED = 'ACCURSED',
-  ELF = 'ELF',
-  HALF_ELF = 'HALF_ELF',
-  HUMAN = 'HUMAN',
-  NIX_FORGED = 'NIX_FORGED',
-}
-export enum CLASSES {
-  CLERIC = 'CLERIC',
-  THIEF = 'THIEF',
-  WARRIOR = 'WARRIOR',
-  WIZARD = 'WIZARD',
-}
 
 // types
 export type Dialogues = {
@@ -52,12 +31,3 @@ export type Dialogues = {
   text: string;
   isCharacter?: boolean;
 }[];
-
-export type AbilityScores = {
-  strength: number;
-  dexterity: number;
-  constitution: number;
-  wisdom: number;
-  intelligence: number;
-  charisma: number;
-};
