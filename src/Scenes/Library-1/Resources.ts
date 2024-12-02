@@ -15,14 +15,24 @@ import firstLibraryWav from '../../../Resources/Music/first-library/Cute Loops -
 // import talkingSound from '../../../Resources/Sounds/Effects/bounce-dur2Short-pitch3High.wav';
 
 // import spritesheets
-import heroPath from '../../../Resources/Sprites/Player/CATSPRITESHEET_Gray.png';
+import playerPath from '../../../Resources/Sprites/Player/CATSPRITESHEET_Gray.png?url';
+import playerRollingPath from '../../../Resources/Sprites/Player/GrayCat.png?url';
 import cltBuildingsSetPath from '../../../Resources/Tilesets/CLT_Buildings.png?url';
 
 // import tilesets
 import cltBuildingsTsxPath from '../../../Resources/TSX/CLT_Buildings.tsx?url';
 
 export const Library1Resources = {
-  HeroSpriteSheetPng: new ImageSource(heroPath, false, ImageFiltering.Pixel),
+  PlayerSpriteSheetPng: new ImageSource(
+    playerPath,
+    false,
+    ImageFiltering.Pixel
+  ),
+  PlayerRollingSpriteSheetPng: new ImageSource(
+    playerRollingPath,
+    false,
+    ImageFiltering.Pixel
+  ),
   Music: new Sound(firstLibraryMP3, firstLibraryWav, firstLibraryOgg),
   // CollisionSound: new Sound(collisionSound),
   // WalkingSound: new Sound(walkingSound),

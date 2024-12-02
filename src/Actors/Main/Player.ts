@@ -30,7 +30,8 @@ export class MainGuy extends Actor {
   public nearToObject: any;
   public direction: DIRECTIONS;
   public resources: {
-    HeroSpriteSheetPng: ImageSource;
+    PlayerSpriteSheetPng: ImageSource;
+    PlayerRollingSpriteSheetPng: ImageSource;
     // CollisionSound: Sound;
     // WalkingSound: Sound;
     // TalkingSound: Sound;
@@ -39,7 +40,8 @@ export class MainGuy extends Actor {
   constructor(
     pos: Vector,
     resources: {
-      HeroSpriteSheetPng: ImageSource;
+      PlayerSpriteSheetPng: ImageSource;
+      PlayerRollingSpriteSheetPng: ImageSource;
       // CollisionSound: Sound;
       // WalkingSound: Sound;
       // TalkingSound: Sound;
@@ -106,12 +108,22 @@ export class MainGuy extends Actor {
 
   addAnimations() {
     const playerSpriteSheet = SpriteSheet.fromImageSource({
-      image: this.resources.HeroSpriteSheetPng as ImageSource,
+      image: this.resources.PlayerSpriteSheetPng as ImageSource,
       grid: {
         spriteWidth: 32,
         spriteHeight: 32,
         rows: 13,
         columns: 4,
+      },
+    });
+
+    const playerRollingSpriteSheet = SpriteSheet.fromImageSource({
+      image: this.resources.PlayerRollingSpriteSheetPng as ImageSource,
+      grid: {
+        spriteWidth: 32,
+        spriteHeight: 32,
+        rows: 11,
+        columns: 8,
       },
     });
 
@@ -435,109 +447,153 @@ export class MainGuy extends Actor {
     });
     this.graphics.add('down-walk', downWalk);
 
-    // const rightRun = new Animation({
-    //   frames:
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(0, 1) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(1, 1) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(2, 1) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(3, 1) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(4, 1) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('right-run', rightRun);
+    const rightRoll = new Animation({
+      frames: [
+        {
+          graphic: playerRollingSpriteSheet.getSprite(0, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(1, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(2, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(3, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(4, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(5, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(6, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(7, 7) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('right-roll', rightRoll);
 
-    // const leftRun = new Animation({
-    //   frames: [
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(0, 2) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(1, 2) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(2, 2) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(3, 2) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(4, 2) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('left-run', leftRun);
+    const leftRoll = new Animation({
+      frames: [
+        {
+          graphic: playerRollingSpriteSheet.getSprite(0, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(1, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(2, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(3, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(4, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(5, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(6, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(7, 8) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('left-roll', leftRoll);
 
-    // const upRun = new Animation({
-    //   frames: [
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(0, 3) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(1, 3) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(2, 3) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(3, 3) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(4, 3) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('up-run', upRun);
+    const upRoll = new Animation({
+      frames: [
+        {
+          graphic: playerRollingSpriteSheet.getSprite(0, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(1, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(2, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(3, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(4, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(5, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(6, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(7, 10) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('up-roll', upRoll);
 
-    // const downRun = new Animation({
-    //   frames: [
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(0, 0) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(1, 0) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(2, 0) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(3, 0) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //     {
-    //       graphic: playerRunningSpriteSheet.getSprite(4, 0) as Sprite,
-    //       duration: Config.PlayerRunningFrameSpeed,
-    //     },
-    //   ],
-    // });
-    // this.graphics.add('down-run', downRun);
+    const downRoll = new Animation({
+      frames: [
+        {
+          graphic: playerRollingSpriteSheet.getSprite(1, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(2, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(3, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(4, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(5, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(6, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+        {
+          graphic: playerRollingSpriteSheet.getSprite(7, 9) as Sprite,
+          duration: Config.PlayerRunningFrameSpeed,
+        },
+      ],
+    });
+    this.graphics.add('down-roll', downRoll);
   }
 
   pauseGame(engine: Engine) {
@@ -610,7 +666,7 @@ export class MainGuy extends Actor {
       x: number,
       y: number,
       direction: DIRECTIONS,
-      speed: 'run' | 'walk'
+      speed: 'roll' | 'walk'
     ) => {
       this.vel = vec(x, y);
 
@@ -622,7 +678,7 @@ export class MainGuy extends Actor {
       this.graphics.use(`${direction}-${speed}`);
     };
 
-    function movementSounds(_sound: Sound, _speed: 'walk' | 'run') {
+    function movementSounds(_sound: Sound, _speed: 'walk' | 'roll') {
       // if (speed === 'walk') {
       //   while (speed === 'walk') {
       //     setTimeout(() => {
@@ -638,20 +694,20 @@ export class MainGuy extends Actor {
     // running
     if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {
       if (engine.input.keyboard.isHeld(Keys.ArrowRight)) {
-        // movementSounds(this.resources.WalkingSound, 'run');
-        movePlayer(Config.PlayerRunningSpeed, 0, DIRECTIONS.RIGHT, 'run');
+        // movementSounds(this.resources.WalkingSound, 'roll');
+        movePlayer(Config.PlayerRunningSpeed, 0, DIRECTIONS.RIGHT, 'roll');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowLeft)) {
-        // movementSounds(this.resources.WalkingSound, 'run');
-        movePlayer(-Config.PlayerRunningSpeed, 0, DIRECTIONS.LEFT, 'run');
+        // movementSounds(this.resources.WalkingSound, 'roll');
+        movePlayer(-Config.PlayerRunningSpeed, 0, DIRECTIONS.LEFT, 'roll');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowUp)) {
-        // movementSounds(this.resources.WalkingSound, 'run');
-        movePlayer(0, -Config.PlayerRunningSpeed, DIRECTIONS.UP, 'run');
+        // movementSounds(this.resources.WalkingSound, 'roll');
+        movePlayer(0, -Config.PlayerRunningSpeed, DIRECTIONS.UP, 'roll');
       }
       if (engine.input.keyboard.isHeld(Keys.ArrowDown)) {
-        // movementSounds(this.resources.WalkingSound, 'run');
-        movePlayer(0, Config.PlayerRunningSpeed, DIRECTIONS.DOWN, 'run');
+        // movementSounds(this.resources.WalkingSound, 'roll');
+        movePlayer(0, Config.PlayerRunningSpeed, DIRECTIONS.DOWN, 'roll');
       }
     } else {
       // walking
