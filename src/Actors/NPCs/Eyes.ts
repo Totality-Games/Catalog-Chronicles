@@ -8,13 +8,13 @@ import {
 } from 'excalibur';
 import { DIRECTIONS } from '../../constants';
 
-export class NPC extends Actor {
+export class NPCEyes extends Actor {
   public direction: DIRECTIONS;
-  npcSpriteSheet: SpriteSheet | undefined;
+  eyesSpriteSheet: SpriteSheet | undefined;
   constructor(
     pos: Vector,
     resources: {
-      AllNPCSpriteSheetsPng: ImageSource;
+      NPCEyesSpriteSheetsPng: ImageSource;
     },
     direction?: DIRECTIONS
   ) {
@@ -29,13 +29,13 @@ export class NPC extends Actor {
     this.scale = new Vector(2, 2);
     this.direction = direction ?? DIRECTIONS.DOWN;
 
-    this.npcSpriteSheet = SpriteSheet.fromImageSource({
-      image: resources.AllNPCSpriteSheetsPng as ImageSource,
+    this.eyesSpriteSheet = SpriteSheet.fromImageSource({
+      image: resources.NPCEyesSpriteSheetsPng as ImageSource,
       grid: {
         spriteWidth: 32,
         spriteHeight: 32,
         rows: 49,
-        columns: 36,
+        columns: 112,
       },
     });
   }

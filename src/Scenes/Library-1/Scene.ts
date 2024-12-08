@@ -30,7 +30,7 @@ class Library1 extends Scene {
     this.game_container = document.getElementById('game')!;
 
     this.setCameraBoundaries(engine);
-    const npcs = this.setupNPCs();
+    const npcs = this.setupNPCs(engine);
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
@@ -44,8 +44,8 @@ class Library1 extends Scene {
       engine.add(character);
     });
 
-    engine.currentScene.camera.strategy.lockToActor(npcs[0]);
-    // engine.currentScene.camera.strategy.lockToActor(player);
+    // engine.currentScene.camera.strategy.lockToActor(npcs[0]);
+    engine.currentScene.camera.strategy.lockToActor(player);
     Library1Resources.TiledMap.addToScene(engine.currentScene);
   }
 
@@ -83,9 +83,10 @@ class Library1 extends Scene {
     engine.currentScene.camera.strategy.limitCameraBounds(mapBounds);
   }
 
-  private setupNPCs() {
+  private setupNPCs(engine: Engine) {
     const catherine = new Catherine(
-      vec(200, 200),
+      engine,
+      vec(250, 250),
       Library1Resources,
       DIRECTIONS.DOWN
     );
