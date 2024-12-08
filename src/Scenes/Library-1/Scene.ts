@@ -6,7 +6,7 @@ import {
   SceneActivationContext,
   vec,
 } from 'excalibur';
-import { LOCATIONS, SCENE_STATE } from '../../constants';
+import { DIRECTIONS, LOCATIONS, SCENE_STATE } from '../../constants';
 
 // import scene specific items
 import { Library1Resources } from './Resources';
@@ -18,6 +18,7 @@ import { musicManager } from '../../Managers/MusicManager';
 
 // import Actors
 import { MainGuy } from '../../Actors/Main/Player';
+import { Catherine } from '../../Actors/NPCs/City1/Catherine';
 
 class Library1 extends Scene {
   game_container!: HTMLElement;
@@ -43,7 +44,8 @@ class Library1 extends Scene {
       engine.add(character);
     });
 
-    engine.currentScene.camera.strategy.lockToActor(player);
+    engine.currentScene.camera.strategy.lockToActor(npcs[0]);
+    // engine.currentScene.camera.strategy.lockToActor(player);
     Library1Resources.TiledMap.addToScene(engine.currentScene);
   }
 
@@ -82,7 +84,13 @@ class Library1 extends Scene {
   }
 
   private setupNPCs() {
-    return [];
+    const catherine = new Catherine(
+      vec(200, 200),
+      Library1Resources,
+      DIRECTIONS.DOWN
+    );
+
+    return [catherine];
   }
 }
 

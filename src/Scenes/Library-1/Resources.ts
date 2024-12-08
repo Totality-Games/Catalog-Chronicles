@@ -17,6 +17,7 @@ import firstLibraryWav from '../../../Resources/Music/first-library/Cute Loops -
 // import spritesheets
 import playerPath from '../../../Resources/Sprites/Player/CATSPRITESHEET_Gray.png?url';
 import playerRollingPath from '../../../Resources/Sprites/Player/GrayCat.png?url';
+import allNpcSpritesPath from '../../../Resources/Sprites/NPCs/characters/char_all.png?url';
 import cltBuildingsSetPath from '../../../Resources/Tilesets/CLT_Buildings.png?url';
 
 // import tilesets
@@ -30,6 +31,11 @@ export const Library1Resources = {
   ),
   PlayerRollingSpriteSheetPng: new ImageSource(
     playerRollingPath,
+    false,
+    ImageFiltering.Pixel
+  ),
+  AllNPCSpriteSheetsPng: new ImageSource(
+    allNpcSpritesPath,
     false,
     ImageFiltering.Pixel
   ),
