@@ -57,7 +57,7 @@ export class MainGuy extends Actor {
     });
 
     this.z = 200;
-    this.scale = new Vector(2.5, 2.5);
+    this.scale = new Vector(2, 2);
     this.direction = direction ?? DIRECTIONS.DOWN;
     this.resources = resources;
     this.playerState = SCENE_STATE.PLAYING;

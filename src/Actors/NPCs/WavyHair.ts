@@ -8,13 +8,13 @@ import {
 } from 'excalibur';
 import { DIRECTIONS } from '../../constants';
 
-export class NPCEyes extends Actor {
+export class NPCWavyHair extends Actor {
   public direction: DIRECTIONS;
-  eyesSpriteSheet: SpriteSheet | undefined;
+  hairSpriteSheet: SpriteSheet | undefined;
   constructor(
     pos: Vector,
     resources: {
-      NPCEyesSpriteSheetsPng: ImageSource;
+      WavyHairSpriteSheetPng: ImageSource;
     },
     direction?: DIRECTIONS
   ) {
@@ -28,8 +28,8 @@ export class NPCEyes extends Actor {
     this.z = 100;
     this.direction = direction ?? DIRECTIONS.DOWN;
 
-    this.eyesSpriteSheet = SpriteSheet.fromImageSource({
-      image: resources.NPCEyesSpriteSheetsPng as ImageSource,
+    this.hairSpriteSheet = SpriteSheet.fromImageSource({
+      image: resources.WavyHairSpriteSheetPng as ImageSource,
       grid: {
         spriteWidth: 32,
         spriteHeight: 32,

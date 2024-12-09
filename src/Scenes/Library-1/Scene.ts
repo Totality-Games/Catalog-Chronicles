@@ -18,7 +18,7 @@ import { musicManager } from '../../Managers/MusicManager';
 
 // import Actors
 import { MainGuy } from '../../Actors/Main/Player';
-import { Catherine } from '../../Actors/NPCs/City1/Catherine';
+import { createCatherine } from '../../Actors/NPCs/City1/Catherine';
 
 class Library1 extends Scene {
   game_container!: HTMLElement;
@@ -30,7 +30,7 @@ class Library1 extends Scene {
     this.game_container = document.getElementById('game')!;
 
     this.setCameraBoundaries(engine);
-    const npcs = this.setupNPCs(engine);
+    const npcs = this.setupNPCs();
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
@@ -83,10 +83,9 @@ class Library1 extends Scene {
     engine.currentScene.camera.strategy.limitCameraBounds(mapBounds);
   }
 
-  private setupNPCs(engine: Engine) {
-    const catherine = new Catherine(
-      engine,
-      vec(250, 250),
+  private setupNPCs() {
+    const catherine = createCatherine(
+      vec(200, 200),
       Library1Resources,
       DIRECTIONS.DOWN
     );

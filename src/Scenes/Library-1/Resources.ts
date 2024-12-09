@@ -19,6 +19,7 @@ import playerPath from '../../../Resources/Sprites/Player/CATSPRITESHEET_Gray.pn
 import playerRollingPath from '../../../Resources/Sprites/Player/GrayCat.png?url';
 import allNpcSpritesPath from '../../../Resources/Sprites/NPCs/characters/char_all.png?url';
 import npcEyesSpritesPath from '../../../Resources/Sprites/NPCs/eyes/eyes.png?url';
+import wavyHairPath from '../../../Resources/Sprites/NPCs/hair/wavy.png?url';
 import cltBuildingsSetPath from '../../../Resources/Tilesets/CLT_Buildings.png?url';
 
 // import tilesets
@@ -42,6 +43,11 @@ export const Library1Resources = {
   ),
   NPCEyesSpriteSheetsPng: new ImageSource(
     npcEyesSpritesPath,
+    false,
+    ImageFiltering.Pixel
+  ),
+  WavyHairSpriteSheetPng: new ImageSource(
+    wavyHairPath,
     false,
     ImageFiltering.Pixel
   ),
