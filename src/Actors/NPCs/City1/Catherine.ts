@@ -20,6 +20,7 @@ import { DIRECTIONS } from '../../../constants';
 import { NPCEyes } from '../Parts/Eyes';
 import { NPCWavyHair } from '../Parts/Hair/WavyHair';
 import { NPCBasicShirt } from '../Parts/Clothes/Shirt';
+import { NPCSkirt } from '../Parts/Clothes/Skirt';
 
 class CatherineBase extends NPC {
   constructor(
@@ -198,6 +199,49 @@ class CatherineShirt extends NPCBasicShirt {
     this.graphics.add('right-walk', rightWalk);
   }
 }
+class CatherineSkirt extends NPCSkirt {
+  constructor(
+    pos: Vector,
+    resources: {
+      SkirtSpriteSheetPng: ImageSource;
+    },
+    direction?: DIRECTIONS
+  ) {
+    super(pos, resources, direction);
+  }
+
+  onInitialize(_engine: Engine): void {
+    this.addAnimations();
+  }
+
+  onPreUpdate(_engine: Engine, _elapsedMs: number): void {
+    this.vel = Vector.Zero;
+
+    this.graphics.use(`${this.direction}-idle`);
+  }
+
+  addAnimations() {
+    const downIdle = new Animation({
+      frames: [
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 0),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('down-idle', downIdle);
+
+    const rightWalk = new Animation({
+      frames: [
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(0, 9) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('right-walk', rightWalk);
+  }
+}
 
 export function createCatherine(
   pos: Vector,
@@ -206,6 +250,7 @@ export function createCatherine(
     NPCEyesSpriteSheetsPng: ImageSource;
     WavyHairSpriteSheetPng: ImageSource;
     BasicShirtSpriteSheetPng: ImageSource;
+    SkirtSpriteSheetPng: ImageSource;
   },
   direction?: DIRECTIONS
 ) {
@@ -213,10 +258,12 @@ export function createCatherine(
   const catherineEyes = new CatherineEyes(vec(0, 0), resources, direction);
   const catherineHair = new CatherineHair(vec(0, 0), resources, direction);
   const catherineShirt = new CatherineShirt(vec(0, 0), resources, direction);
+  const catherineSkirt = new CatherineSkirt(vec(0, 0), resources, direction);
 
   catherine.addChild(catherineEyes);
   catherine.addChild(catherineHair);
   catherine.addChild(catherineShirt);
+  catherine.addChild(catherineSkirt);
 
   return catherine;
 }
