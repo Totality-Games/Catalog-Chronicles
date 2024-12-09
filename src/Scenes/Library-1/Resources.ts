@@ -22,6 +22,7 @@ import npcEyesSpritesPath from '../../../Resources/Sprites/NPCs/eyes/eyes.png?ur
 import wavyHairPath from '../../../Resources/Sprites/NPCs/hair/wavy.png?url';
 import basicShirtPath from '../../../Resources/Sprites/NPCs/clothes/basic.png?url';
 import skirtPath from '../../../Resources/Sprites/NPCs/clothes/skirt.png?url';
+import glassesPath from '../../../Resources/Sprites/NPCs/acc/glasses.png?url';
 import cltBuildingsSetPath from '../../../Resources/Tilesets/CLT_Buildings.png?url';
 
 // import tilesets
@@ -59,6 +60,11 @@ export const Library1Resources = {
     ImageFiltering.Pixel
   ),
   SkirtSpriteSheetPng: new ImageSource(skirtPath, false, ImageFiltering.Pixel),
+  GlassesSpriteSheetPng: new ImageSource(
+    glassesPath,
+    false,
+    ImageFiltering.Pixel
+  ),
   Music: new Sound(firstLibraryMP3, firstLibraryWav, firstLibraryOgg),
   // CollisionSound: new Sound(collisionSound),
   // WalkingSound: new Sound(walkingSound),

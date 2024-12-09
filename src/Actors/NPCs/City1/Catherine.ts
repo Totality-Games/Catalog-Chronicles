@@ -21,6 +21,7 @@ import { NPCEyes } from '../Parts/Eyes';
 import { NPCWavyHair } from '../Parts/Hair/WavyHair';
 import { NPCBasicShirt } from '../Parts/Clothes/Shirt';
 import { NPCSkirt } from '../Parts/Clothes/Skirt';
+import { NPCGlasses } from '../Parts/Accessories/Glasses';
 
 class CatherineBase extends NPC {
   constructor(
@@ -34,6 +35,7 @@ class CatherineBase extends NPC {
   ) {
     super(pos, resources, direction);
 
+    this.scale = new Vector(2.2, 2.2);
     this.name = 'Catherine';
   }
 
@@ -242,6 +244,49 @@ class CatherineSkirt extends NPCSkirt {
     this.graphics.add('right-walk', rightWalk);
   }
 }
+class CatherineGlasses extends NPCGlasses {
+  constructor(
+    pos: Vector,
+    resources: {
+      GlassesSpriteSheetPng: ImageSource;
+    },
+    direction?: DIRECTIONS
+  ) {
+    super(pos, resources, direction);
+  }
+
+  onInitialize(_engine: Engine): void {
+    this.addAnimations();
+  }
+
+  onPreUpdate(_engine: Engine, _elapsedMs: number): void {
+    this.vel = Vector.Zero;
+
+    this.graphics.use(`${this.direction}-idle`);
+  }
+
+  addAnimations() {
+    const downIdle = new Animation({
+      frames: [
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(8, 0),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('down-idle', downIdle);
+
+    const rightWalk = new Animation({
+      frames: [
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(0, 9) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('right-walk', rightWalk);
+  }
+}
 
 export function createCatherine(
   pos: Vector,
@@ -251,6 +296,7 @@ export function createCatherine(
     WavyHairSpriteSheetPng: ImageSource;
     BasicShirtSpriteSheetPng: ImageSource;
     SkirtSpriteSheetPng: ImageSource;
+    GlassesSpriteSheetPng: ImageSource;
   },
   direction?: DIRECTIONS
 ) {
@@ -259,11 +305,17 @@ export function createCatherine(
   const catherineHair = new CatherineHair(vec(0, 0), resources, direction);
   const catherineShirt = new CatherineShirt(vec(0, 0), resources, direction);
   const catherineSkirt = new CatherineSkirt(vec(0, 0), resources, direction);
+  const catherineGlasses = new CatherineGlasses(
+    vec(0, 0),
+    resources,
+    direction
+  );
 
   catherine.addChild(catherineEyes);
   catherine.addChild(catherineHair);
   catherine.addChild(catherineShirt);
   catherine.addChild(catherineSkirt);
+  catherine.addChild(catherineGlasses);
 
   return catherine;
 }
