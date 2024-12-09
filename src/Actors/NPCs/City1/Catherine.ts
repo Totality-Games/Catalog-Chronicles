@@ -99,6 +99,7 @@ class CatherineEyes extends NPCEyes {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.vel = Vector.Zero;
+    this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
   }
@@ -152,6 +153,7 @@ class CatherineHair extends NPCWavyHair {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.vel = Vector.Zero;
+    this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
   }
@@ -205,6 +207,7 @@ class CatherineShirt extends NPCBasicShirt {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.vel = Vector.Zero;
+    this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
   }
@@ -258,6 +261,7 @@ class CatherineSkirt extends NPCSkirt {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.vel = Vector.Zero;
+    this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
   }
@@ -312,6 +316,8 @@ class CatherineGlasses extends NPCGlasses {
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.vel = Vector.Zero;
 
+    this.direction = this.parent?.direction;
+
     this.graphics.use(`${this.direction}-idle`);
   }
 
@@ -361,10 +367,26 @@ export function createCatherine(
   direction?: DIRECTIONS
 ) {
   const catherine = new CatherineBase(pos, resources, direction);
-  const catherineEyes = new CatherineEyes(vec(0, 0), resources, direction);
-  const catherineHair = new CatherineHair(vec(0, 0), resources, direction);
-  const catherineShirt = new CatherineShirt(vec(0, 0), resources, direction);
-  const catherineSkirt = new CatherineSkirt(vec(0, 0), resources, direction);
+  const catherineEyes = new CatherineEyes(
+    vec(0, 0),
+    resources,
+    catherine.direction
+  );
+  const catherineHair = new CatherineHair(
+    vec(0, 0),
+    resources,
+    catherine.direction
+  );
+  const catherineShirt = new CatherineShirt(
+    vec(0, 0),
+    resources,
+    catherine.direction
+  );
+  const catherineSkirt = new CatherineSkirt(
+    vec(0, 0),
+    resources,
+    catherine.direction
+  );
   const catherineGlasses = new CatherineGlasses(
     vec(0, 0),
     resources,

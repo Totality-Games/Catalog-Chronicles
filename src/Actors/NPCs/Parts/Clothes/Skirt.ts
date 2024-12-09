@@ -22,7 +22,7 @@ export class NPCSkirt extends Actor {
       pos,
       width: 16,
       height: 24,
-      collisionType: CollisionType.Fixed,
+      collisionType: CollisionType.PreventCollision,
     });
 
     this.z = 100;
