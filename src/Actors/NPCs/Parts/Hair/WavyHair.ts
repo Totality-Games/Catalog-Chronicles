@@ -6,7 +6,7 @@ import {
   SpriteSheet,
   Vector,
 } from 'excalibur';
-import { DIRECTIONS } from '../../constants';
+import { DIRECTIONS } from '../../../../constants';
 
 export class NPCWavyHair extends Actor {
   public direction: DIRECTIONS;

@@ -6,7 +6,7 @@ import {
   SpriteSheet,
   Vector,
 } from 'excalibur';
-import { DIRECTIONS } from '../../constants';
+import { DIRECTIONS } from '../../../constants';
 
 export class NPC extends Actor {
   public direction: DIRECTIONS;
