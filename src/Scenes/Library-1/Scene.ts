@@ -1,4 +1,5 @@
 import {
+  Actor,
   BoundingBox,
   Engine,
   Loader,
@@ -87,8 +88,18 @@ class Library1 extends Scene {
     const catherine = createCatherine(
       vec(200, 200),
       Library1Resources,
-      DIRECTIONS.LEFT
+      DIRECTIONS.DOWN
     );
+
+    // catherine.actions.;
+    // catherine.actions;
+    catherine.actions.repeatForever(async (repeatCtx) => {
+      repeatCtx.moveBy(vec(100, 0), 100).delay(2000);
+      repeatCtx.moveBy(vec(-100, 0), 100).delay(5000);
+    });
+    // .moveBy(vec(100, 100), 200)
+    // .moveBy(vec(0, 100), 200)
+    // .moveBy(vec(0, 0), 200);
 
     return [catherine];
   }

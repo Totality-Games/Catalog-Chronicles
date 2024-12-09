@@ -44,9 +44,16 @@ class CatherineBase extends NPC {
   }
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.vel = Vector.Zero;
-
     this.graphics.use(`${this.direction}-idle`);
+  }
+
+  onPostUpdate(_engine: Engine, _delta: number): void {
+    if (this.vel.x < 0) {
+      this.direction = DIRECTIONS.LEFT;
+    }
+    if (this.vel.x > 0) {
+      this.direction = DIRECTIONS.RIGHT;
+    }
   }
 
   addAnimations() {
@@ -59,6 +66,16 @@ class CatherineBase extends NPC {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const upIdle = new Animation({
+      frames: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 1),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('up-idle', upIdle);
 
     const leftIdle = new Animation({
       frames: [
@@ -108,7 +125,6 @@ class CatherineEyes extends NPCEyes {
   }
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.vel = Vector.Zero;
     this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
@@ -124,6 +140,16 @@ class CatherineEyes extends NPCEyes {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const upIdle = new Animation({
+      frames: [
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 1),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('up-idle', upIdle);
 
     const leftIdle = new Animation({
       frames: [
@@ -172,7 +198,6 @@ class CatherineHair extends NPCWavyHair {
   }
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.vel = Vector.Zero;
     this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
@@ -188,6 +213,16 @@ class CatherineHair extends NPCWavyHair {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const upIdle = new Animation({
+      frames: [
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 1),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('up-idle', upIdle);
 
     const leftIdle = new Animation({
       frames: [
@@ -236,7 +271,6 @@ class CatherineShirt extends NPCBasicShirt {
   }
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.vel = Vector.Zero;
     this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
@@ -252,6 +286,16 @@ class CatherineShirt extends NPCBasicShirt {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const upIdle = new Animation({
+      frames: [
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 1),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('up-idle', upIdle);
 
     const leftIdle = new Animation({
       frames: [
@@ -300,7 +344,6 @@ class CatherineSkirt extends NPCSkirt {
   }
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.vel = Vector.Zero;
     this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
@@ -316,6 +359,16 @@ class CatherineSkirt extends NPCSkirt {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const upIdle = new Animation({
+      frames: [
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 1),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('up-idle', upIdle);
 
     const leftIdle = new Animation({
       frames: [
@@ -364,8 +417,6 @@ class CatherineGlasses extends NPCGlasses {
   }
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.vel = Vector.Zero;
-
     this.direction = this.parent?.direction;
 
     this.graphics.use(`${this.direction}-idle`);
@@ -381,6 +432,16 @@ class CatherineGlasses extends NPCGlasses {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const upIdle = new Animation({
+      frames: [
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(8, 1),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('up-idle', upIdle);
 
     const leftIdle = new Animation({
       frames: [
