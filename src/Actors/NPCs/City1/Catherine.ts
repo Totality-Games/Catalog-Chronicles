@@ -60,6 +60,16 @@ class CatherineBase extends NPC {
     });
     this.graphics.add('down-idle', downIdle);
 
+    const leftIdle = new Animation({
+      frames: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 3),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-idle', leftIdle);
+
     const rightWalk = new Animation({
       frames: [
         {
@@ -104,6 +114,16 @@ class CatherineEyes extends NPCEyes {
     });
     this.graphics.add('down-idle', downIdle);
 
+    const leftIdle = new Animation({
+      frames: [
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 3),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-idle', leftIdle);
+
     const rightWalk = new Animation({
       frames: [
         {
@@ -146,6 +166,16 @@ class CatherineHair extends NPCWavyHair {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const leftIdle = new Animation({
+      frames: [
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 3),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-idle', leftIdle);
 
     const rightWalk = new Animation({
       frames: [
@@ -190,6 +220,16 @@ class CatherineShirt extends NPCBasicShirt {
     });
     this.graphics.add('down-idle', downIdle);
 
+    const leftIdle = new Animation({
+      frames: [
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 3),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-idle', leftIdle);
+
     const rightWalk = new Animation({
       frames: [
         {
@@ -233,6 +273,16 @@ class CatherineSkirt extends NPCSkirt {
     });
     this.graphics.add('down-idle', downIdle);
 
+    const leftIdle = new Animation({
+      frames: [
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 3),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-idle', leftIdle);
+
     const rightWalk = new Animation({
       frames: [
         {
@@ -275,6 +325,16 @@ class CatherineGlasses extends NPCGlasses {
       ],
     });
     this.graphics.add('down-idle', downIdle);
+
+    const leftIdle = new Animation({
+      frames: [
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(8, 3),
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-idle', leftIdle);
 
     const rightWalk = new Animation({
       frames: [

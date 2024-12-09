@@ -87,7 +87,7 @@ class Library1 extends Scene {
     const catherine = createCatherine(
       vec(200, 200),
       Library1Resources,
-      DIRECTIONS.DOWN
+      DIRECTIONS.LEFT
     );
 
     return [catherine];

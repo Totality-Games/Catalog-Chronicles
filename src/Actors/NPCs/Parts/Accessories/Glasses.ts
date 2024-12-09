@@ -26,7 +26,6 @@ export class NPCGlasses extends Actor {
     });
 
     this.z = 100;
-    this.scale = new Vector(1, 1);
     this.direction = direction ?? DIRECTIONS.DOWN;
 
     this.glassesSpriteSheet = SpriteSheet.fromImageSource({
