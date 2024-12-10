@@ -9,6 +9,10 @@ export enum DIRECTIONS {
   LEFT = 'left',
   RIGHT = 'right',
 }
+export enum MOVEMENT {
+  IDLE = 'idle',
+  WALK = 'walk',
+}
 export enum SCENE_STATE {
   LOADING = 'SCENE_STATE_LOADING',
   READY = 'SCENE_STATE_READY',

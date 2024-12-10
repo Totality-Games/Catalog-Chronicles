@@ -16,7 +16,7 @@ Catchphrase: N/A
 
 import { Animation, Engine, ImageSource, Sprite, vec, Vector } from 'excalibur';
 import { NPC } from '../Parts/Base';
-import { DIRECTIONS } from '../../../constants';
+import { DIRECTIONS, MOVEMENT } from '../../../constants';
 import { NPCEyes } from '../Parts/Eyes';
 import { NPCWavyHair } from '../Parts/Hair/WavyHair';
 import { NPCBasicShirt } from '../Parts/Clothes/Shirt';
@@ -24,6 +24,7 @@ import { NPCSkirt } from '../Parts/Clothes/Skirt';
 import { NPCGlasses } from '../Parts/Accessories/Glasses';
 
 class CatherineBase extends NPC {
+  movement: MOVEMENT;
   constructor(
     pos: Vector,
     resources: {
@@ -37,22 +38,29 @@ class CatherineBase extends NPC {
 
     this.scale = new Vector(2.2, 2.2);
     this.name = 'Catherine';
+    this.movement = MOVEMENT.IDLE;
   }
 
   onInitialize(_engine: Engine): void {
+    console.log(`catherine`);
     this.addAnimations();
   }
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
-    this.graphics.use(`${this.direction}-idle`);
+    this.movement = MOVEMENT.IDLE;
+    this.graphics.use(`${this.direction}-${this.movement}`);
   }
 
   onPostUpdate(_engine: Engine, _delta: number): void {
     if (this.vel.x < 0) {
       this.direction = DIRECTIONS.LEFT;
+      this.movement = MOVEMENT.WALK;
+      this.graphics.use(`${this.direction}-${MOVEMENT.WALK}`);
     }
     if (this.vel.x > 0) {
       this.direction = DIRECTIONS.RIGHT;
+      this.movement = MOVEMENT.WALK;
+      this.graphics.use(`${this.direction}-${MOVEMENT.WALK}`);
     }
   }
 
@@ -100,7 +108,35 @@ class CatherineBase extends NPC {
     const rightWalk = new Animation({
       frames: [
         {
-          graphic: this.npcSpriteSheet?.getSprite(0, 9) as Sprite,
+          graphic: this.npcSpriteSheet?.getSprite(0, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(1, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(2, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(3, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(4, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(5, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(6, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(7, 2) as Sprite,
           duration: 200,
         },
       ],
@@ -110,6 +146,7 @@ class CatherineBase extends NPC {
 }
 
 class CatherineEyes extends NPCEyes {
+  movement: MOVEMENT;
   constructor(
     pos: Vector,
     resources: {
@@ -118,6 +155,7 @@ class CatherineEyes extends NPCEyes {
     direction?: DIRECTIONS
   ) {
     super(pos, resources, direction);
+    this.movement = MOVEMENT.IDLE;
   }
 
   onInitialize(_engine: Engine): void {
@@ -126,8 +164,9 @@ class CatherineEyes extends NPCEyes {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.direction = this.parent?.direction;
+    this.movement = this.parent?.movement;
 
-    this.graphics.use(`${this.direction}-idle`);
+    this.graphics.use(`${this.direction}-${this.movement}`);
   }
 
   addAnimations() {
@@ -177,12 +216,41 @@ class CatherineEyes extends NPCEyes {
           graphic: this.eyesSpriteSheet?.getSprite(0, 9) as Sprite,
           duration: 200,
         },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(1, 9) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(2, 9) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(3, 9) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(4, 9) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(5, 9) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(6, 9) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(7, 9) as Sprite,
+          duration: 200,
+        },
       ],
     });
     this.graphics.add('right-walk', rightWalk);
   }
 }
 class CatherineHair extends NPCWavyHair {
+  movement: MOVEMENT;
   constructor(
     pos: Vector,
     resources: {
@@ -191,6 +259,7 @@ class CatherineHair extends NPCWavyHair {
     direction?: DIRECTIONS
   ) {
     super(pos, resources, direction);
+    this.movement = MOVEMENT.IDLE;
   }
 
   onInitialize(_engine: Engine): void {
@@ -199,8 +268,9 @@ class CatherineHair extends NPCWavyHair {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.direction = this.parent?.direction;
+    this.movement = this.parent?.movement;
 
-    this.graphics.use(`${this.direction}-idle`);
+    this.graphics.use(`${this.direction}-${this.movement}`);
   }
 
   addAnimations() {
@@ -247,7 +317,35 @@ class CatherineHair extends NPCWavyHair {
     const rightWalk = new Animation({
       frames: [
         {
-          graphic: this.hairSpriteSheet?.getSprite(0, 9) as Sprite,
+          graphic: this.hairSpriteSheet?.getSprite(0, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(1, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(2, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(3, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(4, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(5, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(6, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(7, 2) as Sprite,
           duration: 200,
         },
       ],
@@ -256,6 +354,7 @@ class CatherineHair extends NPCWavyHair {
   }
 }
 class CatherineShirt extends NPCBasicShirt {
+  movement: MOVEMENT;
   constructor(
     pos: Vector,
     resources: {
@@ -264,6 +363,7 @@ class CatherineShirt extends NPCBasicShirt {
     direction?: DIRECTIONS
   ) {
     super(pos, resources, direction);
+    this.movement = MOVEMENT.IDLE;
   }
 
   onInitialize(_engine: Engine): void {
@@ -272,8 +372,9 @@ class CatherineShirt extends NPCBasicShirt {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.direction = this.parent?.direction;
+    this.movement = this.parent?.movement;
 
-    this.graphics.use(`${this.direction}-idle`);
+    this.graphics.use(`${this.direction}-${this.movement}`);
   }
 
   addAnimations() {
@@ -320,7 +421,35 @@ class CatherineShirt extends NPCBasicShirt {
     const rightWalk = new Animation({
       frames: [
         {
-          graphic: this.shirtSpriteSheet?.getSprite(0, 9) as Sprite,
+          graphic: this.shirtSpriteSheet?.getSprite(8, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(9, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(10, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(11, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(12, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(13, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(14, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(15, 2) as Sprite,
           duration: 200,
         },
       ],
@@ -329,6 +458,7 @@ class CatherineShirt extends NPCBasicShirt {
   }
 }
 class CatherineSkirt extends NPCSkirt {
+  movement: MOVEMENT;
   constructor(
     pos: Vector,
     resources: {
@@ -337,6 +467,7 @@ class CatherineSkirt extends NPCSkirt {
     direction?: DIRECTIONS
   ) {
     super(pos, resources, direction);
+    this.movement = MOVEMENT.IDLE;
   }
 
   onInitialize(_engine: Engine): void {
@@ -345,8 +476,9 @@ class CatherineSkirt extends NPCSkirt {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.direction = this.parent?.direction;
+    this.movement = this.parent?.movement;
 
-    this.graphics.use(`${this.direction}-idle`);
+    this.graphics.use(`${this.direction}-${this.movement}`);
   }
 
   addAnimations() {
@@ -393,7 +525,35 @@ class CatherineSkirt extends NPCSkirt {
     const rightWalk = new Animation({
       frames: [
         {
-          graphic: this.skirtSpriteSheet?.getSprite(0, 9) as Sprite,
+          graphic: this.skirtSpriteSheet?.getSprite(8, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(9, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(10, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(11, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(12, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(13, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(14, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(15, 2) as Sprite,
           duration: 200,
         },
       ],
@@ -402,6 +562,7 @@ class CatherineSkirt extends NPCSkirt {
   }
 }
 class CatherineGlasses extends NPCGlasses {
+  movement: MOVEMENT;
   constructor(
     pos: Vector,
     resources: {
@@ -410,6 +571,7 @@ class CatherineGlasses extends NPCGlasses {
     direction?: DIRECTIONS
   ) {
     super(pos, resources, direction);
+    this.movement = MOVEMENT.IDLE;
   }
 
   onInitialize(_engine: Engine): void {
@@ -418,8 +580,9 @@ class CatherineGlasses extends NPCGlasses {
 
   onPreUpdate(_engine: Engine, _elapsedMs: number): void {
     this.direction = this.parent?.direction;
+    this.movement = this.parent?.movement;
 
-    this.graphics.use(`${this.direction}-idle`);
+    this.graphics.use(`${this.direction}-${this.movement}`);
   }
 
   addAnimations() {
@@ -466,7 +629,35 @@ class CatherineGlasses extends NPCGlasses {
     const rightWalk = new Animation({
       frames: [
         {
-          graphic: this.glassesSpriteSheet?.getSprite(0, 9) as Sprite,
+          graphic: this.glassesSpriteSheet?.getSprite(8, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(9, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(10, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(11, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(12, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(13, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(14, 2) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(15, 2) as Sprite,
           duration: 200,
         },
       ],
