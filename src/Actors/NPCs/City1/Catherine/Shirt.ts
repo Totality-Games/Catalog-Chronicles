@@ -180,5 +180,43 @@ export class CatherineShirt extends NPCBasicShirt {
       ],
     });
     this.graphics.add('down-walk', downWalk);
+
+    const upWalk = new Animation({
+      frames: [
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(9, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(10, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(11, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(12, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(13, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(14, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(15, 1) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('up-walk', upWalk);
   }
 }

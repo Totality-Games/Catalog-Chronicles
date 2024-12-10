@@ -180,5 +180,43 @@ export class CatherineEyes extends NPCEyes {
       ],
     });
     this.graphics.add('down-walk', downWalk);
+
+    const upWalk = new Animation({
+      frames: [
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(49, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(50, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(51, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(52, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(53, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(54, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(55, 1) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('up-walk', upWalk);
   }
 }

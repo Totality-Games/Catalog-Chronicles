@@ -180,5 +180,43 @@ export class CatherineHair extends NPCWavyHair {
       ],
     });
     this.graphics.add('down-walk', downWalk);
+
+    const upWalk = new Animation({
+      frames: [
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(1, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(2, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(3, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(4, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(5, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(6, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(7, 1) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('up-walk', upWalk);
   }
 }

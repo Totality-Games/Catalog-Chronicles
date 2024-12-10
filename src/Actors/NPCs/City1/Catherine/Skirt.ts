@@ -180,5 +180,43 @@ export class CatherineSkirt extends NPCSkirt {
       ],
     });
     this.graphics.add('down-walk', downWalk);
+
+    const upWalk = new Animation({
+      frames: [
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(9, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(10, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(11, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(12, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(13, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(14, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(15, 1) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('up-walk', upWalk);
   }
 }

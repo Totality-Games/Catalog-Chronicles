@@ -34,7 +34,7 @@ class Library1 extends Scene {
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(200, 200), Library1Resources);
+    const player = new MainGuy(vec(300, 300), Library1Resources);
     engine.currentScene.add(player);
     engine.currentScene.camera.zoom = 0.8;
     // musicManager.startMusic(Library1Resources);
@@ -90,17 +90,12 @@ class Library1 extends Scene {
       DIRECTIONS.DOWN
     );
 
-    // catherine.actions.;
-    // catherine.actions;
     catherine.actions.repeatForever(async (repeatCtx) => {
-      repeatCtx.moveBy(vec(100, 0), 100).delay(2000);
+      repeatCtx.delay(3000).moveBy(vec(100, 0), 100).delay(2000);
       repeatCtx.moveBy(vec(-100, 0), 100).delay(3000);
       repeatCtx.moveBy(vec(0, 100), 100).delay(3000);
       repeatCtx.moveBy(vec(0, -100), 100).delay(3000);
     });
-    // .moveBy(vec(100, 100), 200)
-    // .moveBy(vec(0, 100), 200)
-    // .moveBy(vec(0, 0), 200);
 
     return [catherine];
   }

@@ -180,5 +180,43 @@ export class CatherineGlasses extends NPCGlasses {
       ],
     });
     this.graphics.add('down-walk', downWalk);
+
+    const upWalk = new Animation({
+      frames: [
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(8, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(9, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(10, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(11, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(12, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(13, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(14, 1) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(15, 1) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('up-walk', upWalk);
   }
 }
