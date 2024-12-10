@@ -1,6 +1,8 @@
 /* 
 Name: Catherine
 Character name: Catherine
+Favorite Book: The Winter Sea, The Hobbit
+Favorite Genre: Historical Fiction, Fantasy, Mystery
 Eye Color: Dark Green // x = 48;
 Hair Color: Brown
 Hair Style: Wavy
@@ -11,8 +13,12 @@ Accessories: Glasses
 Default Personality Trait: Relaxed
 Activities: Watering Plants
 Occupation: Housewife
-Catchphrase: N/A
+Catchphrase: Bless your heart
 */
+
+// TODO: Add logic for Catherine watering her garden
+// TODO: Add graphics for Catherine watering
+// TODO: Add Relaxed graphic bubble as default
 
 import { Animation, Engine, ImageSource, Sprite, vec, Vector } from 'excalibur';
 import { NPC } from '../../Parts/Base';
@@ -307,17 +313,17 @@ export function createCatherine(
     resources,
     catherine.direction
   );
-  const catherineGlasses = new CatherineGlasses(
-    vec(0, 0),
-    resources,
-    direction
-  );
+  // const catherineGlasses = new CatherineGlasses(
+  //   vec(0, 0),
+  //   resources,
+  //   direction
+  // );
 
   catherine.addChild(catherineEyes);
   catherine.addChild(catherineHair);
   catherine.addChild(catherineShirt);
   catherine.addChild(catherineSkirt);
-  catherine.addChild(catherineGlasses);
+  // catherine.addChild(catherineGlasses);
 
   return catherine;
 }

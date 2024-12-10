@@ -37,23 +37,23 @@ class Library1 extends Scene {
     const player = new MainGuy(vec(300, 300), Library1Resources);
     engine.currentScene.add(player);
     engine.currentScene.camera.zoom = 0.8;
-    // musicManager.startMusic(Library1Resources);
+    musicManager.startMusic(Library1Resources);
 
     // add all npcs to game
     npcs.forEach((character) => {
       engine.add(character);
     });
 
-    // engine.currentScene.camera.strategy.lockToActor(npcs[0]);
-    engine.currentScene.camera.strategy.lockToActor(player);
+    engine.currentScene.camera.strategy.lockToActor(npcs[0]);
+    // engine.currentScene.camera.strategy.lockToActor(player);
     Library1Resources.TiledMap.addToScene(engine.currentScene);
   }
 
   onActivate(_context: SceneActivationContext<unknown>): void {
-    // if (musicManager.location !== LOCATIONS.LIBRARY1) {
-    //   musicManager.updateLocation(LOCATIONS.LIBRARY1);
-    //   musicManager.startMusic(Library1Resources);
-    // }
+    if (musicManager.location !== LOCATIONS.LIBRARY1) {
+      musicManager.updateLocation(LOCATIONS.LIBRARY1);
+      musicManager.startMusic(Library1Resources);
+    }
   }
 
   onDeactivate(_context: SceneActivationContext): void {}
