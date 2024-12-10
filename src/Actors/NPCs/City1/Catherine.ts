@@ -142,6 +142,44 @@ class CatherineBase extends NPC {
       ],
     });
     this.graphics.add('right-walk', rightWalk);
+
+    const leftWalk = new Animation({
+      frames: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(1, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(2, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(3, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(4, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(5, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(6, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.npcSpriteSheet?.getSprite(7, 3) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-walk', leftWalk);
   }
 }
 
@@ -247,6 +285,44 @@ class CatherineEyes extends NPCEyes {
       ],
     });
     this.graphics.add('right-walk', rightWalk);
+
+    const leftWalk = new Animation({
+      frames: [
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(49, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(50, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(51, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(52, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(53, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(54, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(55, 3) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-walk', leftWalk);
   }
 }
 class CatherineHair extends NPCWavyHair {
@@ -351,6 +427,44 @@ class CatherineHair extends NPCWavyHair {
       ],
     });
     this.graphics.add('right-walk', rightWalk);
+
+    const leftWalk = new Animation({
+      frames: [
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(1, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(2, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(3, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(4, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(5, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(6, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(7, 3) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-walk', leftWalk);
   }
 }
 class CatherineShirt extends NPCBasicShirt {
@@ -455,6 +569,44 @@ class CatherineShirt extends NPCBasicShirt {
       ],
     });
     this.graphics.add('right-walk', rightWalk);
+
+    const leftWalk = new Animation({
+      frames: [
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(9, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(10, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(11, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(12, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(13, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(14, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(15, 3) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-walk', leftWalk);
   }
 }
 class CatherineSkirt extends NPCSkirt {
@@ -559,6 +711,44 @@ class CatherineSkirt extends NPCSkirt {
       ],
     });
     this.graphics.add('right-walk', rightWalk);
+
+    const leftWalk = new Animation({
+      frames: [
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(9, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(10, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(11, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(12, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(13, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(14, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(15, 3) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-walk', leftWalk);
   }
 }
 class CatherineGlasses extends NPCGlasses {
@@ -663,6 +853,44 @@ class CatherineGlasses extends NPCGlasses {
       ],
     });
     this.graphics.add('right-walk', rightWalk);
+
+    const leftWalk = new Animation({
+      frames: [
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(8, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(9, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(10, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(11, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(12, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(13, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(14, 3) as Sprite,
+          duration: 200,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(15, 3) as Sprite,
+          duration: 200,
+        },
+      ],
+    });
+    this.graphics.add('left-walk', leftWalk);
   }
 }
 
