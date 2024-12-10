@@ -37,7 +37,7 @@ class Library1 extends Scene {
     const player = new MainGuy(vec(200, 200), Library1Resources);
     engine.currentScene.add(player);
     engine.currentScene.camera.zoom = 0.8;
-    musicManager.startMusic(Library1Resources);
+    // musicManager.startMusic(Library1Resources);
 
     // add all npcs to game
     npcs.forEach((character) => {
@@ -50,10 +50,10 @@ class Library1 extends Scene {
   }
 
   onActivate(_context: SceneActivationContext<unknown>): void {
-    if (musicManager.location !== LOCATIONS.LIBRARY1) {
-      musicManager.updateLocation(LOCATIONS.LIBRARY1);
-      musicManager.startMusic(Library1Resources);
-    }
+    // if (musicManager.location !== LOCATIONS.LIBRARY1) {
+    //   musicManager.updateLocation(LOCATIONS.LIBRARY1);
+    //   musicManager.startMusic(Library1Resources);
+    // }
   }
 
   onDeactivate(_context: SceneActivationContext): void {}
@@ -94,7 +94,9 @@ class Library1 extends Scene {
     // catherine.actions;
     catherine.actions.repeatForever(async (repeatCtx) => {
       repeatCtx.moveBy(vec(100, 0), 100).delay(2000);
-      repeatCtx.moveBy(vec(-100, 0), 100).delay(5000);
+      repeatCtx.moveBy(vec(-100, 0), 100).delay(3000);
+      repeatCtx.moveBy(vec(0, 100), 100).delay(3000);
+      repeatCtx.moveBy(vec(0, -100), 100).delay(3000);
     });
     // .moveBy(vec(100, 100), 200)
     // .moveBy(vec(0, 100), 200)

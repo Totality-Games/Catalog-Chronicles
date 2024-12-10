@@ -31,7 +31,7 @@ export class CatherineEyes extends NPCEyes {
       frames: [
         {
           graphic: this.eyesSpriteSheet?.getSprite(48, 0),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -41,7 +41,7 @@ export class CatherineEyes extends NPCEyes {
       frames: [
         {
           graphic: this.eyesSpriteSheet?.getSprite(48, 1),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -51,7 +51,7 @@ export class CatherineEyes extends NPCEyes {
       frames: [
         {
           graphic: this.eyesSpriteSheet?.getSprite(48, 3),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -61,7 +61,7 @@ export class CatherineEyes extends NPCEyes {
       frames: [
         {
           graphic: this.eyesSpriteSheet?.getSprite(48, 2),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -71,35 +71,35 @@ export class CatherineEyes extends NPCEyes {
       frames: [
         {
           graphic: this.eyesSpriteSheet?.getSprite(0, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(1, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(2, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(3, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(4, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(5, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(6, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(7, 9) as Sprite,
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -109,38 +109,76 @@ export class CatherineEyes extends NPCEyes {
       frames: [
         {
           graphic: this.eyesSpriteSheet?.getSprite(48, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(49, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(50, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(51, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(52, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(53, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(54, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.eyesSpriteSheet?.getSprite(55, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
       ],
     });
     this.graphics.add('left-walk', leftWalk);
+
+    const downWalk = new Animation({
+      frames: [
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(49, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(50, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(51, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(52, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(53, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(54, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(55, 0) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('down-walk', downWalk);
   }
 }

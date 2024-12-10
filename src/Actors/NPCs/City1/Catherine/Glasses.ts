@@ -31,7 +31,7 @@ export class CatherineGlasses extends NPCGlasses {
       frames: [
         {
           graphic: this.glassesSpriteSheet?.getSprite(8, 0),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -41,7 +41,7 @@ export class CatherineGlasses extends NPCGlasses {
       frames: [
         {
           graphic: this.glassesSpriteSheet?.getSprite(8, 1),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -51,7 +51,7 @@ export class CatherineGlasses extends NPCGlasses {
       frames: [
         {
           graphic: this.glassesSpriteSheet?.getSprite(8, 3),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -61,7 +61,7 @@ export class CatherineGlasses extends NPCGlasses {
       frames: [
         {
           graphic: this.glassesSpriteSheet?.getSprite(8, 2),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -71,35 +71,35 @@ export class CatherineGlasses extends NPCGlasses {
       frames: [
         {
           graphic: this.glassesSpriteSheet?.getSprite(8, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(9, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(10, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(11, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(12, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(13, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(14, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(15, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -109,38 +109,76 @@ export class CatherineGlasses extends NPCGlasses {
       frames: [
         {
           graphic: this.glassesSpriteSheet?.getSprite(8, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(9, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(10, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(11, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(12, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(13, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(14, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.glassesSpriteSheet?.getSprite(15, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
       ],
     });
     this.graphics.add('left-walk', leftWalk);
+
+    const downWalk = new Animation({
+      frames: [
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(8, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(9, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(10, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(11, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(12, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(13, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(14, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.glassesSpriteSheet?.getSprite(15, 0) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('down-walk', downWalk);
   }
 }

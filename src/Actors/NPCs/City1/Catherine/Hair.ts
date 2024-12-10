@@ -31,7 +31,7 @@ export class CatherineHair extends NPCWavyHair {
       frames: [
         {
           graphic: this.hairSpriteSheet?.getSprite(0, 0),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -41,7 +41,7 @@ export class CatherineHair extends NPCWavyHair {
       frames: [
         {
           graphic: this.hairSpriteSheet?.getSprite(0, 1),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -51,7 +51,7 @@ export class CatherineHair extends NPCWavyHair {
       frames: [
         {
           graphic: this.hairSpriteSheet?.getSprite(0, 3),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -61,7 +61,7 @@ export class CatherineHair extends NPCWavyHair {
       frames: [
         {
           graphic: this.hairSpriteSheet?.getSprite(0, 2),
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -71,35 +71,35 @@ export class CatherineHair extends NPCWavyHair {
       frames: [
         {
           graphic: this.hairSpriteSheet?.getSprite(0, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(1, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(2, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(3, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(4, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(5, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(6, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(7, 2) as Sprite,
-          duration: 200,
+          duration: 100,
         },
       ],
     });
@@ -109,38 +109,76 @@ export class CatherineHair extends NPCWavyHair {
       frames: [
         {
           graphic: this.hairSpriteSheet?.getSprite(0, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(1, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(2, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(3, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(4, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(5, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(6, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
         {
           graphic: this.hairSpriteSheet?.getSprite(7, 3) as Sprite,
-          duration: 200,
+          duration: 100,
         },
       ],
     });
     this.graphics.add('left-walk', leftWalk);
+
+    const downWalk = new Animation({
+      frames: [
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(1, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(2, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(3, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(4, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(5, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(6, 0) as Sprite,
+          duration: 100,
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(7, 0) as Sprite,
+          duration: 100,
+        },
+      ],
+    });
+    this.graphics.add('down-walk', downWalk);
   }
 }
