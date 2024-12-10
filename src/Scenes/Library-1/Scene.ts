@@ -1,5 +1,4 @@
 import {
-  Actor,
   BoundingBox,
   Engine,
   Loader,
@@ -19,7 +18,7 @@ import { musicManager } from '../../Managers/MusicManager';
 
 // import Actors
 import { MainGuy } from '../../Actors/Main/Player';
-import { createCatherine } from '../../Actors/NPCs/City1/Catherine';
+import { createCatherine } from '../../Actors/NPCs/City1/Catherine/Catherine';
 
 class Library1 extends Scene {
   game_container!: HTMLElement;
