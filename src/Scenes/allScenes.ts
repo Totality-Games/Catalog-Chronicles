@@ -4,30 +4,46 @@ import { LOCATIONS } from '../constants';
 
 // import scenes and loaders
 // import Library1 Scenes
-import { lirary1Scene, library1SceneLoader } from './Library-1/Scene';
+import {
+  library1Scene,
+  library1SceneLoader,
+} from './City1/Interiors/Library1/Scene';
+import { city1Scene, City1SceneLoader } from './City1/Scene';
 
 export const allScenes = {
-  start: {
-    scene: lirary1Scene,
+  city1: {
+    scene: city1Scene,
+    loader: City1SceneLoader,
+  },
+  library1: {
+    scene: library1Scene,
     loader: library1SceneLoader,
   },
 };
 
 export enum SceneNames {
-  // Library1 Scenes
   START = 'start',
+  // Library1 Scenes
+  CITY1 = 'city1',
+  // LIBRARY1 = 'library1',
 }
 
 export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
   console.log(scene);
   switch (scene) {
-    // LIBRARY! SCENES START
-    case SceneNames.START:
-      if (musicManager.location !== LOCATIONS.LIBRARY1) {
+    // CITY1 SCENES START
+    case SceneNames.CITY1:
+      if (musicManager.location !== LOCATIONS.CITY1) {
         musicManager.stopMusic();
       }
       engine.goToScene(scene);
       break;
+    // case SceneNames.LIBRARY1:
+    //   if (musicManager.location !== LOCATIONS.LIBRARY1) {
+    //     musicManager.stopMusic();
+    //   }
+    //   engine.goToScene(scene);
+    //   break;
     default:
       break;
   }

@@ -2,6 +2,7 @@
 export enum LOCATIONS {
   // common interiors
   LIBRARY1 = 'LIBRARY1',
+  CITY1 = 'CITY1',
 }
 export enum DIRECTIONS {
   UP = 'up',
