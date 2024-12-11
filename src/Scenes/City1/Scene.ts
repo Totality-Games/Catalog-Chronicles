@@ -18,7 +18,6 @@ import { musicManager } from '../../Managers/MusicManager';
 
 // import Actors
 import { MainGuy } from '../../Actors/Main/Player';
-import { createCatherine } from '../../Actors/NPCs/City1/Catherine/Catherine';
 import { Library } from '../../Actors/Libraries/Library';
 
 class City1 extends Scene {
@@ -34,7 +33,7 @@ class City1 extends Scene {
     const npcs = this.setupNPCs();
 
     // add player character
-    const player = new MainGuy(vec(300, 300), City1Resources);
+    const player = new MainGuy(vec(480, 750), City1Resources);
     engine.currentScene.add(player);
     engine.currentScene.camera.zoom = 0.8;
     musicManager.startMusic(City1Resources);
@@ -84,7 +83,7 @@ class City1 extends Scene {
   }
 
   private setupNPCs() {
-    const library1 = new Library(vec(480, 625), 1, City1Resources);
+    const library1 = new Library(vec(480, 625), 'library1', 1, City1Resources);
 
     return [library1];
   }

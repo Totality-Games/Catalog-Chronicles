@@ -35,12 +35,17 @@ export class Library extends Actor {
   libraryLv4Sprite!: Sprite;
   libraryLv5Sprite!: Sprite;
   libraryLv6Sprite!: Sprite;
-  constructor(pos: Vector, level: number, resources: LibrarySpriteResources) {
-    super({ pos, collisionType: CollisionType.Fixed });
+  constructor(
+    pos: Vector,
+    name: string,
+    level: number,
+    resources: LibrarySpriteResources
+  ) {
+    super({ pos, width: 100, height: 100, collisionType: CollisionType.Fixed });
     this.level = level;
     this.resources = resources;
     this.z = 100;
-    // this.scale = new Vector(4, 4);
+    this.name = name;
   }
 
   onInitialize(_engine: Engine): void {
