@@ -1,7 +1,7 @@
 import {
   BoundingBox,
+  DefaultLoader,
   Engine,
-  Loader,
   Scene,
   SceneActivationContext,
   vec,
@@ -34,7 +34,7 @@ class Library1 extends Scene {
 
     // add player character
     /* Default Player Location: pos: vec(2300, 2550), */
-    const player = new MainGuy(vec(300, 300), Library1Resources);
+    const player = new MainGuy(vec(318, 600), Library1Resources, DIRECTIONS.UP);
     engine.currentScene.add(player);
     engine.currentScene.camera.zoom = 0.8;
     musicManager.startMusic(Library1Resources);
@@ -44,8 +44,8 @@ class Library1 extends Scene {
       engine.add(character);
     });
 
-    engine.currentScene.camera.strategy.lockToActor(npcs[0]);
-    // engine.currentScene.camera.strategy.lockToActor(player);
+    // engine.currentScene.camera.strategy.lockToActor(npcs[0]);
+    engine.currentScene.camera.strategy.lockToActor(player);
     Library1Resources.TiledMap.addToScene(engine.currentScene);
   }
 
@@ -104,7 +104,7 @@ class Library1 extends Scene {
 export const library1Scene = new Library1();
 
 // loader
-export const library1SceneLoader = new Loader();
+export const library1SceneLoader = new DefaultLoader();
 for (let resource of Object.values(Library1Resources)) {
   library1SceneLoader.addResource(resource);
 }

@@ -5,9 +5,9 @@ import { ImageSource, ImageFiltering, Sound, Resource } from 'excalibur';
 import city1Path from '../../../Resources/TMX/city1.tmx?url';
 
 // import music
-import firstLibraryMP3 from '../../../Resources/Music/first-library/Cute Loops - First Steps.mp3';
-import firstLibraryOgg from '../../../Resources/Music/first-library/Cute Loops - First Steps.ogg';
-import firstLibraryWav from '../../../Resources/Music/first-library/Cute Loops - First Steps.wav';
+import city1MP3 from '../../../Resources/Music/city/Cute Loops - Together Forever.mp3';
+import city1Ogg from '../../../Resources/Music/city/Cute Loops - Together Forever.ogg';
+import city1Wav from '../../../Resources/Music/city/Cute Loops - Together Forever.wav';
 
 // import sounds
 // import collisionSound from '../../../Resources/Sounds/Effects/bump-dur2Short-pitch1Low.wav';
@@ -88,7 +88,7 @@ export const City1Resources = {
     false,
     ImageFiltering.Pixel
   ),
-  Music: new Sound(firstLibraryMP3, firstLibraryWav, firstLibraryOgg),
+  Music: new Sound(city1MP3, city1Wav, city1Ogg),
   // CollisionSound: new Sound(collisionSound),
   // WalkingSound: new Sound(walkingSound),
   // TalkingSound: new Sound(talkingSound),

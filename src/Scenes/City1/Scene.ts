@@ -6,7 +6,7 @@ import {
   SceneActivationContext,
   vec,
 } from 'excalibur';
-import { DIRECTIONS, LOCATIONS, SCENE_STATE } from '../../constants';
+import { LOCATIONS, SCENE_STATE } from '../../constants';
 
 // import scene specific items
 import { City1Resources } from './Resources';

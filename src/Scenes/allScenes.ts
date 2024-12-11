@@ -25,7 +25,7 @@ export enum SceneNames {
   START = 'start',
   // Library1 Scenes
   CITY1 = 'city1',
-  // LIBRARY1 = 'library1',
+  LIBRARY1 = 'library1',
 }
 
 export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
@@ -38,12 +38,12 @@ export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
       }
       engine.goToScene(scene);
       break;
-    // case SceneNames.LIBRARY1:
-    //   if (musicManager.location !== LOCATIONS.LIBRARY1) {
-    //     musicManager.stopMusic();
-    //   }
-    //   engine.goToScene(scene);
-    //   break;
+    case SceneNames.LIBRARY1:
+      if (musicManager.location !== LOCATIONS.LIBRARY1) {
+        musicManager.stopMusic();
+      }
+      engine.goToScene(scene);
+      break;
     default:
       break;
   }
