@@ -26,17 +26,11 @@ import {
   GraphicsGroup,
   ImageSource,
   Sprite,
-  SpriteSheet,
   vec,
   Vector,
 } from 'excalibur';
 import { NPC } from '../../Parts/Base';
 import { DIRECTIONS, MOVEMENT } from '../../../../constants';
-// import { CatherineGlasses } from './Glasses';
-import { CatherineSkirt } from './Skirt';
-import { CatherineShirt } from './Shirt';
-import { CatherineHair } from './Hair';
-import { CatherineEyes } from './Eyes';
 
 class CatherineBase extends NPC {
   movement: MOVEMENT;
@@ -258,6 +252,255 @@ class CatherineBase extends NPC {
     return rightIdle;
   }
 
+  setDownWalk() {
+    const downWalkGraphic01 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalkGraphic02 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(1, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(49, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(1, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(9, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(9, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalkGraphic03 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(2, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(50, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(2, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(10, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(10, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalkGraphic04 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(3, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(51, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(3, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(11, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(11, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalkGraphic05 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(4, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(52, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(4, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(12, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(12, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalkGraphic06 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(5, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(53, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(5, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(13, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(13, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalkGraphic07 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(6, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(54, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(6, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(14, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(14, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalkGraphic08 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(7, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(55, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(7, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(15, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(15, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
+    const downWalk = new Animation({
+      frames: [
+        {
+          graphic: downWalkGraphic01,
+          duration: 100,
+        },
+        {
+          graphic: downWalkGraphic02,
+          duration: 100,
+        },
+        {
+          graphic: downWalkGraphic03,
+          duration: 100,
+        },
+        {
+          graphic: downWalkGraphic04,
+          duration: 100,
+        },
+        {
+          graphic: downWalkGraphic05,
+          duration: 100,
+        },
+        {
+          graphic: downWalkGraphic06,
+          duration: 100,
+        },
+        {
+          graphic: downWalkGraphic07,
+          duration: 100,
+        },
+        {
+          graphic: downWalkGraphic08,
+          duration: 100,
+        },
+      ],
+    });
+
+    return downWalk;
+  }
+
   addAnimations() {
     const downIdle = this.setDownIdle();
     this.graphics.add('down-idle', downIdle);
@@ -271,42 +514,7 @@ class CatherineBase extends NPC {
     const rightIdle = this.setRightIdle();
     this.graphics.add('right-idle', rightIdle);
 
-    const downWalk = new Animation({
-      frames: [
-        {
-          graphic: this.npcSpriteSheet?.getSprite(0, 0) as Sprite,
-          duration: 100,
-        },
-        {
-          graphic: this.npcSpriteSheet?.getSprite(1, 0) as Sprite,
-          duration: 100,
-        },
-        {
-          graphic: this.npcSpriteSheet?.getSprite(2, 0) as Sprite,
-          duration: 100,
-        },
-        {
-          graphic: this.npcSpriteSheet?.getSprite(3, 0) as Sprite,
-          duration: 100,
-        },
-        {
-          graphic: this.npcSpriteSheet?.getSprite(4, 0) as Sprite,
-          duration: 100,
-        },
-        {
-          graphic: this.npcSpriteSheet?.getSprite(5, 0) as Sprite,
-          duration: 100,
-        },
-        {
-          graphic: this.npcSpriteSheet?.getSprite(6, 0) as Sprite,
-          duration: 100,
-        },
-        {
-          graphic: this.npcSpriteSheet?.getSprite(7, 0) as Sprite,
-          duration: 100,
-        },
-      ],
-    });
+    const downWalk = this.setDownWalk();
     this.graphics.add('down-walk', downWalk);
 
     const upWalk = new Animation({
@@ -438,37 +646,6 @@ export function createCatherine(
   direction?: DIRECTIONS
 ) {
   const catherine = new CatherineBase(pos, resources, direction);
-  const catherineEyes = new CatherineEyes(
-    vec(0, 0),
-    resources,
-    catherine.direction
-  );
-  const catherineHair = new CatherineHair(
-    vec(0, 0),
-    resources,
-    catherine.direction
-  );
-  const catherineShirt = new CatherineShirt(
-    vec(0, 0),
-    resources,
-    catherine.direction
-  );
-  const catherineSkirt = new CatherineSkirt(
-    vec(0, 0),
-    resources,
-    catherine.direction
-  );
-  // const catherineGlasses = new CatherineGlasses(
-  //   vec(0, 0),
-  //   resources,
-  //   direction
-  // );
-
-  // catherine.addChild(catherineEyes);
-  // catherine.addChild(catherineHair);
-  // catherine.addChild(catherineShirt);
-  // catherine.addChild(catherineSkirt);
-  // catherine.addChild(catherineGlasses);
 
   return catherine;
 }
