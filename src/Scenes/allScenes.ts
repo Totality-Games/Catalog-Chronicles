@@ -38,12 +38,13 @@ export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
       }
       engine.goToScene(scene);
       break;
-    case SceneNames.LIBRARY1:
-      if (musicManager.location !== LOCATIONS.LIBRARY1) {
-        musicManager.stopMusic();
-      }
-      engine.goToScene(scene);
-      break;
+    // case SceneNames.LIBRARY1:
+    //   if (musicManager.location !== LOCATIONS.LIBRARY1) {
+    //     musicManager.stopMusic();
+    //   }
+    //   engine.goToScene(scene);
+    //   break;
+
     default:
       break;
   }

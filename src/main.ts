@@ -1,5 +1,10 @@
 import './style.css';
-import { Color, DisplayMode, Engine, Resolution } from 'excalibur';
+import {
+  Color,
+  // DisplayMode,
+  Engine,
+  Resolution,
+} from 'excalibur';
 
 import { uiManager } from './Managers/UIManager';
 import { allScenes } from './Scenes/allScenes';
@@ -16,5 +21,5 @@ const game = new Engine({
 
 game.start().then(() => {
   uiManager.init();
-  game.goToScene('city1');
+  game.goToScene('library1');
 });

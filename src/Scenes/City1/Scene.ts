@@ -83,7 +83,7 @@ class City1 extends Scene {
   }
 
   private setupNPCs() {
-    const library1 = new Library(vec(480, 625), 'library1', 1, City1Resources);
+    const library1 = new Library(vec(480, 625), 'library1', 4, City1Resources);
 
     return [library1];
   }

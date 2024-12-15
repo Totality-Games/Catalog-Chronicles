@@ -9,7 +9,7 @@ import {
   ImageSource,
   Keys,
   Side,
-  Sound,
+  // Sound,
   Sprite,
   SpriteSheet,
   vec,
@@ -678,18 +678,18 @@ export class MainGuy extends Actor {
       this.graphics.use(`${direction}-${speed}`);
     };
 
-    function movementSounds(_sound: Sound, _speed: 'walk' | 'roll') {
-      // if (speed === 'walk') {
-      //   while (speed === 'walk') {
-      //     setTimeout(() => {
-      //       sound.once();
-      //     }, 2000);
-      //   }
-      // } else {
-      //   sound.playbackRate = 0.2;
-      //   sound.play(0.3);
-      // }
-    }
+    // function movementSounds(_sound: Sound, _speed: 'walk' | 'roll') {
+    // if (speed === 'walk') {
+    //   while (speed === 'walk') {
+    //     setTimeout(() => {
+    //       sound.once();
+    //     }, 2000);
+    //   }
+    // } else {
+    //   sound.playbackRate = 0.2;
+    //   sound.play(0.3);
+    // }
+    // }
 
     // running
     if (engine.input.keyboard.isHeld(Keys.ShiftLeft)) {

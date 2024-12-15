@@ -20,10 +20,19 @@ Catchphrase: Bless your heart
 // TODO: Add graphics for Catherine watering
 // TODO: Add Relaxed graphic bubble as default
 
-import { Animation, Engine, ImageSource, Sprite, vec, Vector } from 'excalibur';
+import {
+  Animation,
+  Engine,
+  GraphicsGroup,
+  ImageSource,
+  Sprite,
+  SpriteSheet,
+  vec,
+  Vector,
+} from 'excalibur';
 import { NPC } from '../../Parts/Base';
 import { DIRECTIONS, MOVEMENT } from '../../../../constants';
-import { CatherineGlasses } from './Glasses';
+// import { CatherineGlasses } from './Glasses';
 import { CatherineSkirt } from './Skirt';
 import { CatherineShirt } from './Shirt';
 import { CatherineHair } from './Hair';
@@ -37,6 +46,9 @@ class CatherineBase extends NPC {
       AllNPCSpriteSheetsPng: ImageSource;
       NPCEyesSpriteSheetsPng: ImageSource;
       WavyHairSpriteSheetPng: ImageSource;
+      BasicShirtSpriteSheetPng: ImageSource;
+      SkirtSpriteSheetPng: ImageSource;
+      GlassesSpriteSheetPng: ImageSource;
     },
     direction?: DIRECTIONS
   ) {
@@ -85,45 +97,178 @@ class CatherineBase extends NPC {
     }
   }
 
-  addAnimations() {
+  /*
+    The following block of methods
+    create GraphicsGroups for each
+    Animation frame for all idle
+    animations and walking animations.
+    (up, down, left, right)-(idle, walking)
+  */
+
+  setDownIdle() {
+    const downIdleGraphic01 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 0),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 0),
+          offset: vec(0, 0),
+        },
+      ],
+    });
+
     const downIdle = new Animation({
       frames: [
         {
-          graphic: this.npcSpriteSheet?.getSprite(0, 0),
+          graphic: downIdleGraphic01,
           duration: 100,
         },
       ],
     });
-    this.graphics.add('down-idle', downIdle);
+
+    return downIdle;
+  }
+
+  setUpIdle() {
+    const upIdleGraphic01 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 1),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 1),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 1),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 1),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 1),
+          offset: vec(0, 0),
+        },
+      ],
+    });
 
     const upIdle = new Animation({
       frames: [
         {
-          graphic: this.npcSpriteSheet?.getSprite(0, 1),
+          graphic: upIdleGraphic01,
           duration: 100,
         },
       ],
     });
-    this.graphics.add('up-idle', upIdle);
+    return upIdle;
+  }
+
+  setLeftIdle() {
+    const leftIdleGraphic01 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 3),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 3),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 3),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 3),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 3),
+          offset: vec(0, 0),
+        },
+      ],
+    });
 
     const leftIdle = new Animation({
       frames: [
         {
-          graphic: this.npcSpriteSheet?.getSprite(0, 3),
+          graphic: leftIdleGraphic01,
           duration: 100,
         },
       ],
     });
-    this.graphics.add('left-idle', leftIdle);
+    return leftIdle;
+  }
+
+  setRightIdle() {
+    const rightIdleGraphic01 = new GraphicsGroup({
+      useAnchor: false, // position group from the top left
+      members: [
+        {
+          graphic: this.npcSpriteSheet?.getSprite(0, 2),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.eyesSpriteSheet?.getSprite(48, 2),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.hairSpriteSheet?.getSprite(0, 2),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.shirtSpriteSheet?.getSprite(8, 2),
+          offset: vec(0, 0),
+        },
+        {
+          graphic: this.skirtSpriteSheet?.getSprite(8, 2),
+          offset: vec(0, 0),
+        },
+      ],
+    });
 
     const rightIdle = new Animation({
       frames: [
         {
-          graphic: this.npcSpriteSheet?.getSprite(0, 2),
+          graphic: rightIdleGraphic01,
           duration: 100,
         },
       ],
     });
+    return rightIdle;
+  }
+
+  addAnimations() {
+    const downIdle = this.setDownIdle();
+    this.graphics.add('down-idle', downIdle);
+
+    const upIdle = this.setUpIdle();
+    this.graphics.add('up-idle', upIdle);
+
+    const leftIdle = this.setLeftIdle();
+    this.graphics.add('left-idle', leftIdle);
+
+    const rightIdle = this.setRightIdle();
     this.graphics.add('right-idle', rightIdle);
 
     const downWalk = new Animation({
@@ -319,10 +464,10 @@ export function createCatherine(
   //   direction
   // );
 
-  catherine.addChild(catherineEyes);
-  catherine.addChild(catherineHair);
-  catherine.addChild(catherineShirt);
-  catherine.addChild(catherineSkirt);
+  // catherine.addChild(catherineEyes);
+  // catherine.addChild(catherineHair);
+  // catherine.addChild(catherineShirt);
+  // catherine.addChild(catherineSkirt);
   // catherine.addChild(catherineGlasses);
 
   return catherine;
