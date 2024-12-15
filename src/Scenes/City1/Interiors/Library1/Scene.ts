@@ -18,7 +18,7 @@ import { musicManager } from '../../../../Managers/MusicManager';
 
 // import Actors
 import { MainGuy } from '../../../../Actors/Main/Player';
-import { createCatherine } from '../../../../Actors/NPCs/City1/Catherine/Catherine';
+import { createCatherine } from '../../../../Actors/NPCs/City1/Catherine';
 
 class Library1 extends Scene {
   game_container!: HTMLElement;
@@ -91,8 +91,8 @@ class Library1 extends Scene {
     );
 
     catherine.actions.repeatForever(async (repeatCtx) => {
-      // repeatCtx.delay(3000).moveBy(vec(100, 0), 100).delay(2000);
-      // repeatCtx.moveBy(vec(-100, 0), 100).delay(3000);
+      repeatCtx.delay(3000).moveBy(vec(100, 0), 100).delay(2000);
+      repeatCtx.moveBy(vec(-100, 0), 100).delay(3000);
       repeatCtx.moveBy(vec(0, 100), 100).delay(3000);
       repeatCtx.moveBy(vec(0, -100), 100).delay(3000);
     });
