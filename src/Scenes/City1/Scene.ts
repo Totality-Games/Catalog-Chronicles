@@ -1,7 +1,7 @@
 import {
   BoundingBox,
   Engine,
-  Loader,
+  DefaultLoader,
   Scene,
   SceneActivationContext,
   vec,
@@ -92,7 +92,7 @@ class City1 extends Scene {
 export const city1Scene = new City1();
 
 // loader
-export const City1SceneLoader = new Loader();
+export const City1SceneLoader = new DefaultLoader();
 for (let resource of Object.values(City1Resources)) {
   City1SceneLoader.addResource(resource);
 }

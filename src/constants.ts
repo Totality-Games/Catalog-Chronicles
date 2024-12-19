@@ -1,5 +1,7 @@
 // enums
 export enum LOCATIONS {
+  // menu
+  MAINMENU = 'MAINMENU',
   // common interiors
   LIBRARY1 = 'LIBRARY1',
   CITY1 = 'CITY1',
