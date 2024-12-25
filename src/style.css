@@ -58,7 +58,7 @@ body {
     /* background-color: rgba(42, 41, 41, 0.3); */
     width: 100%;
     height: 100%;
-    width: 600px;
+    min-width: 600px;
     border-radius: var(--border-radius);
 
     display: flex;
@@ -99,6 +99,32 @@ body {
     }
     .player_menu {
       display: none;
+    }
+
+    .hud {
+      background-color: #662a3a;
+      color: rgba(253, 223, 190, .95);
+      width: 100%;
+      margin: 0;
+      padding: 1rem 2rem;
+      position: absolute;
+      top:0%;
+      left:0%;
+      display: flex;
+      gap: 4rem;
+
+      .player_info, .library_info {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+
+        .player_gold, .library_gold {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
     }
 
     .settings{

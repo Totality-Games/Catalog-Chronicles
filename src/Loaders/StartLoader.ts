@@ -220,7 +220,7 @@ export class StartLoader extends DefaultLoader {
 
     const titleflexChild = document.createElement('div');
     titleflexChild.style.display = 'flex';
-    titleflexChild.innerText = 'Catalog Chronicles';
+    // titleflexChild.innerText = 'Catalog Chronicles';
     titleflexChild.style.justifyContent = 'center';
     titleflexChild.style.alignItems = 'center';
     titleflexChild.style.height = '100%';
@@ -258,17 +258,17 @@ export class StartLoader extends DefaultLoader {
     extitle.style.fontSize = '15px';
     extitle.style.color = '#D9E3E0';
     extitle.style.zIndex = '1001';
-    extitle.innerText = 'Made with Excalibur.js';
-    this._gameRootDiv.appendChild(extitle);
+    // extitle.innerText = 'Made with Excalibur.js';
+    // this._gameRootDiv.appendChild(extitle);
 
-    const exIcon = document.createElement('img');
-    exIcon.src = './ex-logo.png';
-    exIcon.style.position = 'relative';
-    exIcon.style.width = '20px';
-    exIcon.style.height = '20px';
-    exIcon.style.top = '4px';
-    exIcon.style.left = '4px';
-    extitle.appendChild(exIcon);
+    // const exIcon = document.createElement('img');
+    // exIcon.src = './ex-logo.png';
+    // exIcon.style.position = 'relative';
+    // exIcon.style.width = '20px';
+    // exIcon.style.height = '20px';
+    // exIcon.style.top = '4px';
+    // exIcon.style.left = '4px';
+    // extitle.appendChild(exIcon);
     return extitle;
   }
 
