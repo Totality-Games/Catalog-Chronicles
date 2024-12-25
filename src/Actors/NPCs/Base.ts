@@ -4,6 +4,7 @@ import {
   Engine,
   ImageSource,
   SpriteSheet,
+  vec,
   Vector,
 } from 'excalibur';
 import { DIRECTIONS } from '../../constants';
@@ -28,8 +29,9 @@ export class NPC extends Actor {
   ) {
     super({
       pos,
-      width: 16,
-      height: 24,
+      width: 15,
+      height: 17,
+      offset: vec(0, -3),
       collisionType: CollisionType.Fixed,
     });
 

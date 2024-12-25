@@ -51,8 +51,6 @@ export class MainGuy extends Actor {
     super({
       pos,
       collider: circle,
-      width: 32,
-      height: 32,
       collisionType: CollisionType.Active,
     });
 
