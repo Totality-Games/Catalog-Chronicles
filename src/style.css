@@ -153,7 +153,7 @@ body {
   }
 }
 
-#game.SCENE_STATE_PLAYING, #game.SCENE_STATE_TALKING {
+#game.SCENE_STATE_PLAYING, #game.SCENE_STATE_TALKING, #game.SCENE_STATE_INPUT {
   #ui {
     .hud {
       background-color: #662a3a;

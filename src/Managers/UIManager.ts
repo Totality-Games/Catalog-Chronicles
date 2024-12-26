@@ -123,21 +123,6 @@ class UIManager {
     `;
   }
 
-  displayLibraryInfoUI() {
-    const player_info_container = document.getElementById('library_info')!;
-    player_info_container.innerHTML = `
-      <h3 id="current_library_name">${this.currentLibraryName}</h3>
-      <span class="player_gold">
-        <img
-          src="/Resources/Sprites/Items/gold.png"
-          alt="Gold Icon"
-          width="32px"
-        />
-        999
-      </span>
-    `;
-  }
-
   private createDialogueUI() {
     const dialog_container = document.getElementById('dialog_container')!;
     dialog_container.innerHTML = `
@@ -277,6 +262,42 @@ class UIManager {
 
     const current_library_name = this.library_info.querySelector('h3');
     return (current_library_name!.innerText = this.currentLibraryName);
+  }
+
+  private create_library_name_form() {
+    const game_container = document.getElementById('game')!;
+    const library_info_container = document.getElementById('library_info')!;
+    const current_library_name = library_info_container.querySelector('h3')!;
+
+    game_container.className = SCENE_STATE.INPUT;
+
+    current_library_name.innerHTML = `
+    <form>
+      <input type="text" placeholder="Rename Your Library" />
+    </form>
+    `;
+  }
+
+  displayLibraryInfoUI() {
+    const library_info_container = document.getElementById('library_info')!;
+    library_info_container.innerHTML = `
+      <h3 id="current_library_name">${this.currentLibraryName}</h3>
+      <span class="player_gold">
+        <img
+          src="/Resources/Sprites/Items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        999
+      </span>
+    `;
+
+    const current_library_name = library_info_container.querySelector('h3')!;
+
+    current_library_name.addEventListener(
+      'click',
+      this.create_library_name_form
+    );
   }
 }
 
