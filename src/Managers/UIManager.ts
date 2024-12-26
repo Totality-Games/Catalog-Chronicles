@@ -12,6 +12,8 @@ export enum MENU {
 
 class UIManager {
   game_container!: HTMLElement;
+  player_info!: HTMLElement;
+  library_info!: HTMLElement;
   dialog_container!: HTMLElement;
   pause_menu!: HTMLElement;
   menu_window!: HTMLElement;
@@ -49,12 +51,15 @@ class UIManager {
   init() {
     this.createPauseMenuUI();
     this.linkUIReferences();
+    this.createPlayerInfoUI();
     this.createDialogueUI();
     this.update_menu();
   }
 
   private linkUIReferences() {
     this.game_container = document.getElementById('game')!;
+    this.player_info = document.getElementById('player_info')!;
+    this.library_info = document.getElementById('library_info')!;
     this.dialog_container = document.getElementById('dialog_container')!;
     this.pause_menu = document.getElementById('pause_menu')!;
     this.menu_items_container = document.getElementById(
@@ -86,6 +91,21 @@ class UIManager {
           <div class="menu_footer"></div>
         </div>
         `;
+  }
+
+  private createPlayerInfoUI() {
+    const player_info_container = document.getElementById('player_info')!;
+    player_info_container.innerHTML = `
+      <h3>Player Name</h3>
+      <span class="player_gold">
+        <img
+          src="/Resources/Sprites/Items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        999
+      </span>
+    `;
   }
 
   private createDialogueUI() {
