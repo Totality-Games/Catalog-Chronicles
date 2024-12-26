@@ -22,13 +22,20 @@ import { createCatherine } from '../../../../Actors/NPCs/City1/Catherine';
 
 class Library1 extends Scene {
   game_container!: HTMLElement;
+  name: string;
   constructor() {
     super();
+
+    this.name = 'Library1';
   }
 
   onInitialize(engine: Engine): void {
     this.game_container = document.getElementById('game')!;
     uiManager.update_state(SCENE_STATE.PLAYING);
+    if (uiManager.currentLibraryName !== this.name) {
+      console.log('updating library name.');
+      uiManager.update_current_library_name(this.name);
+    }
 
     this.setCameraBoundaries(engine);
     const npcs = this.setupNPCs();
@@ -99,6 +106,10 @@ class Library1 extends Scene {
     });
 
     return [catherine];
+  }
+
+  updateLibraryName(name: string) {
+    this.name = name;
   }
 }
 

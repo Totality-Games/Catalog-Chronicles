@@ -17,6 +17,8 @@ class UIManager {
   dialog_container!: HTMLElement;
   pause_menu!: HTMLElement;
   menu_window!: HTMLElement;
+  playerName: string;
+  currentLibraryName: string;
   characterToDialogueWith: string | undefined;
   talkingSound: Sound | undefined;
   menu_items_container!: HTMLElement;
@@ -48,10 +50,16 @@ class UIManager {
     //   value: MENU.EXIT,
     // },
   ];
+  constructor() {
+    this.playerName = 'New Player';
+    this.currentLibraryName = 'New Library';
+  }
+
   init() {
     this.createPauseMenuUI();
     this.linkUIReferences();
     this.createPlayerInfoUI();
+    this.createLibraryInfoUI();
     this.createDialogueUI();
     this.update_menu();
   }
@@ -96,7 +104,22 @@ class UIManager {
   private createPlayerInfoUI() {
     const player_info_container = document.getElementById('player_info')!;
     player_info_container.innerHTML = `
-      <h3>Player Name</h3>
+      <h3>${this.playerName}</h3>
+      <span class="player_gold">
+        <img
+          src="/Resources/Sprites/Items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        999
+      </span>
+    `;
+  }
+
+  private createLibraryInfoUI() {
+    const player_info_container = document.getElementById('library_info')!;
+    player_info_container.innerHTML = `
+      <h3 id="current_library_name">${this.currentLibraryName}</h3>
       <span class="player_gold">
         <img
           src="/Resources/Sprites/Items/gold.png"
@@ -236,6 +259,17 @@ class UIManager {
 
   update_state(state: SCENE_STATE) {
     this.game_container.className = state;
+  }
+
+  update_player_name(name: string) {
+    this.playerName = name;
+  }
+
+  update_current_library_name(name: string) {
+    this.currentLibraryName = name;
+
+    const current_library_name = this.library_info.querySelector('h3');
+    return (current_library_name!.innerText = this.currentLibraryName);
   }
 }
 
