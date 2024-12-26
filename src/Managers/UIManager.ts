@@ -119,6 +119,13 @@ class UIManager {
   private createLibraryInfoUI() {
     const player_info_container = document.getElementById('library_info')!;
     player_info_container.innerHTML = `
+      <h3 id="current_library_name"></h3>
+    `;
+  }
+
+  displayLibraryInfoUI() {
+    const player_info_container = document.getElementById('library_info')!;
+    player_info_container.innerHTML = `
       <h3 id="current_library_name">${this.currentLibraryName}</h3>
       <span class="player_gold">
         <img

@@ -32,9 +32,10 @@ class Library1 extends Scene {
   onInitialize(engine: Engine): void {
     this.game_container = document.getElementById('game')!;
     uiManager.update_state(SCENE_STATE.PLAYING);
+
     if (uiManager.currentLibraryName !== this.name) {
-      console.log('updating library name.');
       uiManager.update_current_library_name(this.name);
+      uiManager.displayLibraryInfoUI();
     }
 
     this.setCameraBoundaries(engine);
