@@ -32,7 +32,8 @@ export class StartScreen extends Scene {
   bgsprite: any;
   override onInitialize(engine: Engine): void {
     this.game_container = document.getElementById('game')!;
-    this.game_container.style.backgroundColor = 'red';
+    uiManager.update_state(SCENE_STATE.MENU);
+
     this.engine = engine;
 
     // this.input.pointers.on('down', () => {

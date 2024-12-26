@@ -28,6 +28,7 @@ class Library1 extends Scene {
 
   onInitialize(engine: Engine): void {
     this.game_container = document.getElementById('game')!;
+    uiManager.update_state(SCENE_STATE.PLAYING);
 
     this.setCameraBoundaries(engine);
     const npcs = this.setupNPCs();
