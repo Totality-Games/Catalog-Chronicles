@@ -19,6 +19,7 @@ class UIManager {
   pause_menu!: HTMLElement;
   menu_window!: HTMLElement;
   playerName: string;
+  playerGold: number;
   currentLibraryName: string;
   characterToDialogueWith: string | undefined;
   talkingSound: Sound | undefined;
@@ -53,6 +54,7 @@ class UIManager {
   ];
   constructor() {
     this.playerName = 'New Player';
+    this.playerGold = 999;
     this.currentLibraryName = 'New Library';
     this.game_state = SCENE_STATE.LOADING;
   }
@@ -107,13 +109,13 @@ class UIManager {
     const player_info_container = document.getElementById('player_info')!;
     player_info_container.innerHTML = `
       <h3>${this.playerName}</h3>
-      <span class="player_gold">
+      <span class="player_gold" id="player_gold">
         <img
           src="/Resources/Sprites/Items/gold.png"
           alt="Gold Icon"
           width="32px"
         />
-        999
+        ${this.playerGold}
       </span>
     `;
   }
@@ -299,6 +301,20 @@ class UIManager {
 
     const form = document.getElementById('new_name')!;
     form?.addEventListener('submit', submit_new_library_name);
+  }
+
+  updatePlayerGoldInfoUI(goldAmount: number) {
+    this.playerGold = goldAmount;
+
+    const player_gold_span = document.getElementById('player_gold')!;
+    player_gold_span.innerHTML = `
+        <img
+          src="/Resources/Sprites/Items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        ${this.playerGold}
+    `;
   }
 
   displayLibraryInfoUI() {

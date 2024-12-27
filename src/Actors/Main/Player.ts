@@ -25,6 +25,7 @@ const circle = new CircleCollider({
   offset: vec(0, 4),
 });
 export class MainGuy extends Actor {
+  public playerGold: number;
   public playerState: SCENE_STATE;
   public nearToNPC: any;
   public nearToObject: any;
@@ -55,6 +56,7 @@ export class MainGuy extends Actor {
       collisionType: CollisionType.Active,
     });
 
+    this.playerGold = 0;
     this.z = 200;
     this.scale = new Vector(2, 2);
     this.direction = direction ?? DIRECTIONS.DOWN;
@@ -65,6 +67,7 @@ export class MainGuy extends Actor {
 
   onInitialize(engine: Engine): void {
     this.addAnimations();
+    this.updateGold(0);
     this.engine = engine;
 
     this.game_container = document.getElementById('game')!;
@@ -618,6 +621,7 @@ export class MainGuy extends Actor {
         if (engine.input.keyboard.wasPressed(Keys.Space)) {
           if (this.nearToNPC) {
             console.log(`dialogue with: ${this.nearToNPC.name}`);
+            this.updateGold(1);
 
             // update direction of NPC to mirror Player direction while talking
             switch (this.direction) {
@@ -646,6 +650,8 @@ export class MainGuy extends Actor {
           if (this.nearToObject) {
             // investigate
             console.log(`investigating: ${this.nearToObject.name}`);
+            this.updateGold(-5);
+
             uiManager.update_state(SCENE_STATE.TALKING);
             this.playerState = SCENE_STATE.TALKING;
             // DO THING
@@ -731,5 +737,13 @@ export class MainGuy extends Actor {
         movePlayer(0, Config.PlayerSpeed, DIRECTIONS.DOWN, 'walk');
       }
     }
+  }
+
+  updateGold(amount: number) {
+    const newAmount = this.playerGold + amount;
+    if (newAmount < 0) return;
+
+    this.playerGold += amount;
+    uiManager.updatePlayerGoldInfoUI(this.playerGold);
   }
 }
