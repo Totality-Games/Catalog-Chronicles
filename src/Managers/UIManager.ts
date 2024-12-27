@@ -276,15 +276,29 @@ class UIManager {
     game_container.className = SCENE_STATE.INPUT;
     this.game_state = SCENE_STATE.INPUT;
 
-    function submit_new_library_name(e) {
-      e.preventDefault();
+    function submit_new_library_name(event: Event) {
+      event.preventDefault();
+      const new_library_name_input = document.getElementById(
+        'new_library_name_input'
+      ) as HTMLInputElement;
+
+      const newLibraryName = new_library_name_input?.value;
+
+      current_library_name.innerHTML = `
+        <h3>${newLibraryName}</h3>
+      `;
+
+      return;
     }
 
     current_library_name.innerHTML = `
-    <form onsubmit="event.preventDefault(); ${submit_new_library_name(event)}">
-      <input type="text" placeholder="Rename Your Library" />
+    <form id="new_name">
+      <input name="library_name" id="new_library_name_input" type="text" placeholder="Rename Your Library" maxlength="20" />
     </form>
     `;
+
+    const form = document.getElementById('new_name')!;
+    form?.addEventListener('submit', submit_new_library_name);
   }
 
   displayLibraryInfoUI() {

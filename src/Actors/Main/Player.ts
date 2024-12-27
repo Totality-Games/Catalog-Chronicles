@@ -79,7 +79,6 @@ export class MainGuy extends Actor {
       this.playerMovement(engine);
     }
     if (this.game_container.className !== SCENE_STATE.INPUT) {
-      console.log(uiManager.game_state);
       this.pauseGame(engine);
       this.playerInteract(engine);
     }
