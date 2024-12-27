@@ -24,11 +24,13 @@ class Library1 extends Scene {
   game_container!: HTMLElement;
   name: string;
   gold: number;
+  goldToDate: number;
   constructor() {
     super();
 
     this.name = 'Library1';
     this.gold = 0;
+    this.goldToDate = 0;
   }
 
   onInitialize(engine: Engine): void {

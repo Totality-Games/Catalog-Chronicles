@@ -26,6 +26,7 @@ const circle = new CircleCollider({
 });
 export class MainGuy extends Actor {
   public playerGold: number;
+  public playerGoldToDate: number;
   public playerState: SCENE_STATE;
   public nearToNPC: any;
   public nearToObject: any;
@@ -57,6 +58,7 @@ export class MainGuy extends Actor {
     });
 
     this.playerGold = 0;
+    this.playerGoldToDate = 0;
     this.z = 200;
     this.scale = new Vector(2, 2);
     this.direction = direction ?? DIRECTIONS.DOWN;
@@ -740,6 +742,11 @@ export class MainGuy extends Actor {
   }
 
   updateGold(amount: number) {
+    // update goldToDate value
+    // only add to goldToDate if it is a positive value
+    if (amount > 0) this.playerGoldToDate += amount;
+
+    // update current gold value
     const newAmount = this.playerGold + amount;
     if (newAmount < 0) return;
 
