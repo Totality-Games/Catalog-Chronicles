@@ -21,6 +21,7 @@ class UIManager {
   playerName: string;
   playerGold: number;
   currentLibraryName: string;
+  currentLibraryGold: number;
   characterToDialogueWith: string | undefined;
   talkingSound: Sound | undefined;
   menu_items_container!: HTMLElement;
@@ -56,6 +57,7 @@ class UIManager {
     this.playerName = 'New Player';
     this.playerGold = 999;
     this.currentLibraryName = 'New Library';
+    this.currentLibraryGold = 999;
     this.game_state = SCENE_STATE.LOADING;
   }
 
@@ -262,11 +264,22 @@ class UIManager {
     this.playerName = name;
   }
 
-  update_current_library_name(name: string) {
+  update_current_library_info(name: string, gold: number) {
     this.currentLibraryName = name;
+    this.currentLibraryGold = gold;
 
     const current_library_name = this.library_info.querySelector('h3');
-    return (current_library_name!.innerText = this.currentLibraryName);
+    current_library_name!.innerText = this.currentLibraryName;
+
+    const current_library_gold_span = document.getElementById('library_gold')!;
+    current_library_gold_span.innerHTML = `
+        <img
+          src="/Resources/Sprites/Items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        ${this.currentLibraryGold}
+    `;
   }
 
   private create_library_name_form() {
@@ -323,13 +336,13 @@ class UIManager {
       <div id="current_library_name">
         <h3>${this.currentLibraryName}</h3>
       </div>
-      <span class="player_gold">
+      <span class="library_gold" id="library_gold">
         <img
           src="/Resources/Sprites/Items/gold.png"
           alt="Gold Icon"
           width="32px"
         />
-        999
+        ${this.currentLibraryGold}
       </span>
     `;
 

@@ -23,10 +23,12 @@ import { createCatherine } from '../../../../Actors/NPCs/City1/Catherine';
 class Library1 extends Scene {
   game_container!: HTMLElement;
   name: string;
+  gold: number;
   constructor() {
     super();
 
     this.name = 'Library1';
+    this.gold = 0;
   }
 
   onInitialize(engine: Engine): void {
@@ -34,8 +36,8 @@ class Library1 extends Scene {
     uiManager.update_state(SCENE_STATE.PLAYING);
 
     if (uiManager.currentLibraryName !== this.name) {
-      uiManager.update_current_library_name(this.name);
       uiManager.displayLibraryInfoUI();
+      uiManager.update_current_library_info(this.name, this.gold);
     }
 
     this.setCameraBoundaries(engine);
