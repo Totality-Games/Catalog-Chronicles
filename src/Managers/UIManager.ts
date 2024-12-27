@@ -11,6 +11,7 @@ export enum MENU {
 }
 
 class UIManager {
+  game_state: SCENE_STATE;
   game_container!: HTMLElement;
   player_info!: HTMLElement;
   library_info!: HTMLElement;
@@ -53,6 +54,7 @@ class UIManager {
   constructor() {
     this.playerName = 'New Player';
     this.currentLibraryName = 'New Library';
+    this.game_state = SCENE_STATE.LOADING;
   }
 
   init() {
@@ -119,7 +121,7 @@ class UIManager {
   private createLibraryInfoUI() {
     const player_info_container = document.getElementById('library_info')!;
     player_info_container.innerHTML = `
-      <h3 id="current_library_name"></h3>
+      <h3></h3>
     `;
   }
 
@@ -251,6 +253,7 @@ class UIManager {
 
   update_state(state: SCENE_STATE) {
     this.game_container.className = state;
+    this.game_state = state;
   }
 
   update_player_name(name: string) {
@@ -266,13 +269,19 @@ class UIManager {
 
   private create_library_name_form() {
     const game_container = document.getElementById('game')!;
-    const library_info_container = document.getElementById('library_info')!;
-    const current_library_name = library_info_container.querySelector('h3')!;
+    const current_library_name = document.getElementById(
+      'current_library_name'
+    )!;
 
     game_container.className = SCENE_STATE.INPUT;
+    this.game_state = SCENE_STATE.INPUT;
+
+    function submit_new_library_name(e) {
+      e.preventDefault();
+    }
 
     current_library_name.innerHTML = `
-    <form>
+    <form onsubmit="event.preventDefault(); ${submit_new_library_name(event)}">
       <input type="text" placeholder="Rename Your Library" />
     </form>
     `;
@@ -281,7 +290,9 @@ class UIManager {
   displayLibraryInfoUI() {
     const library_info_container = document.getElementById('library_info')!;
     library_info_container.innerHTML = `
-      <h3 id="current_library_name">${this.currentLibraryName}</h3>
+      <div id="current_library_name">
+        <h3>${this.currentLibraryName}</h3>
+      </div>
       <span class="player_gold">
         <img
           src="/Resources/Sprites/Items/gold.png"

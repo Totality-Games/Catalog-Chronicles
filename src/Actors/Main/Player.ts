@@ -37,6 +37,7 @@ export class MainGuy extends Actor {
     // TalkingSound: Sound;
   };
   private engine: Engine | undefined;
+  game_container!: HTMLElement;
   constructor(
     pos: Vector,
     resources: {
@@ -65,6 +66,8 @@ export class MainGuy extends Actor {
   onInitialize(engine: Engine): void {
     this.addAnimations();
     this.engine = engine;
+
+    this.game_container = document.getElementById('game')!;
   }
 
   onPreUpdate(engine: Engine, _elapsedMs: number): void {
@@ -75,8 +78,11 @@ export class MainGuy extends Actor {
     if (this.playerState === SCENE_STATE.PLAYING) {
       this.playerMovement(engine);
     }
-    this.playerInteract(engine);
-    this.pauseGame(engine);
+    if (this.game_container.className !== SCENE_STATE.INPUT) {
+      console.log(uiManager.game_state);
+      this.pauseGame(engine);
+      this.playerInteract(engine);
+    }
   }
 
   onPreCollisionResolve(
