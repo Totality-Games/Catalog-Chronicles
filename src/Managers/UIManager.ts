@@ -113,7 +113,7 @@ class UIManager {
       <h3>${this.playerName}</h3>
       <span class="player_gold" id="player_gold">
         <img
-          src="/Resources/Sprites/Items/gold.png"
+          src="/images/items/gold.png"
           alt="Gold Icon"
           width="32px"
         />
@@ -274,7 +274,7 @@ class UIManager {
     const current_library_gold_span = document.getElementById('library_gold')!;
     current_library_gold_span.innerHTML = `
         <img
-          src="/Resources/Sprites/Items/gold.png"
+          src="/images/items/gold.png"
           alt="Gold Icon"
           width="32px"
         />
@@ -322,7 +322,7 @@ class UIManager {
     const player_gold_span = document.getElementById('player_gold')!;
     player_gold_span.innerHTML = `
         <img
-          src="/Resources/Sprites/Items/gold.png"
+          src="/images/items/gold.png"
           alt="Gold Icon"
           width="32px"
         />
@@ -338,7 +338,7 @@ class UIManager {
       </div>
       <span class="library_gold" id="library_gold">
         <img
-          src="/Resources/Sprites/Items/gold.png"
+          src="/images/items/gold.png"
           alt="Gold Icon"
           width="32px"
         />
