@@ -166,6 +166,7 @@ body {
       left:0%;
       display: flex;
       gap: 4rem;
+      font-size: 1rem;
 
       .player_info, .library_info {
         display: flex;
@@ -173,10 +174,11 @@ body {
         align-items: center;
         gap: 1rem;
 
-        .player_gold, .library_gold {
+        .player_gold, .library_gold, .library_book {
           display: flex;
           justify-content: center;
           align-items: center;
+          gap: .3rem;
         }
       }
     }

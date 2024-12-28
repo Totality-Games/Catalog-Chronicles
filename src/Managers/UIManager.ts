@@ -22,6 +22,7 @@ class UIManager {
   playerGold: number;
   currentLibraryName: string;
   currentLibraryGold: number;
+  currentLibraryBookCount: number;
   characterToDialogueWith: string | undefined;
   talkingSound: Sound | undefined;
   menu_items_container!: HTMLElement;
@@ -58,6 +59,7 @@ class UIManager {
     this.playerGold = 999;
     this.currentLibraryName = 'New Library';
     this.currentLibraryGold = 999;
+    this.currentLibraryBookCount = 999;
     this.game_state = SCENE_STATE.LOADING;
   }
 
@@ -264,9 +266,10 @@ class UIManager {
     this.playerName = name;
   }
 
-  update_current_library_info(name: string, gold: number) {
+  update_current_library_info(name: string, gold: number, bookCount: number) {
     this.currentLibraryName = name;
     this.currentLibraryGold = gold;
+    this.currentLibraryBookCount = bookCount;
 
     const current_library_name = this.library_info.querySelector('h3');
     current_library_name!.innerText = this.currentLibraryName;
@@ -279,6 +282,16 @@ class UIManager {
           width="32px"
         />
         ${this.currentLibraryGold}
+    `;
+
+    const current_library_book_span = document.getElementById('library_book')!;
+    current_library_book_span.innerHTML = `
+        <img
+          src="/images/items/book.png"
+          alt="Book Icon"
+          width="32px"
+        />
+        ${this.currentLibraryBookCount}
     `;
   }
 
@@ -343,6 +356,14 @@ class UIManager {
           width="32px"
         />
         ${this.currentLibraryGold}
+      </span>
+      <span class="library_book" id="library_book">
+        <img
+          src="/images/items/book.png"
+          alt="Book Icon"
+          width="32px"
+        />
+        ${this.currentLibraryBookCount}
       </span>
     `;
 

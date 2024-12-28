@@ -25,12 +25,14 @@ class Library1 extends Scene {
   name: string;
   gold: number;
   goldToDate: number;
+  bookCount: number;
   constructor() {
     super();
 
     this.name = 'Library1';
     this.gold = 0;
     this.goldToDate = 0;
+    this.bookCount = 0;
   }
 
   onInitialize(engine: Engine): void {
@@ -39,7 +41,11 @@ class Library1 extends Scene {
 
     if (uiManager.currentLibraryName !== this.name) {
       uiManager.displayLibraryInfoUI();
-      uiManager.update_current_library_info(this.name, this.gold);
+      uiManager.update_current_library_info(
+        this.name,
+        this.gold,
+        this.bookCount
+      );
     }
 
     this.setCameraBoundaries(engine);
