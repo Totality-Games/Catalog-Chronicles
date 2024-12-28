@@ -10,6 +10,7 @@ import {
 } from './City1/Interiors/Library1/Scene';
 import { city1Scene, City1SceneLoader } from './City1/Scene';
 import { startScreen, startScreenLoader } from './MainMenu/Scene';
+import { uiManager } from '../Managers/UIManager';
 
 export const allScenes = {
   start: {
@@ -47,12 +48,21 @@ export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
       if (musicManager.location !== LOCATIONS.CITY1) {
         musicManager.stopMusic();
       }
+      uiManager.cleanupLibraryInfoUI();
       engine.goToScene(scene);
       break;
     case SceneNames.LIBRARY1:
       if (musicManager.location !== LOCATIONS.LIBRARY1) {
         musicManager.stopMusic();
       }
+
+      uiManager.displayLibraryInfoUI();
+      uiManager.update_current_library_info(
+        library1Scene.name,
+        library1Scene.gold,
+        library1Scene.bookCount
+      );
+
       engine.goToScene(scene);
       break;
     default:

@@ -343,6 +343,11 @@ class UIManager {
     `;
   }
 
+  cleanupLibraryInfoUI() {
+    const library_info_container = document.getElementById('library_info')!;
+    library_info_container.innerHTML = ``;
+  }
+
   displayLibraryInfoUI() {
     const library_info_container = document.getElementById('library_info')!;
     library_info_container.innerHTML = `
@@ -355,7 +360,7 @@ class UIManager {
           alt="Gold Icon"
           width="32px"
         />
-        ${this.currentLibraryGold}
+        ${this.currentLibraryGold} 
       </span>
       <span class="library_book" id="library_book">
         <img

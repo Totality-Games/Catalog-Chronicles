@@ -39,15 +39,6 @@ class Library1 extends Scene {
     this.game_container = document.getElementById('game')!;
     uiManager.update_state(SCENE_STATE.PLAYING);
 
-    if (uiManager.currentLibraryName !== this.name) {
-      uiManager.displayLibraryInfoUI();
-      uiManager.update_current_library_info(
-        this.name,
-        this.gold,
-        this.bookCount
-      );
-    }
-
     this.setCameraBoundaries(engine);
     const npcs = this.setupNPCs();
 
