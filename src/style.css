@@ -160,26 +160,43 @@ body {
       color: rgba(253, 223, 190, .95);
       width: 100%;
       margin: 0;
-      padding: 1rem 2rem;
+      padding: 1rem;
       position: absolute;
       top:0%;
       left:0%;
       display: flex;
-      gap: 4rem;
+      justify-content: space-between;
+      align-items: center;
       font-size: 1rem;
 
-      .player_info, .library_info {
+      .hud_info {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
+        gap: 3rem;
 
-        .player_gold, .library_gold, .library_book {
+        .player_info, .library_info {
           display: flex;
+          flex-wrap: nowrap;
+          flex-direction: row;
           justify-content: center;
           align-items: center;
-          gap: .3rem;
+          gap: 1rem;
+  
+          .player_gold, .library_gold, .library_book {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .3rem;
+          }
         }
+      }
+
+      .options {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: .5rem;
       }
     }
   }
