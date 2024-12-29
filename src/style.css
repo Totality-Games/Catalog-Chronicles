@@ -245,6 +245,9 @@ body {
           padding: 1rem;
         }    
 
+        .journal_inventory {
+          display: none;
+        }    
         .journal_npcs {
           display: none;
         }    
