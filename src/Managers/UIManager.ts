@@ -69,6 +69,7 @@ class UIManager {
     this.createPlayerInfoUI();
     this.createLibraryInfoUI();
     this.createDialogueUI();
+    this.createPlayerJournal();
     this.update_menu();
   }
 
@@ -378,6 +379,26 @@ class UIManager {
       'click',
       this.create_library_name_form
     );
+  }
+
+  createPlayerJournal() {
+    var modal = document.getElementById('journal_modal')!;
+
+    // Get the button that opens the modal
+    var journalImg = document.getElementById('journal_img')!;
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName('close')[0];
+
+    // When the user clicks on the button, open the modal
+    journalImg.onclick = function () {
+      modal.style.display = 'block';
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = 'none';
+    };
   }
 }
 
