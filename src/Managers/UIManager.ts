@@ -388,7 +388,7 @@ class UIManager {
     var journalImg = document.getElementById('journal_img')!;
 
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName('close')[0];
+    var span = document.getElementsByClassName('close')[0] as HTMLElement;
 
     // When the user clicks on the button, open the modal
     journalImg.onclick = function () {
