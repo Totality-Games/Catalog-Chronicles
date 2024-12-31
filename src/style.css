@@ -219,10 +219,13 @@ body {
         .modal-content {
           background-color: #feedd5;
           color: #662a3a;
-          margin: 15% auto; /* 15% from the top and centered */
+          margin: 5% auto; /* 15% from the top and centered */
           padding: 20px;
           border: 1px solid #888;
           width: 50%; /* Could be more or less, depending on screen size */
+          min-height: 80vh;
+          max-height: 80vh;
+          overflow: auto; /* Enable scroll if needed */
           -webkit-animation-name: slideIn;
           -webkit-animation-duration: 0.4s;
           animation-name: slideIn;
@@ -231,18 +234,27 @@ body {
 
         .journal_tabs {
           display: flex;
+          justify-content: space-between;
+          align-items: center;
           flex-wrap: nowrap;
           align-items: center;
+          position: fixed;
+          gap: 10rem;
 
-          .journal_tab {
-            margin: 0;
-            padding: 1rem;
-            cursor: pointer;
+          span {
+            display: flex;
+            align-items: center;
+
+            .journal_tab {
+              margin: 0;
+              padding: 1rem;
+              cursor: pointer;
+            }
           }
         }
 
         .journal_main {
-          padding: 1rem;
+          padding: 4rem 1rem;
         }    
 
         .journal_inventory {
@@ -267,7 +279,6 @@ body {
         /* The Close Button */
         .close {
           color: #aaa;
-          float: right;
           font-size: 28px;
           font-weight: bold;
         }
