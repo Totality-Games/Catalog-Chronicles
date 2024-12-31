@@ -220,7 +220,6 @@ body {
           background-color: #feedd5;
           color: #662a3a;
           margin: 5% auto; /* 15% from the top and centered */
-          padding: 20px;
           border: 1px solid #888;
           width: 50%; /* Could be more or less, depending on screen size */
           min-height: 80vh;
@@ -233,28 +232,36 @@ body {
         }
 
         .journal_tabs {
+          background-color: #feedd5;
           display: flex;
-          justify-content: space-between;
-          align-items: center;
+          justify-content: space-around;
           flex-wrap: nowrap;
           align-items: center;
+          width: 49.8%;
+          padding: 0 .5rem;
           position: fixed;
-          gap: 10rem;
+          border-bottom: 2px solid #662a3a;
 
           span {
             display: flex;
             align-items: center;
 
             .journal_tab {
-              margin: 0;
-              padding: 1rem;
+              margin: 1rem 0rem 0rem 1rem;
+              padding: .5rem 1rem;
               cursor: pointer;
+            }
+
+            .active {
+              border: 2px solid #662a3a;
+              border-radius: 50% 50% 0% 0%;
+              border-bottom: 0 solid #feedd5;
             }
           }
         }
 
         .journal_main {
-          padding: 4rem 1rem;
+          padding: 5rem 1rem;
         }    
 
         .journal_inventory {
@@ -281,6 +288,7 @@ body {
           color: #aaa;
           font-size: 28px;
           font-weight: bold;
+          margin: 1rem 0rem 0rem 1rem;
         }
         
         .close:hover,
