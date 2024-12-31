@@ -71,7 +71,6 @@ class UIManager {
     this.createLibraryInfoUI();
     this.createDialogueUI();
     this.createPlayerJournal();
-    this.createPlayerJournalModalLogic();
     this.update_menu();
   }
 
@@ -184,6 +183,7 @@ class UIManager {
     this.createJournalStats();
     this.createJournalSettings();
     this.createJournalCredits();
+    this.createPlayerJournalModalLogic();
   }
 
   private createJournalMain() {
@@ -438,6 +438,19 @@ class UIManager {
 
     // Active Tab logic
     const journal_main_tab = document.getElementById('journal_main_tab')!;
+    journal_main_tab.classList.add('active_tab');
+
+    this.createJournalMainTabLogic();
+    this.createJournalInventoryTabLogic();
+    this.createJournalFriendsTabLogic();
+    this.createJournalAchievementsTabLogic();
+    this.createJournalStatsTabLogic();
+    this.createJournalSettingsTabLogic();
+    this.createJournalCreditsTabLogic();
+  }
+
+  private createJournalMainTabLogic() {
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
     const journal_inventory_tab = document.getElementById(
       'journal_inventory_tab'
     )!;
@@ -450,6 +463,193 @@ class UIManager {
       'journal_settings_tab'
     )!;
     const journal_credits_tab = document.getElementById('journal_credits_tab')!;
+
+    journal_main_tab.onclick = function () {
+      // remove .active_tab class from any tab that currently has it
+      journal_inventory_tab.classList.remove('active_tab');
+      journal_friends_tab.classList.remove('active_tab');
+      journal_achievements_tab.classList.remove('active_tab');
+      journal_stats_tab.classList.remove('active_tab');
+      journal_settings_tab.classList.remove('active_tab');
+      journal_credits_tab.classList.remove('active_tab');
+
+      // add .active_tab class to journal_main_tab
+      journal_main_tab.classList.add('active_tab');
+    };
+  }
+
+  private createJournalInventoryTabLogic() {
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
+    const journal_inventory_tab = document.getElementById(
+      'journal_inventory_tab'
+    )!;
+    const journal_friends_tab = document.getElementById('journal_friends_tab')!;
+    const journal_achievements_tab = document.getElementById(
+      'journal_achievements_tab'
+    )!;
+    const journal_stats_tab = document.getElementById('journal_stats_tab')!;
+    const journal_settings_tab = document.getElementById(
+      'journal_settings_tab'
+    )!;
+    const journal_credits_tab = document.getElementById('journal_credits_tab')!;
+
+    journal_inventory_tab.onclick = function () {
+      // remove .active_tab class from any tab that currently has it
+      journal_main_tab.classList.remove('active_tab');
+      journal_friends_tab.classList.remove('active_tab');
+      journal_achievements_tab.classList.remove('active_tab');
+      journal_stats_tab.classList.remove('active_tab');
+      journal_settings_tab.classList.remove('active_tab');
+      journal_credits_tab.classList.remove('active_tab');
+
+      // add .active_tab class to journal_inventory_tab
+      journal_inventory_tab.classList.add('active_tab');
+    };
+  }
+
+  private createJournalFriendsTabLogic() {
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
+    const journal_inventory_tab = document.getElementById(
+      'journal_inventory_tab'
+    )!;
+    const journal_friends_tab = document.getElementById('journal_friends_tab')!;
+    const journal_achievements_tab = document.getElementById(
+      'journal_achievements_tab'
+    )!;
+    const journal_stats_tab = document.getElementById('journal_stats_tab')!;
+    const journal_settings_tab = document.getElementById(
+      'journal_settings_tab'
+    )!;
+    const journal_credits_tab = document.getElementById('journal_credits_tab')!;
+
+    journal_friends_tab.onclick = function () {
+      // remove .active_tab class from any tab that currently has it
+      journal_main_tab.classList.remove('active_tab');
+      journal_inventory_tab.classList.remove('active_tab');
+      journal_achievements_tab.classList.remove('active_tab');
+      journal_stats_tab.classList.remove('active_tab');
+      journal_settings_tab.classList.remove('active_tab');
+      journal_credits_tab.classList.remove('active_tab');
+
+      // add .active_tab class to journal_friends_tab
+      journal_friends_tab.classList.add('active_tab');
+    };
+  }
+
+  private createJournalAchievementsTabLogic() {
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
+    const journal_inventory_tab = document.getElementById(
+      'journal_inventory_tab'
+    )!;
+    const journal_friends_tab = document.getElementById('journal_friends_tab')!;
+    const journal_achievements_tab = document.getElementById(
+      'journal_achievements_tab'
+    )!;
+    const journal_stats_tab = document.getElementById('journal_stats_tab')!;
+    const journal_settings_tab = document.getElementById(
+      'journal_settings_tab'
+    )!;
+    const journal_credits_tab = document.getElementById('journal_credits_tab')!;
+
+    journal_achievements_tab.onclick = function () {
+      // remove .active_tab class from any tab that currently has it
+      journal_main_tab.classList.remove('active_tab');
+      journal_inventory_tab.classList.remove('active_tab');
+      journal_friends_tab.classList.remove('active_tab');
+      journal_stats_tab.classList.remove('active_tab');
+      journal_settings_tab.classList.remove('active_tab');
+      journal_credits_tab.classList.remove('active_tab');
+
+      // add .active_tab class to journal_achievements_tab
+      journal_achievements_tab.classList.add('active_tab');
+    };
+  }
+
+  private createJournalStatsTabLogic() {
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
+    const journal_inventory_tab = document.getElementById(
+      'journal_inventory_tab'
+    )!;
+    const journal_friends_tab = document.getElementById('journal_friends_tab')!;
+    const journal_achievements_tab = document.getElementById(
+      'journal_achievements_tab'
+    )!;
+    const journal_stats_tab = document.getElementById('journal_stats_tab')!;
+    const journal_settings_tab = document.getElementById(
+      'journal_settings_tab'
+    )!;
+    const journal_credits_tab = document.getElementById('journal_credits_tab')!;
+
+    journal_stats_tab.onclick = function () {
+      // remove .active_tab class from any tab that currently has it
+      journal_main_tab.classList.remove('active_tab');
+      journal_inventory_tab.classList.remove('active_tab');
+      journal_friends_tab.classList.remove('active_tab');
+      journal_achievements_tab.classList.remove('active_tab');
+      journal_settings_tab.classList.remove('active_tab');
+      journal_credits_tab.classList.remove('active_tab');
+
+      // add .active_tab class to journal_stats_tab
+      journal_stats_tab.classList.add('active_tab');
+    };
+  }
+
+  private createJournalSettingsTabLogic() {
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
+    const journal_inventory_tab = document.getElementById(
+      'journal_inventory_tab'
+    )!;
+    const journal_friends_tab = document.getElementById('journal_friends_tab')!;
+    const journal_achievements_tab = document.getElementById(
+      'journal_achievements_tab'
+    )!;
+    const journal_stats_tab = document.getElementById('journal_stats_tab')!;
+    const journal_settings_tab = document.getElementById(
+      'journal_settings_tab'
+    )!;
+    const journal_credits_tab = document.getElementById('journal_credits_tab')!;
+
+    journal_settings_tab.onclick = function () {
+      // remove .active_tab class from any tab that currently has it
+      journal_main_tab.classList.remove('active_tab');
+      journal_inventory_tab.classList.remove('active_tab');
+      journal_friends_tab.classList.remove('active_tab');
+      journal_achievements_tab.classList.remove('active_tab');
+      journal_stats_tab.classList.remove('active_tab');
+      journal_credits_tab.classList.remove('active_tab');
+
+      // add .active_tab class to journal_settings_tab
+      journal_settings_tab.classList.add('active_tab');
+    };
+  }
+
+  private createJournalCreditsTabLogic() {
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
+    const journal_inventory_tab = document.getElementById(
+      'journal_inventory_tab'
+    )!;
+    const journal_friends_tab = document.getElementById('journal_friends_tab')!;
+    const journal_achievements_tab = document.getElementById(
+      'journal_achievements_tab'
+    )!;
+    const journal_stats_tab = document.getElementById('journal_stats_tab')!;
+    const journal_settings_tab = document.getElementById(
+      'journal_settings_tab'
+    )!;
+    const journal_credits_tab = document.getElementById('journal_credits_tab')!;
+
+    journal_credits_tab.onclick = function () {
+      // remove .active_tab class from any tab that currently has it
+      journal_main_tab.classList.remove('active_tab');
+      journal_inventory_tab.classList.remove('active_tab');
+      journal_friends_tab.classList.remove('active_tab');
+      journal_achievements_tab.classList.remove('active_tab');
+      journal_stats_tab.classList.remove('active_tab');
+      journal_settings_tab.classList.remove('active_tab');
+
+      // add .active_tab class to journal_credits_tab
+      journal_credits_tab.classList.add('active_tab');
+    };
   }
 
   close_submenu() {

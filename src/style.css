@@ -250,6 +250,9 @@ body {
               margin: 1rem 0rem 0rem 1rem;
               padding: .5rem 1rem;
               cursor: pointer;
+              border: 2px solid #feedd5;
+              border-radius: 50% 50% 0% 0%;
+              border-bottom: 0 solid #feedd5;
             }
 
             .active_tab {
