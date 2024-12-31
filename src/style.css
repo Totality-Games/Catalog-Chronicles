@@ -252,7 +252,7 @@ body {
               cursor: pointer;
             }
 
-            .active {
+            .active_tab {
               border: 2px solid #662a3a;
               border-radius: 50% 50% 0% 0%;
               border-bottom: 0 solid #feedd5;
@@ -267,7 +267,7 @@ body {
         .journal_inventory {
           display: none;
         }    
-        .journal_npcs {
+        .journal_friends {
           display: none;
         }    
         .journal_achievements {

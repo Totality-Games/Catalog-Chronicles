@@ -15,6 +15,7 @@ class UIManager {
   game_container!: HTMLElement;
   player_info!: HTMLElement;
   library_info!: HTMLElement;
+  options!: HTMLElement;
   dialog_container!: HTMLElement;
   pause_menu!: HTMLElement;
   menu_window!: HTMLElement;
@@ -70,6 +71,7 @@ class UIManager {
     this.createLibraryInfoUI();
     this.createDialogueUI();
     this.createPlayerJournal();
+    this.createPlayerJournalModalLogic();
     this.update_menu();
   }
 
@@ -77,15 +79,13 @@ class UIManager {
     this.game_container = document.getElementById('game')!;
     this.player_info = document.getElementById('player_info')!;
     this.library_info = document.getElementById('library_info')!;
+    this.options = document.getElementById('options')!;
     this.dialog_container = document.getElementById('dialog_container')!;
     this.pause_menu = document.getElementById('pause_menu')!;
     this.menu_items_container = document.getElementById(
       'menu_items_container'
     )!;
     this.menu_window = document.getElementById('menu_window')!;
-
-    // this.menu_icon = document.getElementById('menu_icon');
-    // this.menu_close_btn = document.querySelectorAll('.menu_close');
   }
 
   private createPauseMenuUI() {
@@ -140,6 +140,316 @@ class UIManager {
             <div class="text"></div>
         </div>
         `;
+  }
+
+  private createPlayerJournal() {
+    const options = document.getElementById('options')!;
+    options.innerHTML = `
+      <img
+        src="/images/items/journal.png"
+        alt="Journal"
+        width="48px"
+        height="48px"
+        id="journal_img"
+      />
+      <div class="journal_modal" id="journal_modal">
+        <div class="modal-content">
+          <div class="journal_tabs">
+            <span>
+              <div id="journal_main_tab" class="journal_tab"><h4>Journal</h4></div>
+              <div id="journal_inventory_tab" class="journal_tab"><h4>Inventory</h4></div>
+              <div id="journal_friends_tab" class="journal_tab"><h4>Friends</h4></div>
+              <div id="journal_achievements_tab" class="journal_tab"><h4>Achievements</h4></div>
+              <div id="journal_stats_tab" class="journal_tab"><h4>Stats</h4></div>
+              <div id="journal_settings_tab" class="journal_tab"><h4>Settings</h4></div>
+              <div id="journal_credits_tab" class="journal_tab"><h4>Credits</h4></div>
+            </span>
+            <span class="close">&times;</span>
+          </div>
+          <div class="journal_main" id="journal_main"></div>
+          <div class="journal_inventory" id="journal_inventory"></div>
+          <div class="journal_friends" id="journal_friends"></div>
+          <div class="journal_achievements" id="journal_achievements"></div>
+          <div class="journal_stats" id="journal_stats"></div>
+          <div class="journal_settings" id="journal_settings"></div>
+          <div class="journal_credits" id="journal_credits"></div>
+        </div>
+      </div>
+`;
+
+    this.createJournalMain();
+    this.createJournalInventory();
+    this.createJournalFriends();
+    this.createJournalAchievements();
+    this.createJournalStats();
+    this.createJournalSettings();
+    this.createJournalCredits();
+  }
+
+  private createJournalMain() {
+    const journal_main = document.getElementById('journal_main')!;
+    journal_main.innerHTML = `
+    <p>Some text in the Modal..</p>
+    <p>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+      Alias itaque eos obcaecati deleniti soluta hic veritatis
+      mollitia porro minima repellendus, deserunt expedita nemo
+      enim placeat autem, nisi tempora impedit eveniet. Lorem,
+      ipsum dolor sit amet consectetur adipisicing elit. Alias
+      itaque eos obcaecati deleniti soluta hic veritatis mollitia
+      porro minima repellendus, deserunt expedita nemo enim
+      placeat autem, nisi tempora impedit eveniet. Lorem, ipsum
+      dolor sit amet consectetur adipisicing elit. Alias itaque
+      eos obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
+      amet consectetur adipisicing elit. Alias itaque eos
+      obcaecati deleniti soluta hic veritatis mollitia porro
+      minima repellendus, deserunt expedita nemo enim placeat
+      autem, nisi tempora impedit eveniet.
+    </p>
+`;
+  }
+
+  private createJournalInventory() {
+    const journal_inventory = document.getElementById('journal_inventory')!;
+    journal_inventory.innerHTML = `
+    <p>Some text in the Modal..</p>
+`;
+  }
+
+  private createJournalFriends() {
+    const journal_friends = document.getElementById('journal_friends')!;
+    journal_friends.innerHTML = `
+    <p>Some text in the Modal..</p>
+`;
+  }
+
+  private createJournalAchievements() {
+    const journal_achievements = document.getElementById(
+      'journal_achievements'
+    )!;
+    journal_achievements.innerHTML = `
+    <p>Some text in the Modal..</p>
+`;
+  }
+
+  private createJournalStats() {
+    const journal_stats = document.getElementById('journal_stats')!;
+    journal_stats.innerHTML = `
+    <p>Some text in the Modal..</p>
+`;
+  }
+
+  private createJournalSettings() {
+    const journal_settings = document.getElementById('journal_settings')!;
+    journal_settings.innerHTML = `
+    <p>Some text in the Modal..</p>
+`;
+  }
+
+  private createJournalCredits() {
+    const journal_credits = document.getElementById('journal_credits')!;
+    journal_credits.innerHTML = `
+    <p>Some text in the Modal..</p>
+`;
+  }
+
+  private createPlayerJournalModalLogic() {
+    const modal = document.getElementById('journal_modal')!;
+    const journalImg = document.getElementById('journal_img')!;
+    const closeSpan = document.getElementsByClassName(
+      'close'
+    )[0] as HTMLElement;
+
+    // Open Journal
+    journalImg.onclick = function () {
+      modal.style.display = 'block';
+    };
+
+    // Close Journal
+    closeSpan.onclick = function () {
+      modal.style.display = 'none';
+    };
+
+    // Active Tab logic
+    const journal_main_tab = document.getElementById('journal_main_tab')!;
+    const journal_inventory_tab = document.getElementById(
+      'journal_inventory_tab'
+    )!;
+    const journal_friends_tab = document.getElementById('journal_friends_tab')!;
+    const journal_achievements_tab = document.getElementById(
+      'journal_achievements_tab'
+    )!;
+    const journal_stats_tab = document.getElementById('journal_stats_tab')!;
+    const journal_settings_tab = document.getElementById(
+      'journal_settings_tab'
+    )!;
+    const journal_credits_tab = document.getElementById('journal_credits_tab')!;
   }
 
   close_submenu() {
@@ -379,26 +689,6 @@ class UIManager {
       'click',
       this.create_library_name_form
     );
-  }
-
-  createPlayerJournal() {
-    var modal = document.getElementById('journal_modal')!;
-
-    // Get the button that opens the modal
-    var journalImg = document.getElementById('journal_img')!;
-
-    // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName('close')[0] as HTMLElement;
-
-    // When the user clicks on the button, open the modal
-    journalImg.onclick = function () {
-      modal.style.display = 'block';
-    };
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-      modal.style.display = 'none';
-    };
   }
 }
 
