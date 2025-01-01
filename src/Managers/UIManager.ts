@@ -370,6 +370,25 @@ class UIManager {
   
         <div id="friends" class="friends">
           <div id="friend_single" class="friend_single">
+            <h3>Andrew</h3>
+            <p>Farmer</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
             <h3>Catherine</h3>
             <p>Housewife</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -383,6 +402,272 @@ class UIManager {
                   <img src="/images/items/heart.png" alt="Friendship Meter" />
                   <img src="/images/items/heart.png" alt="Friendship Meter" />
                   <img src="/images/items/heart.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Jibblet</h3>
+            <p>Herbalist</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Jonathan</h3>
+            <p>Bard</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>JT</h3>
+            <p>Chicken Trainer</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Karath</h3>
+            <p>Student</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Matty</h3>
+            <p>Teacher</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Moses</h3>
+            <p>Adventurer</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Nektarios</h3>
+            <p>Rare Book Merchant</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Newberry</h3>
+            <p>Fisherman</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Orpheus</h3>
+            <p>Farmer</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Ryan</h3>
+            <p>Musician</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Tanner</h3>
+            <p>Financial Analyst</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Tsubaki</h3>
+            <p>Samurai</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Tsuki</h3>
+            <p>Spinner</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
+          </div>
+          <div id="friend_single" class="friend_single">
+            <h3>Victor</h3>
+            <p>Priest</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
                   <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
                 </div>
               </span>
