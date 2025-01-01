@@ -189,203 +189,21 @@ class UIManager {
   private createJournalMain() {
     const journal_main = document.getElementById('journal_main')!;
     journal_main.innerHTML = `
-    <p>Some text in the Modal..</p>
-    <p>
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-      Alias itaque eos obcaecati deleniti soluta hic veritatis
-      mollitia porro minima repellendus, deserunt expedita nemo
-      enim placeat autem, nisi tempora impedit eveniet. Lorem,
-      ipsum dolor sit amet consectetur adipisicing elit. Alias
-      itaque eos obcaecati deleniti soluta hic veritatis mollitia
-      porro minima repellendus, deserunt expedita nemo enim
-      placeat autem, nisi tempora impedit eveniet. Lorem, ipsum
-      dolor sit amet consectetur adipisicing elit. Alias itaque
-      eos obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet. Lorem, ipsum dolor sit
-      amet consectetur adipisicing elit. Alias itaque eos
-      obcaecati deleniti soluta hic veritatis mollitia porro
-      minima repellendus, deserunt expedita nemo enim placeat
-      autem, nisi tempora impedit eveniet.
-    </p>
+    <p>Journal Overview</p>
 `;
   }
 
   private createJournalInventory() {
     const journal_inventory = document.getElementById('journal_inventory')!;
     journal_inventory.innerHTML = `
-    <p>Some text in the Modal..</p>
+    <p>Journal Inventory</p>
 `;
   }
 
   private createJournalFriends() {
     const journal_friends = document.getElementById('journal_friends')!;
     journal_friends.innerHTML = `
-    <p>Some text in the Modal..</p>
+    <p>Journal Friends</p>
 `;
   }
 
@@ -394,28 +212,28 @@ class UIManager {
       'journal_achievements'
     )!;
     journal_achievements.innerHTML = `
-    <p>Some text in the Modal..</p>
+    <p>Journal Achievements</p>
 `;
   }
 
   private createJournalStats() {
     const journal_stats = document.getElementById('journal_stats')!;
     journal_stats.innerHTML = `
-    <p>Some text in the Modal..</p>
+    <p>Journal Stats</p>
 `;
   }
 
   private createJournalSettings() {
     const journal_settings = document.getElementById('journal_settings')!;
     journal_settings.innerHTML = `
-    <p>Some text in the Modal..</p>
+    <p>Journal Settings</p>
 `;
   }
 
   private createJournalCredits() {
     const journal_credits = document.getElementById('journal_credits')!;
     journal_credits.innerHTML = `
-    <p>Some text in the Modal..</p>
+    <p>Journal Credits</p>
 `;
   }
 
@@ -475,6 +293,27 @@ class UIManager {
 
       // add .active_tab class to journal_main_tab
       journal_main_tab.classList.add('active_tab');
+
+      // remove content from other tabs
+      const journal_inventory = document.getElementById('journal_inventory')!;
+      const journal_friends = document.getElementById('journal_friends')!;
+      const journal_achievements = document.getElementById(
+        'journal_achievements'
+      )!;
+      const journal_stats = document.getElementById('journal_stats')!;
+      const journal_settings = document.getElementById('journal_settings')!;
+      const journal_credits = document.getElementById('journal_credits')!;
+
+      journal_inventory.style.display = 'none';
+      journal_friends.style.display = 'none';
+      journal_achievements.style.display = 'none';
+      journal_stats.style.display = 'none';
+      journal_settings.style.display = 'none';
+      journal_credits.style.display = 'none';
+
+      // add content from journal_inventory
+      const journal_main = document.getElementById('journal_main')!;
+      journal_main.style.display = 'block';
     };
   }
 
@@ -504,6 +343,27 @@ class UIManager {
 
       // add .active_tab class to journal_inventory_tab
       journal_inventory_tab.classList.add('active_tab');
+
+      // remove content from other tabs
+      const journal_main = document.getElementById('journal_main')!;
+      const journal_friends = document.getElementById('journal_friends')!;
+      const journal_achievements = document.getElementById(
+        'journal_achievements'
+      )!;
+      const journal_stats = document.getElementById('journal_stats')!;
+      const journal_settings = document.getElementById('journal_settings')!;
+      const journal_credits = document.getElementById('journal_credits')!;
+
+      journal_main.style.display = 'none';
+      journal_friends.style.display = 'none';
+      journal_achievements.style.display = 'none';
+      journal_stats.style.display = 'none';
+      journal_settings.style.display = 'none';
+      journal_credits.style.display = 'none';
+
+      // add content from journal_inventory
+      const journal_inventory = document.getElementById('journal_inventory')!;
+      journal_inventory.style.display = 'block';
     };
   }
 
@@ -533,6 +393,27 @@ class UIManager {
 
       // add .active_tab class to journal_friends_tab
       journal_friends_tab.classList.add('active_tab');
+
+      // remove content from other tabs
+      const journal_main = document.getElementById('journal_main')!;
+      const journal_inventory = document.getElementById('journal_inventory')!;
+      const journal_achievements = document.getElementById(
+        'journal_achievements'
+      )!;
+      const journal_stats = document.getElementById('journal_stats')!;
+      const journal_settings = document.getElementById('journal_settings')!;
+      const journal_credits = document.getElementById('journal_credits')!;
+
+      journal_main.style.display = 'none';
+      journal_inventory.style.display = 'none';
+      journal_achievements.style.display = 'none';
+      journal_stats.style.display = 'none';
+      journal_settings.style.display = 'none';
+      journal_credits.style.display = 'none';
+
+      // add content from journal_inventory
+      const journal_friends = document.getElementById('journal_friends')!;
+      journal_friends.style.display = 'block';
     };
   }
 
@@ -562,6 +443,27 @@ class UIManager {
 
       // add .active_tab class to journal_achievements_tab
       journal_achievements_tab.classList.add('active_tab');
+
+      // remove content from other tabs
+      const journal_main = document.getElementById('journal_main')!;
+      const journal_inventory = document.getElementById('journal_inventory')!;
+      const journal_friends = document.getElementById('journal_friends')!;
+      const journal_stats = document.getElementById('journal_stats')!;
+      const journal_settings = document.getElementById('journal_settings')!;
+      const journal_credits = document.getElementById('journal_credits')!;
+
+      journal_main.style.display = 'none';
+      journal_inventory.style.display = 'none';
+      journal_friends.style.display = 'none';
+      journal_stats.style.display = 'none';
+      journal_settings.style.display = 'none';
+      journal_credits.style.display = 'none';
+
+      // add content from journal_inventory
+      const journal_achievements = document.getElementById(
+        'journal_achievements'
+      )!;
+      journal_achievements.style.display = 'block';
     };
   }
 
@@ -591,6 +493,27 @@ class UIManager {
 
       // add .active_tab class to journal_stats_tab
       journal_stats_tab.classList.add('active_tab');
+
+      // remove content from other tabs
+      const journal_main = document.getElementById('journal_main')!;
+      const journal_inventory = document.getElementById('journal_inventory')!;
+      const journal_friends = document.getElementById('journal_friends')!;
+      const journal_achievements = document.getElementById(
+        'journal_achievements'
+      )!;
+      const journal_settings = document.getElementById('journal_settings')!;
+      const journal_credits = document.getElementById('journal_credits')!;
+
+      journal_main.style.display = 'none';
+      journal_inventory.style.display = 'none';
+      journal_friends.style.display = 'none';
+      journal_achievements.style.display = 'none';
+      journal_settings.style.display = 'none';
+      journal_credits.style.display = 'none';
+
+      // add content from journal_inventory
+      const journal_stats = document.getElementById('journal_stats')!;
+      journal_stats.style.display = 'block';
     };
   }
 
@@ -620,6 +543,27 @@ class UIManager {
 
       // add .active_tab class to journal_settings_tab
       journal_settings_tab.classList.add('active_tab');
+
+      // remove content from other tabs
+      const journal_main = document.getElementById('journal_main')!;
+      const journal_inventory = document.getElementById('journal_inventory')!;
+      const journal_friends = document.getElementById('journal_friends')!;
+      const journal_achievements = document.getElementById(
+        'journal_achievements'
+      )!;
+      const journal_stats = document.getElementById('journal_stats')!;
+      const journal_credits = document.getElementById('journal_credits')!;
+
+      journal_main.style.display = 'none';
+      journal_inventory.style.display = 'none';
+      journal_friends.style.display = 'none';
+      journal_achievements.style.display = 'none';
+      journal_stats.style.display = 'none';
+      journal_credits.style.display = 'none';
+
+      // add content from journal_inventory
+      const journal_settings = document.getElementById('journal_settings')!;
+      journal_settings.style.display = 'block';
     };
   }
 
@@ -649,6 +593,27 @@ class UIManager {
 
       // add .active_tab class to journal_credits_tab
       journal_credits_tab.classList.add('active_tab');
+
+      // remove content from other tabs
+      const journal_main = document.getElementById('journal_main')!;
+      const journal_inventory = document.getElementById('journal_inventory')!;
+      const journal_friends = document.getElementById('journal_friends')!;
+      const journal_achievements = document.getElementById(
+        'journal_achievements'
+      )!;
+      const journal_settings = document.getElementById('journal_settings')!;
+      const journal_stats = document.getElementById('journal_stats')!;
+
+      journal_main.style.display = 'none';
+      journal_inventory.style.display = 'none';
+      journal_friends.style.display = 'none';
+      journal_achievements.style.display = 'none';
+      journal_settings.style.display = 'none';
+      journal_stats.style.display = 'none';
+
+      // add content from journal_inventory
+      const journal_credits = document.getElementById('journal_credits')!;
+      journal_credits.style.display = 'block';
     };
   }
 

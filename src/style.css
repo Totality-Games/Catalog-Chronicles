@@ -263,26 +263,11 @@ body {
           }
         }
 
-        .journal_main {
+        .journal_main, .journal_inventory, .journal_friends, .journal_achievements, .journal_stats, .journal_settings, .journal_credits{
           padding: 5rem 1rem;
         }    
 
-        .journal_inventory {
-          display: none;
-        }    
-        .journal_friends {
-          display: none;
-        }    
-        .journal_achievements {
-          display: none;
-        }    
-        .journal_stats {
-          display: none;
-        }    
-        .journal_settings {
-          display: none;
-        }    
-        .journal_credits {
+        .journal_inventory, .journal_friends, .journal_achievements, .journal_stats, .journal_settings, .journal_credits{
           display: none;
         }    
         
