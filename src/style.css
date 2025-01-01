@@ -250,13 +250,15 @@ body {
               margin: 1rem 0rem 0rem 1rem;
               padding: .5rem 1rem;
               cursor: pointer;
-              border: 2px solid #feedd5;
+              border: 2px solid #662a3a;
               border-radius: 50% 50% 0% 0%;
               border-bottom: 0 solid #feedd5;
             }
 
             .active_tab {
-              border: 2px solid #662a3a;
+              background: #662a3a;
+              color: #feedd5;
+              border: 2px solid #feedd5;
               border-radius: 50% 50% 0% 0%;
               border-bottom: 0 solid #feedd5;
             }
@@ -264,7 +266,7 @@ body {
         }
 
         .journal_main, .journal_inventory, .journal_friends, .journal_achievements, .journal_stats, .journal_settings, .journal_credits{
-          padding: 5rem 1rem;
+          padding: 5rem 2rem;
         }    
 
         .journal_inventory, .journal_friends, .journal_achievements, .journal_stats, .journal_settings, .journal_credits{
