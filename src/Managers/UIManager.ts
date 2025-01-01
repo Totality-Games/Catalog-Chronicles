@@ -58,6 +58,20 @@ class UIManager {
   }
 
   /* 
+    TITLE MENU
+    ? methods
+  */
+  setupTitleMenuUI() {
+    this.title_menu.innerHTML = `
+    <p>TESTING</p>
+    `;
+  }
+
+  cleanupTitleMenuUI() {
+    this.title_menu.innerHTML = ``;
+  }
+
+  /* 
     HUD: PLAYER INFO 
     3 methods
   */

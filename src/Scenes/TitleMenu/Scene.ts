@@ -33,6 +33,7 @@ export class StartScreen extends Scene {
   override onInitialize(engine: Engine): void {
     this.game_container = document.getElementById('game')!;
     uiManager.update_state(SCENE_STATE.MENU);
+    uiManager.setupTitleMenuUI();
 
     this.engine = engine;
 
@@ -42,6 +43,7 @@ export class StartScreen extends Scene {
     // });
     this.input.keyboard.on('press', () => {
       musicManager.stopMusic();
+      uiManager.cleanupTitleMenuUI();
       uiManager.update_state(SCENE_STATE.LOADING);
       this.engine.goToScene('city1');
     });
