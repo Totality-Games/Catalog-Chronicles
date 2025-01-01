@@ -240,43 +240,103 @@ class UIManager {
   }
 
   /* 
+    DIALOGUE UI
+    4 methods 
+  */
+  private createDialogueUI() {
+    const dialog_container = document.getElementById('dialog_container')!;
+    dialog_container.innerHTML = `
+        <div class="avatar"></div>
+            <div class="content">
+            <div class="text"></div>
+        </div>
+        `;
+  }
+
+  cleanupDialogue() {
+    const text_container = this.dialog_container.querySelector(
+      '.text'
+    ) as HTMLElement;
+    if (this.game_container.className !== SCENE_STATE.TALKING) {
+      return (text_container.innerText = '');
+    }
+  }
+
+  displayDialogue(dialogues: Dialogues) {
+    const text_container = this.dialog_container.querySelector(
+      '.text'
+    ) as HTMLElement;
+
+    if (this.game_container.className === SCENE_STATE.TALKING) {
+      // filter through all dialogues for the one matching this.characterToDialogueWith
+      let dialogue = dialogues.find((dialogue) => {
+        return dialogue.actor === this.characterToDialogueWith;
+      });
+
+      // if (dialogue?.isCharacter) {
+      //   this.talkingSound?.play(0.1);
+      //   setInterval(() => {
+      //     this.talkingSound?.stop();
+      //   }, 1000);
+      // }
+
+      if (dialogue) {
+        // then add this text
+        return (text_container.innerText = dialogue!.text);
+      } else {
+        dialogue = dialogues.find((dialogue) => {
+          return dialogue.actor === 'default';
+        });
+
+        // then add this text
+        return (text_container.innerText = dialogue!.text);
+      }
+    }
+  }
+
+  dialogNPC(character?: string, talkingSound?: Sound) {
+    this.characterToDialogueWith = character;
+    this.talkingSound = talkingSound;
+  }
+
+  /* 
     HUD: PLAYER JOURNAL 
     16 methods
   */
   private createPlayerJournal() {
     const options = document.getElementById('options')!;
     options.innerHTML = `
-      <img
-        src="/images/items/journal.png"
-        alt="Journal"
-        width="48px"
-        height="48px"
-        id="journal_img"
-      />
-      <div class="journal_modal" id="journal_modal">
-        <div class="modal-content">
-          <div class="journal_tabs">
-            <span>
-              <div id="journal_main_tab" class="journal_tab"><h4>Journal</h4></div>
-              <div id="journal_inventory_tab" class="journal_tab"><h4>Inventory</h4></div>
-              <div id="journal_friends_tab" class="journal_tab"><h4>Friends</h4></div>
-              <div id="journal_achievements_tab" class="journal_tab"><h4>Achievements</h4></div>
-              <div id="journal_stats_tab" class="journal_tab"><h4>Stats</h4></div>
-              <div id="journal_settings_tab" class="journal_tab"><h4>Settings</h4></div>
-              <div id="journal_credits_tab" class="journal_tab"><h4>Credits</h4></div>
-            </span>
-            <span class="close">&times;</span>
+        <img
+          src="/images/items/journal.png"
+          alt="Journal"
+          width="48px"
+          height="48px"
+          id="journal_img"
+        />
+        <div class="journal_modal" id="journal_modal">
+          <div class="modal-content">
+            <div class="journal_tabs">
+              <span>
+                <div id="journal_main_tab" class="journal_tab"><h4>Journal</h4></div>
+                <div id="journal_inventory_tab" class="journal_tab"><h4>Inventory</h4></div>
+                <div id="journal_friends_tab" class="journal_tab"><h4>Friends</h4></div>
+                <div id="journal_achievements_tab" class="journal_tab"><h4>Achievements</h4></div>
+                <div id="journal_stats_tab" class="journal_tab"><h4>Stats</h4></div>
+                <div id="journal_settings_tab" class="journal_tab"><h4>Settings</h4></div>
+                <div id="journal_credits_tab" class="journal_tab"><h4>Credits</h4></div>
+              </span>
+              <span class="close">&times;</span>
+            </div>
+            <div class="journal_main" id="journal_main"></div>
+            <div class="journal_inventory" id="journal_inventory"></div>
+            <div class="journal_friends" id="journal_friends"></div>
+            <div class="journal_achievements" id="journal_achievements"></div>
+            <div class="journal_stats" id="journal_stats"></div>
+            <div class="journal_settings" id="journal_settings"></div>
+            <div class="journal_credits" id="journal_credits"></div>
           </div>
-          <div class="journal_main" id="journal_main"></div>
-          <div class="journal_inventory" id="journal_inventory"></div>
-          <div class="journal_friends" id="journal_friends"></div>
-          <div class="journal_achievements" id="journal_achievements"></div>
-          <div class="journal_stats" id="journal_stats"></div>
-          <div class="journal_settings" id="journal_settings"></div>
-          <div class="journal_credits" id="journal_credits"></div>
         </div>
-      </div>
-`;
+  `;
 
     this.createJournalMain();
     this.createJournalInventory();
@@ -291,46 +351,46 @@ class UIManager {
   private createJournalMain() {
     const journal_main = document.getElementById('journal_main')!;
     journal_main.innerHTML = `
-    <p>Journal Overview</p>
-`;
+      <p>Journal Overview</p>
+  `;
   }
 
   private createJournalInventory() {
     const journal_inventory = document.getElementById('journal_inventory')!;
     journal_inventory.innerHTML = `
-    <p>Journal Inventory</p>
-`;
+      <p>Journal Inventory</p>
+  `;
   }
 
   private createJournalFriends() {
     const journal_friends = document.getElementById('journal_friends')!;
     journal_friends.innerHTML = `
-    <div id="friends_container" class="friends_container">
-      <h2>Journal Friends</h2>
-
-      <div id="friends" class="friends">
-        <div id="friend_single" class="friend_single">
-          <h3>Catherine</h3>
-          <p>Housewife</p>
-          <div id="friend_single_info" class="friend_single_info">
-            <span>
-              <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-            </span>
-            <span>
-              <h4>Friendship</h4>
-              <div class="friendship_meter">
-                <img src="/images/items/heart.png" alt="Friendship Meter" />
-                <img src="/images/items/heart.png" alt="Friendship Meter" />
-                <img src="/images/items/heart.png" alt="Friendship Meter" />
-                <img src="/images/items/heart.png" alt="Friendship Meter" />
-                <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              </div>
-            </span>
+      <div id="friends_container" class="friends_container">
+        <h2>Journal Friends</h2>
+  
+        <div id="friends" class="friends">
+          <div id="friend_single" class="friend_single">
+            <h3>Catherine</h3>
+            <p>Housewife</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <div class="friendship_meter">
+                  <img src="/images/items/heart.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </div>
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-`;
+  `;
   }
 
   private createJournalAchievements() {
@@ -338,29 +398,29 @@ class UIManager {
       'journal_achievements'
     )!;
     journal_achievements.innerHTML = `
-    <p>Journal Achievements</p>
-`;
+      <p>Journal Achievements</p>
+  `;
   }
 
   private createJournalStats() {
     const journal_stats = document.getElementById('journal_stats')!;
     journal_stats.innerHTML = `
-    <p>Journal Stats</p>
-`;
+      <p>Journal Stats</p>
+  `;
   }
 
   private createJournalSettings() {
     const journal_settings = document.getElementById('journal_settings')!;
     journal_settings.innerHTML = `
-    <p>Journal Settings</p>
-`;
+      <p>Journal Settings</p>
+  `;
   }
 
   private createJournalCredits() {
     const journal_credits = document.getElementById('journal_credits')!;
     journal_credits.innerHTML = `
-    <p>Journal Credits</p>
-`;
+      <p>Journal Credits</p>
+  `;
   }
 
   private createPlayerJournalModalLogic() {
@@ -741,66 +801,6 @@ class UIManager {
       const journal_credits = document.getElementById('journal_credits')!;
       journal_credits.style.display = 'block';
     };
-  }
-
-  /* 
-    DIALOGUE UI
-    4 methods 
-  */
-  private createDialogueUI() {
-    const dialog_container = document.getElementById('dialog_container')!;
-    dialog_container.innerHTML = `
-        <div class="avatar"></div>
-            <div class="content">
-            <div class="text"></div>
-        </div>
-        `;
-  }
-
-  cleanupDialogue() {
-    const text_container = this.dialog_container.querySelector(
-      '.text'
-    ) as HTMLElement;
-    if (this.game_container.className !== SCENE_STATE.TALKING) {
-      return (text_container.innerText = '');
-    }
-  }
-
-  displayDialogue(dialogues: Dialogues) {
-    const text_container = this.dialog_container.querySelector(
-      '.text'
-    ) as HTMLElement;
-
-    if (this.game_container.className === SCENE_STATE.TALKING) {
-      // filter through all dialogues for the one matching this.characterToDialogueWith
-      let dialogue = dialogues.find((dialogue) => {
-        return dialogue.actor === this.characterToDialogueWith;
-      });
-
-      // if (dialogue?.isCharacter) {
-      //   this.talkingSound?.play(0.1);
-      //   setInterval(() => {
-      //     this.talkingSound?.stop();
-      //   }, 1000);
-      // }
-
-      if (dialogue) {
-        // then add this text
-        return (text_container.innerText = dialogue!.text);
-      } else {
-        dialogue = dialogues.find((dialogue) => {
-          return dialogue.actor === 'default';
-        });
-
-        // then add this text
-        return (text_container.innerText = dialogue!.text);
-      }
-    }
-  }
-
-  dialogNPC(character?: string, talkingSound?: Sound) {
-    this.characterToDialogueWith = character;
-    this.talkingSound = talkingSound;
   }
 }
 
