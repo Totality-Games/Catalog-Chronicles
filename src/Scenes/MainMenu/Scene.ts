@@ -40,11 +40,11 @@ export class StartScreen extends Scene {
     //   musicManager.stopMusic();
     //   this.engine.goToScene('ironClawExterior');
     // });
-    // this.input.keyboard.on('press', () => {
-    //   musicManager.stopMusic();
-    //   uiManager.update_state(SCENE_STATE.LOADING);
-    //   this.engine.goToScene('city1');
-    // });
+    this.input.keyboard.on('press', () => {
+      musicManager.stopMusic();
+      uiManager.update_state(SCENE_STATE.LOADING);
+      this.engine.goToScene('city1');
+    });
 
     // this.add(new Cloud(vec(800, 0), MainMenuResources.Cloud6Png));
     // this.add(new Cloud(vec(400, 200), MainMenuResources.Cloud3Png));

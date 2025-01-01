@@ -65,13 +65,11 @@ class UIManager {
   }
 
   init() {
-    this.createPauseMenuUI();
     this.linkUIReferences();
     this.createPlayerInfoUI();
     this.createLibraryInfoUI();
     this.createDialogueUI();
     this.createPlayerJournal();
-    this.update_menu();
   }
 
   private linkUIReferences() {
@@ -85,28 +83,6 @@ class UIManager {
       'menu_items_container'
     )!;
     this.menu_window = document.getElementById('menu_window')!;
-  }
-
-  private createPauseMenuUI() {
-    const pause_menu = document.getElementById('pause_menu')!;
-    pause_menu.innerHTML = `
-      <div id="menu_ingame" class="menu">
-          <div class="menu_header">
-            <p>Menu</p>
-          </div>
-          <ul id="menu_items_container"></ul>
-        </div>
-        <div id="menu_window" class="submenu">
-          <div class="menu_header"></div>
-          <div class="menu_content">
-            <div class="collectives">Collectives</div>
-            <div class="items">Items</div>
-            <div class="map">Map</div>
-            <div id="settings_container">Settings</div>
-          </div>
-          <div class="menu_footer"></div>
-        </div>
-        `;
   }
 
   private createPlayerInfoUI() {
@@ -615,76 +591,6 @@ class UIManager {
       const journal_credits = document.getElementById('journal_credits')!;
       journal_credits.style.display = 'block';
     };
-  }
-
-  close_submenu() {
-    this.menu_window.style.display = 'none';
-    this.menu_opened = false;
-    this.current_menu_item = -1;
-  }
-
-  close_menu() {
-    this.close_submenu();
-    this.update_state(SCENE_STATE.PLAYING);
-    this.current_menu_item = -1;
-  }
-
-  cancel_menu() {
-    if (this.menu_opened) {
-      this.close_submenu();
-    } else {
-      this.close_menu();
-    }
-    this.update_menu();
-  }
-
-  open_submenu() {
-    const current = this.menu_items[this.current_menu_item];
-    if (current.value === MENU.EXIT) {
-      this.cancel_menu();
-      return;
-    } else if (current.value === MENU.BACK_MAIN_MENU) {
-      this.current_menu_item = 0;
-      this.cancel_menu();
-      return;
-    }
-
-    this.menu_window.classList.value = current.value;
-    const menu_header = this.menu_window.querySelector(
-      '.menu_header'
-    )! as HTMLElement;
-    menu_header.innerText = current.name;
-    const closeDiv = document.createElement('div');
-    closeDiv.innerText = 'x';
-    closeDiv.classList.add('menu_close');
-    closeDiv.onclick = () => this.cancel_menu();
-
-    menu_header.appendChild(closeDiv);
-    this.menu_window.style.display = 'block';
-    this.menu_opened = true;
-  }
-
-  update_menu() {
-    this.menu_items_container.innerHTML = '';
-    this.menu_items.forEach((item, i) => {
-      const btn = document.createElement('button');
-      btn.classList.add('menu_item');
-      btn.name = i.toString();
-
-      btn.innerText = item.name;
-      if (i === this.current_menu_item) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
-      btn.onclick = () => {
-        this.current_menu_item = Number(btn.name);
-        this.update_menu();
-        this.open_submenu();
-      };
-
-      this.menu_items_container.appendChild(btn);
-    });
   }
 
   cleanupDialogue() {
