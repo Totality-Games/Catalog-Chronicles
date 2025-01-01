@@ -325,7 +325,38 @@ body {
 
         .journal_inventory, .journal_friends, .journal_achievements, .journal_stats, .journal_settings, .journal_credits{
           display: none;
-        }    
+        }
+        
+        .journal_friends {
+          .friends_container {
+            display: flex;
+            flex-direction: column;
+
+            .friends {
+              display: flex;
+              flex-direction: column;
+              padding: 1rem 0;
+
+              .friend_single {
+                display: flex;
+                flex-direction: column;
+                padding: .4rem 0;
+                border-bottom: 2px solid #662a3a;
+
+                .friend_single_info {
+                  display: flex;
+                  flex-direction: row;
+                  align-items: start;
+                  justify-content: space-between;
+
+                  .npc_image {
+                    width: 50%;
+                  }
+                }
+              }
+            }
+          }
+        }
         
         /* The Close Button */
         .close {

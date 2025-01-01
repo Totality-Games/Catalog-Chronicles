@@ -59,7 +59,7 @@ class UIManager {
 
   /* 
     TITLE MENU
-    ? methods
+    2 methods
   */
   setupTitleMenuUI(engine: Engine, sceneChangeCallback: () => void) {
     this.title_menu.style.display = 'flex';
@@ -305,7 +305,31 @@ class UIManager {
   private createJournalFriends() {
     const journal_friends = document.getElementById('journal_friends')!;
     journal_friends.innerHTML = `
-    <p>Journal Friends</p>
+    <div id="friends_container" class="friends_container">
+      <h2>Journal Friends</h2>
+
+      <div id="friends" class="friends">
+        <div id="friend_single" class="friend_single">
+          <h3>Catherine</h3>
+          <p>Housewife</p>
+          <div id="friend_single_info" class="friend_single_info">
+            <span>
+              <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+            </span>
+            <span>
+              <h4>Friendship</h4>
+              <div class="friendship_meter">
+                <img src="/images/items/heart.png" alt="Friendship Meter" />
+                <img src="/images/items/heart.png" alt="Friendship Meter" />
+                <img src="/images/items/heart.png" alt="Friendship Meter" />
+                <img src="/images/items/heart.png" alt="Friendship Meter" />
+                <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              </div>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
 `;
   }
 
