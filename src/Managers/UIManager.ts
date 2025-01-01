@@ -13,12 +13,11 @@ export enum MENU {
 class UIManager {
   game_state: SCENE_STATE;
   game_container!: HTMLElement;
+  title_menu!: HTMLElement;
   player_info!: HTMLElement;
   library_info!: HTMLElement;
   options!: HTMLElement;
   dialog_container!: HTMLElement;
-  pause_menu!: HTMLElement;
-  menu_window!: HTMLElement;
   playerName: string;
   playerGold: number;
   currentLibraryName: string;
@@ -26,35 +25,6 @@ class UIManager {
   currentLibraryBookCount: number;
   characterToDialogueWith: string | undefined;
   talkingSound: Sound | undefined;
-  menu_items_container!: HTMLElement;
-  current_menu_item = -1;
-  menu_opened = false;
-  menu_items = [
-    // {
-    //   name: TEXT_IN_GAME.MENU_COLLECTABLES,
-    //   value: MENU.COLLECTIVES,
-    // },
-    {
-      name: 'Items',
-      value: MENU.ITEMS,
-    },
-    {
-      name: 'Maps',
-      value: MENU.MAP,
-    },
-    {
-      name: 'Settings',
-      value: MENU.SETTINGS,
-    },
-    {
-      name: 'Close',
-      value: MENU.BACK_MAIN_MENU,
-    },
-    // {
-    //   name: "Exit",
-    //   value: MENU.EXIT,
-    // },
-  ];
   constructor() {
     this.playerName = 'New Player';
     this.playerGold = 999;
@@ -74,17 +44,23 @@ class UIManager {
 
   private linkUIReferences() {
     this.game_container = document.getElementById('game')!;
+    this.title_menu = document.getElementById('title_menu')!;
     this.player_info = document.getElementById('player_info')!;
     this.library_info = document.getElementById('library_info')!;
     this.options = document.getElementById('options')!;
     this.dialog_container = document.getElementById('dialog_container')!;
-    this.pause_menu = document.getElementById('pause_menu')!;
-    this.menu_items_container = document.getElementById(
-      'menu_items_container'
-    )!;
-    this.menu_window = document.getElementById('menu_window')!;
   }
 
+  /* UIManager specific methods */
+  update_state(state: SCENE_STATE) {
+    this.game_container.className = state;
+    this.game_state = state;
+  }
+
+  /* 
+    HUD: PLAYER INFO 
+    3 methods
+  */
   private createPlayerInfoUI() {
     const player_info_container = document.getElementById('player_info')!;
     player_info_container.innerHTML = `
@@ -100,6 +76,28 @@ class UIManager {
     `;
   }
 
+  update_player_name(name: string) {
+    this.playerName = name;
+  }
+
+  updatePlayerGoldInfoUI(goldAmount: number) {
+    this.playerGold = goldAmount;
+
+    const player_gold_span = document.getElementById('player_gold')!;
+    player_gold_span.innerHTML = `
+        <img
+          src="/images/items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        ${this.playerGold}
+    `;
+  }
+
+  /* 
+    HUD: LIBRARY INFO 
+    5 methods  
+  */
   private createLibraryInfoUI() {
     const player_info_container = document.getElementById('library_info')!;
     player_info_container.innerHTML = `
@@ -107,16 +105,110 @@ class UIManager {
     `;
   }
 
-  private createDialogueUI() {
-    const dialog_container = document.getElementById('dialog_container')!;
-    dialog_container.innerHTML = `
-        <div class="avatar"></div>
-            <div class="content">
-            <div class="text"></div>
-        </div>
-        `;
+  update_current_library_info(name: string, gold: number, bookCount: number) {
+    this.currentLibraryName = name;
+    this.currentLibraryGold = gold;
+    this.currentLibraryBookCount = bookCount;
+
+    const current_library_name = this.library_info.querySelector('h3');
+    current_library_name!.innerText = this.currentLibraryName;
+
+    const current_library_gold_span = document.getElementById('library_gold')!;
+    current_library_gold_span.innerHTML = `
+        <img
+          src="/images/items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        ${this.currentLibraryGold}
+    `;
+
+    const current_library_book_span = document.getElementById('library_book')!;
+    current_library_book_span.innerHTML = `
+        <img
+          src="/images/items/book.png"
+          alt="Book Icon"
+          width="32px"
+        />
+        ${this.currentLibraryBookCount}
+    `;
   }
 
+  private create_library_name_form() {
+    const game_container = document.getElementById('game')!;
+    const current_library_name = document.getElementById(
+      'current_library_name'
+    )!;
+
+    game_container.className = SCENE_STATE.INPUT;
+    this.game_state = SCENE_STATE.INPUT;
+
+    function submit_new_library_name(event: Event) {
+      event.preventDefault();
+      const new_library_name_input = document.getElementById(
+        'new_library_name_input'
+      ) as HTMLInputElement;
+
+      const newLibraryName = new_library_name_input?.value;
+
+      current_library_name.innerHTML = `
+        <h3>${newLibraryName}</h3>
+      `;
+
+      return;
+    }
+
+    current_library_name.innerHTML = `
+    <form id="new_name">
+      <input name="library_name" id="new_library_name_input" type="text" placeholder="Rename Your Library" maxlength="20" />
+    </form>
+    `;
+
+    const form = document.getElementById('new_name')!;
+    form?.addEventListener('submit', submit_new_library_name);
+  }
+
+  cleanupLibraryInfoUI() {
+    const library_info_container = document.getElementById('library_info')!;
+    library_info_container.innerHTML = ``;
+  }
+
+  displayLibraryInfoUI() {
+    const library_info_container = document.getElementById('library_info')!;
+    library_info_container.innerHTML = `
+      <div id="current_library_name">
+        <h3>${this.currentLibraryName}</h3>
+      </div>
+      <span class="library_gold" id="library_gold">
+        <img
+          src="/images/items/gold.png"
+          alt="Gold Icon"
+          width="32px"
+        />
+        ${this.currentLibraryGold} 
+      </span>
+      <span class="library_book" id="library_book">
+        <img
+          src="/images/items/book.png"
+          alt="Book Icon"
+          width="32px"
+        />
+        ${this.currentLibraryBookCount}
+      </span>
+    `;
+
+    const current_library_name = library_info_container.querySelector('h3')!;
+
+    current_library_name.addEventListener(
+      'click',
+      this.create_library_name_form
+    );
+  }
+
+  /* 
+    HUD: PLAYER JOURNAL 
+    16 methods
+  */
   private createPlayerJournal() {
     const options = document.getElementById('options')!;
     options.innerHTML = `
@@ -593,6 +685,20 @@ class UIManager {
     };
   }
 
+  /* 
+    DIALOGUE UI
+    4 methods 
+  */
+  private createDialogueUI() {
+    const dialog_container = document.getElementById('dialog_container')!;
+    dialog_container.innerHTML = `
+        <div class="avatar"></div>
+            <div class="content">
+            <div class="text"></div>
+        </div>
+        `;
+  }
+
   cleanupDialogue() {
     const text_container = this.dialog_container.querySelector(
       '.text'
@@ -637,129 +743,6 @@ class UIManager {
   dialogNPC(character?: string, talkingSound?: Sound) {
     this.characterToDialogueWith = character;
     this.talkingSound = talkingSound;
-  }
-
-  update_state(state: SCENE_STATE) {
-    this.game_container.className = state;
-    this.game_state = state;
-  }
-
-  update_player_name(name: string) {
-    this.playerName = name;
-  }
-
-  update_current_library_info(name: string, gold: number, bookCount: number) {
-    this.currentLibraryName = name;
-    this.currentLibraryGold = gold;
-    this.currentLibraryBookCount = bookCount;
-
-    const current_library_name = this.library_info.querySelector('h3');
-    current_library_name!.innerText = this.currentLibraryName;
-
-    const current_library_gold_span = document.getElementById('library_gold')!;
-    current_library_gold_span.innerHTML = `
-        <img
-          src="/images/items/gold.png"
-          alt="Gold Icon"
-          width="32px"
-        />
-        ${this.currentLibraryGold}
-    `;
-
-    const current_library_book_span = document.getElementById('library_book')!;
-    current_library_book_span.innerHTML = `
-        <img
-          src="/images/items/book.png"
-          alt="Book Icon"
-          width="32px"
-        />
-        ${this.currentLibraryBookCount}
-    `;
-  }
-
-  private create_library_name_form() {
-    const game_container = document.getElementById('game')!;
-    const current_library_name = document.getElementById(
-      'current_library_name'
-    )!;
-
-    game_container.className = SCENE_STATE.INPUT;
-    this.game_state = SCENE_STATE.INPUT;
-
-    function submit_new_library_name(event: Event) {
-      event.preventDefault();
-      const new_library_name_input = document.getElementById(
-        'new_library_name_input'
-      ) as HTMLInputElement;
-
-      const newLibraryName = new_library_name_input?.value;
-
-      current_library_name.innerHTML = `
-        <h3>${newLibraryName}</h3>
-      `;
-
-      return;
-    }
-
-    current_library_name.innerHTML = `
-    <form id="new_name">
-      <input name="library_name" id="new_library_name_input" type="text" placeholder="Rename Your Library" maxlength="20" />
-    </form>
-    `;
-
-    const form = document.getElementById('new_name')!;
-    form?.addEventListener('submit', submit_new_library_name);
-  }
-
-  updatePlayerGoldInfoUI(goldAmount: number) {
-    this.playerGold = goldAmount;
-
-    const player_gold_span = document.getElementById('player_gold')!;
-    player_gold_span.innerHTML = `
-        <img
-          src="/images/items/gold.png"
-          alt="Gold Icon"
-          width="32px"
-        />
-        ${this.playerGold}
-    `;
-  }
-
-  cleanupLibraryInfoUI() {
-    const library_info_container = document.getElementById('library_info')!;
-    library_info_container.innerHTML = ``;
-  }
-
-  displayLibraryInfoUI() {
-    const library_info_container = document.getElementById('library_info')!;
-    library_info_container.innerHTML = `
-      <div id="current_library_name">
-        <h3>${this.currentLibraryName}</h3>
-      </div>
-      <span class="library_gold" id="library_gold">
-        <img
-          src="/images/items/gold.png"
-          alt="Gold Icon"
-          width="32px"
-        />
-        ${this.currentLibraryGold} 
-      </span>
-      <span class="library_book" id="library_book">
-        <img
-          src="/images/items/book.png"
-          alt="Book Icon"
-          width="32px"
-        />
-        ${this.currentLibraryBookCount}
-      </span>
-    `;
-
-    const current_library_name = library_info_container.querySelector('h3')!;
-
-    current_library_name.addEventListener(
-      'click',
-      this.create_library_name_form
-    );
   }
 }
 

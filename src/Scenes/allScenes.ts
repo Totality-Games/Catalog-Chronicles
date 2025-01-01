@@ -9,7 +9,7 @@ import {
   library1SceneLoader,
 } from './City1/Interiors/Library1/Scene';
 import { city1Scene, City1SceneLoader } from './City1/Scene';
-import { startScreen, startScreenLoader } from './MainMenu/Scene';
+import { startScreen, startScreenLoader } from './TitleMenu/Scene';
 import { uiManager } from '../Managers/UIManager';
 
 export const allScenes = {

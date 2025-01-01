@@ -220,7 +220,8 @@ body {
           background-color: #feedd5;
           color: #662a3a;
           margin: 5% auto; /* 15% from the top and centered */
-          border: 1px solid #888;
+          border: 1px solid #662a3a;
+          border-radius: 3%;
           width: 50%; /* Could be more or less, depending on screen size */
           min-height: 80vh;
           max-height: 80vh;
@@ -237,7 +238,7 @@ body {
           justify-content: space-around;
           flex-wrap: nowrap;
           align-items: center;
-          width: 49.8%;
+          width: 49.9%;
           padding: 0 .5rem;
           position: fixed;
           border-bottom: 2px solid #662a3a;
