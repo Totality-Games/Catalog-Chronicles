@@ -1,4 +1,4 @@
-import { Sound } from 'excalibur';
+import { Engine, Sound } from 'excalibur';
 import { Dialogues, SCENE_STATE } from '../constants';
 
 export enum MENU {
@@ -61,13 +61,33 @@ class UIManager {
     TITLE MENU
     ? methods
   */
-  setupTitleMenuUI() {
+  setupTitleMenuUI(engine: Engine, sceneChangeCallback: () => void) {
+    this.title_menu.style.display = 'flex';
+    this.title_menu.style.alignItems = 'center';
+    this.title_menu.style.justifyContent = 'center';
     this.title_menu.innerHTML = `
-    <p>TESTING</p>
+    <div id="title_container" class="title_container">
+      <span>
+        <h1 id="game_title" class="game_title"><span>Cat</span>alog Chronicles</h1>
+        <p>a cozy library game</p>
+      </span>
+
+      <div id="title_menu_list" class="title_menu_list">
+          <span id="play_game">Play Game</span>
+      </div>
+    </div>
     `;
+
+    const play_game_span = document.getElementById('play_game')!;
+
+    play_game_span.onclick = function () {
+      sceneChangeCallback();
+      engine.goToScene('city1');
+    };
   }
 
   cleanupTitleMenuUI() {
+    this.title_menu.style.display = 'none';
     this.title_menu.innerHTML = ``;
   }
 

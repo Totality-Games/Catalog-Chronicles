@@ -33,7 +33,10 @@ export class StartScreen extends Scene {
   override onInitialize(engine: Engine): void {
     this.game_container = document.getElementById('game')!;
     uiManager.update_state(SCENE_STATE.MENU);
-    uiManager.setupTitleMenuUI();
+    uiManager.setupTitleMenuUI(engine, () => {
+      musicManager.stopMusic();
+      uiManager.cleanupTitleMenuUI();
+    });
 
     this.engine = engine;
 
@@ -41,28 +44,28 @@ export class StartScreen extends Scene {
     //   musicManager.stopMusic();
     //   this.engine.goToScene('ironClawExterior');
     // });
-    this.input.keyboard.on('press', () => {
-      musicManager.stopMusic();
-      uiManager.cleanupTitleMenuUI();
-      uiManager.update_state(SCENE_STATE.LOADING);
-      this.engine.goToScene('city1');
-    });
+    // this.input.keyboard.on('press', () => {
+    //   musicManager.stopMusic();
+    //   uiManager.cleanupTitleMenuUI();
+    //   uiManager.update_state(SCENE_STATE.LOADING);
+    //   this.engine.goToScene('city1');
+    // });
 
     // this.add(new Cloud(vec(800, 0), MainMenuResources.Cloud6Png));
     // this.add(new Cloud(vec(400, 200), MainMenuResources.Cloud3Png));
     // this.add(new Cloud(vec(700, 100), MainMenuResources.Cloud2Png));
 
-    this.background = new Actor({
-      name: 'background',
-      pos: vec(130, 130),
-      coordPlane: CoordPlane.Screen,
-      z: -10,
-    });
-    this.bgsprite = MainMenuResources.BackgroundPng.toSprite();
-    this.background.graphics.use(this.bgsprite);
-    this.background.scale = vec(0.6, 0.6);
+    // this.background = new Actor({
+    //   name: 'background',
+    //   pos: vec(130, 130),
+    //   coordPlane: CoordPlane.Screen,
+    //   z: -10,
+    // });
+    // this.bgsprite = MainMenuResources.BackgroundPng.toSprite();
+    // this.background.graphics.use(this.bgsprite);
+    // this.background.scale = vec(0.6, 0.6);
 
-    this.add(this.background);
+    // this.add(this.background);
 
     // this.title = new Actor({
     //   name: 'title',
