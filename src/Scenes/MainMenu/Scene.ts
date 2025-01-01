@@ -40,11 +40,11 @@ export class StartScreen extends Scene {
     //   musicManager.stopMusic();
     //   this.engine.goToScene('ironClawExterior');
     // });
-    this.input.keyboard.on('press', () => {
-      musicManager.stopMusic();
-      uiManager.update_state(SCENE_STATE.LOADING);
-      this.engine.goToScene('city1');
-    });
+    // this.input.keyboard.on('press', () => {
+    //   musicManager.stopMusic();
+    //   uiManager.update_state(SCENE_STATE.LOADING);
+    //   this.engine.goToScene('city1');
+    // });
 
     // this.add(new Cloud(vec(800, 0), MainMenuResources.Cloud6Png));
     // this.add(new Cloud(vec(400, 200), MainMenuResources.Cloud3Png));
@@ -52,12 +52,13 @@ export class StartScreen extends Scene {
 
     this.background = new Actor({
       name: 'background',
-      pos: vec(0, 0),
+      pos: vec(130, 130),
       coordPlane: CoordPlane.Screen,
       z: -10,
     });
     this.bgsprite = MainMenuResources.BackgroundPng.toSprite();
     this.background.graphics.use(this.bgsprite);
+    this.background.scale = vec(0.6, 0.6);
 
     this.add(this.background);
 
