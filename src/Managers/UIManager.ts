@@ -735,7 +735,74 @@ class UIManager {
       'friend_single_city1_victor'
     )!;
     friend_single_city1_andrew.onclick = function () {
-      friend_single_city1_andrew_info.innerHTML = `testing`;
+      friend_single_city1_andrew_info.innerHTML = `
+        <div class="friend_single_andrew_details">
+          <h3>Andrew of Helena</h3>
+          <h5>Occupation: Farmer</h5>
+          <div class="friend_single_andrew_info">
+            <span>
+              <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+            </span>
+            <span class="friend_stats">
+              <span>
+                <h4>Friendship</h4>
+                <span class="friendship_meter">
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                </span>
+              </span>
+              <span>
+                <h4>Literacy</h4>
+                <span class="literacy_meter">
+                  <img src="/images/items/book32.png" alt="Literacy Meter" />
+                </span>
+              </span>
+            </span>
+          </div>
+            <p><b>Currently Reading:</b> Lord of the Rings: Fellowship of the Ring
+              <br />
+              <b>Current Books Checked Out:</b> Lord of the Rings: Fellowship of the Ring
+            </p>
+
+            <table>
+              <thead>
+                <td>Favorite Books:</td>
+                <td>Favorite Genres:</td>
+                <td>Activities:</td>
+              </thead>
+              <tbody>
+                <tr>
+                <td>Lord of the Rings: Fellowship of the Ring</td>
+                <td>???</td>
+                <td>Farming</td>
+                </tr>
+                <tr>
+                <td>???</td>
+                <td>???</td>
+                <td>Chopping Wood</td>
+                </tr>
+                <tr>
+                <td>???</td>
+                <td>???</td>
+                <td>Fighting Monsters</td>
+                </tr>
+                <tr>
+                <td>???</td>
+                <td></td>
+                <td></td>
+                </tr>
+                <tr>
+                <td>???</td>
+                <td></td>
+                <td></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+`;
 
       const see_all_friends = document.getElementById('see_all_friends')!;
       see_all_friends.style.display = 'block';
