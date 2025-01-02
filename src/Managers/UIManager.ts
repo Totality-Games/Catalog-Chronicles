@@ -312,6 +312,7 @@ class UIManager {
           width="48px"
           height="48px"
           id="journal_img"
+          class="journal_img"
         />
         <div class="journal_modal" id="journal_modal">
           <div class="modal-content">
@@ -364,12 +365,14 @@ class UIManager {
 
   private createJournalFriends() {
     const journal_friends = document.getElementById('journal_friends')!;
-    journal_friends.innerHTML = `
+    const journal_friends_default = `
       <div id="friends_container" class="friends_container">
-        <h2>Journal Friends</h2>
-  
+        <div class="friends_header">
+          <h2>Journal Friends</h2>
+          <span id="see_all_friends" class="see_all_friends">See All Friends</span>
+        </div>
         <div id="friends" class="friends">
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_andrew" class="friend_single">
             <h3>Andrew</h3>
             <p>Farmer</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -388,7 +391,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_catherine" class="friend_single">
             <h3>Catherine</h3>
             <p>Housewife</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -407,7 +410,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_jibblet" class="friend_single">
             <h3>Jibblet</h3>
             <p>Herbalist</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -426,7 +429,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_jonathan" class="friend_single">
             <h3>Jonathan</h3>
             <p>Bard</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -445,7 +448,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_jt" class="friend_single">
             <h3>JT</h3>
             <p>Chicken Trainer</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -464,7 +467,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_karath" class="friend_single">
             <h3>Karath</h3>
             <p>Student</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -483,7 +486,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_matty" class="friend_single">
             <h3>Matty</h3>
             <p>Teacher</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -502,7 +505,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_moses" class="friend_single">
             <h3>Moses</h3>
             <p>Adventurer</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -521,7 +524,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_nektarios" class="friend_single">
             <h3>Nektarios</h3>
             <p>Rare Book Merchant</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -540,7 +543,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_newberry" class="friend_single">
             <h3>Newberry</h3>
             <p>Fisherman</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -559,7 +562,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_orpheus" class="friend_single">
             <h3>Orpheus</h3>
             <p>Farmer</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -578,7 +581,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_ryan" class="friend_single">
             <h3>Ryan</h3>
             <p>Musician</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -597,7 +600,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_tanner" class="friend_single">
             <h3>Tanner</h3>
             <p>Financial Analyst</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -616,7 +619,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_tsubaki" class="friend_single">
             <h3>Tsubaki</h3>
             <p>Samurai</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -635,7 +638,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_tsuki" class="friend_single">
             <h3>Tsuki</h3>
             <p>Spinner</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -654,7 +657,7 @@ class UIManager {
               </span>
             </div>
           </div>
-          <div id="friend_single" class="friend_single">
+          <div id="friend_single_city1_victor" class="friend_single">
             <h3>Victor</h3>
             <p>Priest</p>
             <div id="friend_single_info" class="friend_single_info">
@@ -675,7 +678,26 @@ class UIManager {
           </div>
         </div>
       </div>
+      <div id="friend_single_city1_andrew_info" class="friend_single_city1_andrew_info"></div>
   `;
+
+    journal_friends.innerHTML = journal_friends_default;
+    const see_all_friends = document.getElementById('see_all_friends')!;
+
+    const friend_single_city1_andrew = document.getElementById(
+      'friend_single_city1_andrew'
+    )!;
+    friend_single_city1_andrew.onclick = function () {
+      const journal_friends_andrew_bio = ``;
+
+      const see_all_friends = document.getElementById('see_all_friends')!;
+      see_all_friends.style.display = 'block';
+      // journal_friends.innerHTML = journal_friends_andrew_bio;
+    };
+
+    see_all_friends.onclick = function () {
+      see_all_friends.style.display = 'none';
+    };
   }
 
   private createJournalAchievements() {

@@ -251,6 +251,10 @@ body {
         align-items: center;
         gap: .5rem;
 
+        .journal_img {
+          cursor: pointer;
+        }
+
         .journal_modal {
           display: none; /* Hidden by default */
           position: fixed; /* Stay in place */
@@ -332,12 +336,25 @@ body {
             display: flex;
             flex-direction: column;
 
+            .friends_header {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+            }
+
+            .see_all_friends {
+              cursor: pointer;
+              display: none;
+            }
+
             .friends {
               display: flex;
               flex-direction: column;
               padding: 1rem 0;
 
               .friend_single {
+                cursor: pointer;
                 display: flex;
                 flex-direction: column;
                 padding: .4rem 0;
