@@ -952,7 +952,9 @@ class UIManager {
   private createJournalCredits() {
     const journal_credits = document.getElementById('journal_credits')!;
     journal_credits.innerHTML = `
-      <p>Journal Credits</p>
+      <a href="https://totality.games" target="_blank">
+        <img src="/images/tgames-long-logo.png" alt="totality.games" class="credits_logo" />
+      </a>
   `;
   }
 
