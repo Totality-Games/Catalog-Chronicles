@@ -374,8 +374,7 @@ body {
             }
           }
 
-          .friend_single_city1_andrew_info {
-            .friend_single_andrew_details {
+            .friend_single_details {
               display: flex;
               flex-direction: column;
 
@@ -440,7 +439,7 @@ body {
                 }
               }
             }
-          }
+          
         }
         
         /* The Close Button */

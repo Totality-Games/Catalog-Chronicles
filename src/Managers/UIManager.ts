@@ -679,11 +679,74 @@ class UIManager {
         </div>
       </div>
       <div id="friend_single_city1_andrew_info" class="friend_single_city1_andrew_info"></div>
+      <div id="friend_single_city1_catherine_info" class="friend_single_city1_catherine_info"></div>
+      <div id="friend_single_city1_jibblet_info" class="friend_single_city1_jibblet_info"></div>
+      <div id="friend_single_city1_jonathan_info" class="friend_single_city1_jonathan_info"></div>
+      <div id="friend_single_city1_jt_info" class="friend_single_city1_jt_info"></div>
+      <div id="friend_single_city1_karath_info" class="friend_single_city1_karath_info"></div>
+      <div id="friend_single_city1_matty_info" class="friend_single_city1_matty_info"></div>
+      <div id="friend_single_city1_moses_info" class="friend_single_city1_moses_info"></div>
+      <div id="friend_single_city1_nektarios_info" class="friend_single_city1_nektarios_info"></div>
+      <div id="friend_single_city1_newberry_info" class="friend_single_city1_newberry_info"></div>
+      <div id="friend_single_city1_orpheus_info" class="friend_single_city1_orpheus_info"></div>
+      <div id="friend_single_city1_ryan_info" class="friend_single_city1_ryan_info"></div>
+      <div id="friend_single_city1_tanner_info" class="friend_single_city1_tanner_info"></div>
+      <div id="friend_single_city1_tsubaki_info" class="friend_single_city1_tsubaki_info"></div>
+      <div id="friend_single_city1_tsuki_info" class="friend_single_city1_tsuki_info"></div>
+      <div id="friend_single_city1_victor_info" class="friend_single_city1_victor_info"></div>
   `;
 
+    /*
+      Grab all NPC info divs to fill if Player clicks on NPC row
+    */
     const see_all_friends = document.getElementById('see_all_friends')!;
     const friend_single_city1_andrew_info = document.getElementById(
       'friend_single_city1_andrew_info'
+    )!;
+    const friend_single_city1_catherine_info = document.getElementById(
+      'friend_single_city1_catherine_info'
+    )!;
+    const friend_single_city1_jibblet_info = document.getElementById(
+      'friend_single_city1_jibblet_info'
+    )!;
+    const friend_single_city1_jonathan_info = document.getElementById(
+      'friend_single_city1_jonathan_info'
+    )!;
+    const friend_single_city1_jt_info = document.getElementById(
+      'friend_single_city1_jt_info'
+    )!;
+    const friend_single_city1_karath_info = document.getElementById(
+      'friend_single_city1_karath_info'
+    )!;
+    const friend_single_city1_matty_info = document.getElementById(
+      'friend_single_city1_matty_info'
+    )!;
+    const friend_single_city1_moses_info = document.getElementById(
+      'friend_single_city1_moses_info'
+    )!;
+    const friend_single_city1_nektarios_info = document.getElementById(
+      'friend_single_city1_nektarios_info'
+    )!;
+    const friend_single_city1_newberry_info = document.getElementById(
+      'friend_single_city1_newberry_info'
+    )!;
+    const friend_single_city1_orpheus_info = document.getElementById(
+      'friend_single_city1_orpheus_info'
+    )!;
+    const friend_single_city1_ryan_info = document.getElementById(
+      'friend_single_city1_ryan_info'
+    )!;
+    const friend_single_city1_tanner_info = document.getElementById(
+      'friend_single_city1_tanner_info'
+    )!;
+    const friend_single_city1_tsubaki_info = document.getElementById(
+      'friend_single_city1_tsubaki_info'
+    )!;
+    const friend_single_city1_tsuki_info = document.getElementById(
+      'friend_single_city1_tsuki_info'
+    )!;
+    const friend_single_city1_victor_info = document.getElementById(
+      'friend_single_city1_victor_info'
     )!;
 
     const friend_single_city1_andrew = document.getElementById(
@@ -734,37 +797,140 @@ class UIManager {
     const friend_single_city1_victor = document.getElementById(
       'friend_single_city1_victor'
     )!;
-    friend_single_city1_andrew.onclick = function () {
-      friend_single_city1_andrew_info.innerHTML = `
-        <div class="friend_single_andrew_details">
-          <h3>Andrew of Helena</h3>
-          <h5>Occupation: Farmer</h5>
-          <div class="friend_single_andrew_info">
+
+    function friendDetails(
+      name: string,
+      occupation: string,
+      imgSrc: string,
+      friendship: number,
+      literacy: number,
+      currentlyReading: string,
+      currentlyCheckedOut: string[]
+    ) {
+      function friendshipMeter(friendship: number) {
+        switch (friendship) {
+          case 0:
+            return `
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            `;
+          case 1:
+            return `
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            `;
+          case 2:
+            return `
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            `;
+          case 3:
+            return `
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            `;
+          case 4:
+            return `
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            `;
+          case 5:
+            return `
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+              <img src="/images/items/heart.png" alt="Friendship Meter" />
+            `;
+          default:
+            break;
+        }
+      }
+      function literacyMeter(literacy: number) {
+        switch (literacy) {
+          case 0:
+            return `
+            `;
+          case 1:
+            return `
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+            `;
+          case 2:
+            return `
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+            `;
+          case 3:
+            return `
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+            `;
+          case 4:
+            return `
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+            `;
+          case 5:
+            return `
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+              <img src="/images/items/book32.png" alt="Literacy Meter" />
+            `;
+          default:
+            break;
+        }
+      }
+      return `
+        <div class="friend_single_details">
+          <h3>${name}</h3>
+          <h5>Occupation: ${occupation}</h5>
+          <div class="friend_single_info">
             <span>
-              <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
+              <img src="${imgSrc}" alt="${name}" class="npc_image" />
             </span>
             <span class="friend_stats">
               <span>
                 <h4>Friendship</h4>
                 <span class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+                  ${friendshipMeter(friendship)}
                 </span>
               </span>
               <span>
                 <h4>Literacy</h4>
                 <span class="literacy_meter">
-                  <img src="/images/items/book32.png" alt="Literacy Meter" />
+                ${literacyMeter(literacy)}
                 </span>
               </span>
             </span>
           </div>
-            <p><b>Currently Reading:</b> Lord of the Rings: Fellowship of the Ring
+            <p><b>Currently Reading:</b> ${currentlyReading}
               <br />
-              <b>Current Books Checked Out:</b> Lord of the Rings: Fellowship of the Ring
+              <b>Current Books Checked Out:</b> ${currentlyCheckedOut.map(
+                (b, i) => {
+                  if (i === currentlyCheckedOut.length - 1) return `${b}`;
+                  return `${b},`;
+                }
+              )}
             </p>
 
             <table>
@@ -801,8 +967,53 @@ class UIManager {
                 </tr>
               </tbody>
             </table>
-        </div>
-`;
+        </div>      
+      `;
+    }
+
+    /*
+      NPC row onclick functions
+    */
+    friend_single_city1_andrew.onclick = function () {
+      friend_single_city1_andrew_info.innerHTML = friendDetails(
+        'Andrew of Helena',
+        'Farmer',
+        '/images/npcs/city1/catherine.png',
+        0,
+        1,
+        'Lord of the Rings: Fellowship of the Ring',
+        ['Lord of the Rings: Fellowship of the Ring']
+      );
+
+      const see_all_friends = document.getElementById('see_all_friends')!;
+      see_all_friends.style.display = 'block';
+      friend_single_city1_andrew.style.display = 'none';
+      friend_single_city1_catherine.style.display = 'none';
+      friend_single_city1_jibblet.style.display = 'none';
+      friend_single_city1_jonathan.style.display = 'none';
+      friend_single_city1_jt.style.display = 'none';
+      friend_single_city1_karath.style.display = 'none';
+      friend_single_city1_matty.style.display = 'none';
+      friend_single_city1_moses.style.display = 'none';
+      friend_single_city1_nektarios.style.display = 'none';
+      friend_single_city1_newberry.style.display = 'none';
+      friend_single_city1_orpheus.style.display = 'none';
+      friend_single_city1_ryan.style.display = 'none';
+      friend_single_city1_tanner.style.display = 'none';
+      friend_single_city1_tsubaki.style.display = 'none';
+      friend_single_city1_tsuki.style.display = 'none';
+      friend_single_city1_victor.style.display = 'none';
+    };
+    friend_single_city1_catherine.onclick = function () {
+      friend_single_city1_catherine_info.innerHTML = friendDetails(
+        'Catherine',
+        'Housewife',
+        '/images/npcs/city1/catherine.png',
+        4,
+        5,
+        'The Hobbit',
+        []
+      );
 
       const see_all_friends = document.getElementById('see_all_friends')!;
       see_all_friends.style.display = 'block';
@@ -826,6 +1037,7 @@ class UIManager {
 
     see_all_friends.onclick = function () {
       see_all_friends.style.display = 'none';
+      // display all NPC rows
       friend_single_city1_andrew.style.display = 'block';
       friend_single_city1_catherine.style.display = 'block';
       friend_single_city1_jibblet.style.display = 'block';
@@ -842,7 +1054,23 @@ class UIManager {
       friend_single_city1_tsubaki.style.display = 'block';
       friend_single_city1_tsuki.style.display = 'block';
       friend_single_city1_victor.style.display = 'block';
+      // remove NPC info page
       friend_single_city1_andrew_info.innerHTML = ``;
+      friend_single_city1_catherine_info.innerHTML = ``;
+      friend_single_city1_jibblet_info.innerHTML = ``;
+      friend_single_city1_jonathan_info.innerHTML = ``;
+      friend_single_city1_jt_info.innerHTML = ``;
+      friend_single_city1_karath_info.innerHTML = ``;
+      friend_single_city1_matty_info.innerHTML = ``;
+      friend_single_city1_moses_info.innerHTML = ``;
+      friend_single_city1_nektarios_info.innerHTML = ``;
+      friend_single_city1_newberry_info.innerHTML = ``;
+      friend_single_city1_orpheus_info.innerHTML = ``;
+      friend_single_city1_ryan_info.innerHTML = ``;
+      friend_single_city1_tanner_info.innerHTML = ``;
+      friend_single_city1_tsubaki_info.innerHTML = ``;
+      friend_single_city1_tsuki_info.innerHTML = ``;
+      friend_single_city1_victor_info.innerHTML = ``;
     };
   }
 
