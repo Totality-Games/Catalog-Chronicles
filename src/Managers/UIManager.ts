@@ -364,6 +364,127 @@ class UIManager {
   }
 
   private createJournalFriends() {
+    function friendshipMeter(friendship: number) {
+      switch (friendship) {
+        case 0:
+          return `
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+          `;
+        case 1:
+          return `
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+          `;
+        case 2:
+          return `
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+          `;
+        case 3:
+          return `
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+          `;
+        case 4:
+          return `
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
+          `;
+        case 5:
+          return `
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+            <img src="/images/items/heart.png" alt="Friendship Meter" />
+          `;
+        default:
+          break;
+      }
+    }
+    function literacyMeter(literacy: number) {
+      switch (literacy) {
+        case 0:
+          return `
+          `;
+        case 1:
+          return `
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+          `;
+        case 2:
+          return `
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+          `;
+        case 3:
+          return `
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+          `;
+        case 4:
+          return `
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+          `;
+        case 5:
+          return `
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+            <img src="/images/items/book32.png" alt="Literacy Meter" />
+          `;
+        default:
+          break;
+      }
+    }
+    function friendsRow(
+      name: string,
+      occupation: string,
+      imgSrc: string,
+      friendship: number
+    ) {
+      return `
+          <div id="friend_single_city1_${name.toLowerCase()}" class="friend_single">
+            <h3>${name}</h3>
+            <p>${occupation}</p>
+            <div id="friend_single_info" class="friend_single_info">
+              <span>
+                <img src="${imgSrc}" alt="${name}" class="npc_image" />
+              </span>
+              <span>
+                <h4>Friendship</h4>
+                <span class="friend_stats">
+                  <span>
+                    <span class="friendship_meter">
+                      ${friendshipMeter(friendship)}
+                    </span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+`;
+    }
     const journal_friends = document.getElementById('journal_friends')!;
     journal_friends.innerHTML = `
       <div id="friends_container" class="friends_container">
@@ -372,310 +493,102 @@ class UIManager {
           <span id="see_all_friends" class="see_all_friends">See All Friends</span>
         </div>
         <div id="friends" class="friends">
-          <div id="friend_single_city1_andrew" class="friend_single">
-            <h3>Andrew</h3>
-            <p>Farmer</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_catherine" class="friend_single">
-            <h3>Catherine</h3>
-            <p>Housewife</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_jibblet" class="friend_single">
-            <h3>Jibblet</h3>
-            <p>Herbalist</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_jonathan" class="friend_single">
-            <h3>Jonathan</h3>
-            <p>Bard</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_jt" class="friend_single">
-            <h3>JT</h3>
-            <p>Chicken Trainer</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_karath" class="friend_single">
-            <h3>Karath</h3>
-            <p>Student</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_matty" class="friend_single">
-            <h3>Matty</h3>
-            <p>Teacher</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_moses" class="friend_single">
-            <h3>Moses</h3>
-            <p>Adventurer</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_nektarios" class="friend_single">
-            <h3>Nektarios</h3>
-            <p>Rare Book Merchant</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_newberry" class="friend_single">
-            <h3>Newberry</h3>
-            <p>Fisherman</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_orpheus" class="friend_single">
-            <h3>Orpheus</h3>
-            <p>Farmer</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_ryan" class="friend_single">
-            <h3>Ryan</h3>
-            <p>Musician</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_tanner" class="friend_single">
-            <h3>Tanner</h3>
-            <p>Financial Analyst</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_tsubaki" class="friend_single">
-            <h3>Tsubaki</h3>
-            <p>Samurai</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_tsuki" class="friend_single">
-            <h3>Tsuki</h3>
-            <p>Spinner</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
-          <div id="friend_single_city1_victor" class="friend_single">
-            <h3>Victor</h3>
-            <p>Priest</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="/images/npcs/city1/catherine.png" alt="Catherine" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <div class="friendship_meter">
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                  <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-                </div>
-              </span>
-            </div>
-          </div>
+          ${friendsRow(
+            'Andrew',
+            'Farmer',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Catherine',
+            'Housewife',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Jibblet',
+            'Herbalist',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Jonathan',
+            'Bard',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'JT',
+            'Chicken Trainer',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Karath',
+            'Student',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Matty',
+            'Teacher',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Moses',
+            'Adventurer',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Nektarios',
+            'Rare Book Merchant',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Newberry',
+            'Fisherman',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Orpheus',
+            'Farmer',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Ryan',
+            'Musician',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Tanner',
+            'Financial Analyst',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Tsubaki',
+            'Samurai',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Tsuki',
+            'Spinner',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
+          ${friendsRow(
+            'Victor',
+            'Priest',
+            '/images/npcs/city1/catherine.png',
+            0
+          )}
         </div>
       </div>
       <div id="friend_single_city1_andrew_info" class="friend_single_city1_andrew_info"></div>
@@ -807,99 +720,6 @@ class UIManager {
       currentlyReading: string,
       currentlyCheckedOut: string[]
     ) {
-      function friendshipMeter(friendship: number) {
-        switch (friendship) {
-          case 0:
-            return `
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            `;
-          case 1:
-            return `
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            `;
-          case 2:
-            return `
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            `;
-          case 3:
-            return `
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            `;
-          case 4:
-            return `
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            `;
-          case 5:
-            return `
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-              <img src="/images/items/heart.png" alt="Friendship Meter" />
-            `;
-          default:
-            break;
-        }
-      }
-      function literacyMeter(literacy: number) {
-        switch (literacy) {
-          case 0:
-            return `
-            `;
-          case 1:
-            return `
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-            `;
-          case 2:
-            return `
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-            `;
-          case 3:
-            return `
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-            `;
-          case 4:
-            return `
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-            `;
-          case 5:
-            return `
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-              <img src="/images/items/book32.png" alt="Literacy Meter" />
-            `;
-          default:
-            break;
-        }
-      }
       return `
         <div class="friend_single_details">
           <h3>${name}</h3>
