@@ -925,12 +925,12 @@ class UIManager {
           </div>
             <p><b>Currently Reading:</b> ${currentlyReading}
               <br />
-              <b>Current Books Checked Out:</b> ${currentlyCheckedOut.map(
-                (b, i) => {
+              <b>Current Books Checked Out:</b> ${currentlyCheckedOut
+                .map((b, i) => {
                   if (i === currentlyCheckedOut.length - 1) return `${b}`;
-                  return `${b},`;
-                }
-              )}
+                  return `${b}, `;
+                })
+                .join('')}
             </p>
 
             <table>
@@ -973,6 +973,8 @@ class UIManager {
 
     /*
       NPC row onclick functions
+      TODO: Add the other 13 NPC detail pages
+      TODO: Use real data from server
     */
     friend_single_city1_andrew.onclick = function () {
       friend_single_city1_andrew_info.innerHTML = friendDetails(
@@ -1013,6 +1015,36 @@ class UIManager {
         5,
         'The Hobbit',
         []
+      );
+
+      const see_all_friends = document.getElementById('see_all_friends')!;
+      see_all_friends.style.display = 'block';
+      friend_single_city1_andrew.style.display = 'none';
+      friend_single_city1_catherine.style.display = 'none';
+      friend_single_city1_jibblet.style.display = 'none';
+      friend_single_city1_jonathan.style.display = 'none';
+      friend_single_city1_jt.style.display = 'none';
+      friend_single_city1_karath.style.display = 'none';
+      friend_single_city1_matty.style.display = 'none';
+      friend_single_city1_moses.style.display = 'none';
+      friend_single_city1_nektarios.style.display = 'none';
+      friend_single_city1_newberry.style.display = 'none';
+      friend_single_city1_orpheus.style.display = 'none';
+      friend_single_city1_ryan.style.display = 'none';
+      friend_single_city1_tanner.style.display = 'none';
+      friend_single_city1_tsubaki.style.display = 'none';
+      friend_single_city1_tsuki.style.display = 'none';
+      friend_single_city1_victor.style.display = 'none';
+    };
+    friend_single_city1_jibblet.onclick = function () {
+      friend_single_city1_jibblet_info.innerHTML = friendDetails(
+        'Jibblét',
+        'Herbalist',
+        '/images/npcs/city1/catherine.png',
+        1,
+        2,
+        `Gunnar's Daughter`,
+        [`Gunnar's Daughter`, `The Silmarrilion`]
       );
 
       const see_all_friends = document.getElementById('see_all_friends')!;
