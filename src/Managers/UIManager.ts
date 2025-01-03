@@ -364,6 +364,7 @@ class UIManager {
   }
 
   private createJournalFriends() {
+    // 3 helper functions
     function friendshipMeter(friendship: number) {
       switch (friendship) {
         case 0:
@@ -485,6 +486,8 @@ class UIManager {
           </div>
 `;
     }
+
+    // create friends rows
     const journal_friends = document.getElementById('journal_friends')!;
     journal_friends.innerHTML = `
       <div id="friends_container" class="friends_container">
@@ -497,31 +500,31 @@ class UIManager {
             'Andrew',
             'Farmer',
             '/images/npcs/city1/catherine.png',
-            0
+            1
           )}
           ${friendsRow(
             'Catherine',
             'Housewife',
             '/images/npcs/city1/catherine.png',
-            0
+            4
           )}
           ${friendsRow(
             'Jibblet',
             'Herbalist',
             '/images/npcs/city1/catherine.png',
-            0
+            3
           )}
           ${friendsRow(
             'Jonathan',
             'Bard',
             '/images/npcs/city1/catherine.png',
-            0
+            2
           )}
           ${friendsRow(
             'JT',
             'Chicken Trainer',
             '/images/npcs/city1/catherine.png',
-            0
+            2
           )}
           ${friendsRow(
             'Karath',
@@ -533,25 +536,25 @@ class UIManager {
             'Matty',
             'Teacher',
             '/images/npcs/city1/catherine.png',
-            0
+            4
           )}
           ${friendsRow(
             'Moses',
             'Adventurer',
             '/images/npcs/city1/catherine.png',
-            0
+            1
           )}
           ${friendsRow(
             'Nektarios',
             'Rare Book Merchant',
             '/images/npcs/city1/catherine.png',
-            0
+            5
           )}
           ${friendsRow(
             'Newberry',
             'Fisherman',
             '/images/npcs/city1/catherine.png',
-            0
+            1
           )}
           ${friendsRow(
             'Orpheus',
@@ -569,25 +572,25 @@ class UIManager {
             'Tanner',
             'Financial Analyst',
             '/images/npcs/city1/catherine.png',
-            0
+            2
           )}
           ${friendsRow(
             'Tsubaki',
             'Samurai',
             '/images/npcs/city1/catherine.png',
-            0
+            3
           )}
           ${friendsRow(
             'Tsuki',
             'Spinner',
             '/images/npcs/city1/catherine.png',
-            0
+            3
           )}
           ${friendsRow(
             'Victor',
             'Priest',
             '/images/npcs/city1/catherine.png',
-            0
+            2
           )}
         </div>
       </div>
@@ -763,17 +766,17 @@ class UIManager {
                 <tr>
                 <td>Lord of the Rings: Fellowship of the Ring</td>
                 <td>???</td>
-                <td>Farming</td>
+                <td>Watering Plants</td>
                 </tr>
                 <tr>
                 <td>???</td>
                 <td>???</td>
-                <td>Chopping Wood</td>
+                <td></td>
                 </tr>
                 <tr>
                 <td>???</td>
                 <td>???</td>
-                <td>Fighting Monsters</td>
+                <td></td>
                 </tr>
                 <tr>
                 <td>???</td>
@@ -834,7 +837,11 @@ class UIManager {
         4,
         5,
         'The Hobbit',
-        []
+        [
+          'The Winter Sea',
+          'The Hobbit',
+          'How to Win Friends & Influence People',
+        ]
       );
 
       const see_all_friends = document.getElementById('see_all_friends')!;
