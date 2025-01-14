@@ -26,6 +26,7 @@ export class StartLoader extends DefaultLoader {
   _playbutton: HTMLButtonElement;
   _gameTitleDiv: HTMLDivElement;
   _gameAttributeDiv: HTMLDivElement;
+  _gameStudioDiv: HTMLDivElement;
   _gameRootDiv: HTMLDivElement = document.createElement('div');
 
   constructor(_loadables?: Loadable<any>[]) {
@@ -35,12 +36,11 @@ export class StartLoader extends DefaultLoader {
     this._playbutton = this._createPlayButton();
     this._gameTitleDiv = this._createGameTitle();
     this._gameAttributeDiv = this._createExcaliburAttribute();
+    this._gameStudioDiv = this._createStudioAttribute();
     this._gameRootDiv.style.background = `linear-gradient(
-        rgba(0, 0, 0, 0.3),
-        rgba(0, 0, 0, 0.3)
-      ),url(./Resources/Backgrounds/background_Town3.png) no-repeat,
-      url(./Resources/Backgrounds/background_Town2.png) no-repeat,
-        url(./Resources/Backgrounds/background_Town1.png) no-repeat`;
+        rgba(0, 0, 0, 0.2),
+        rgba(0, 0, 0, 0.2)
+      ),url(./Resources/Backgrounds/library_1.png) no-repeat`;
     this._gameRootDiv.style.backgroundSize = 'cover';
     this._gameRootDiv.style.zIndex = '100';
   }
@@ -72,7 +72,6 @@ export class StartLoader extends DefaultLoader {
     const canvasHeight = this.engine.canvasHeight / this.engine.pixelRatio;
     const canvasWidth = this.engine.canvasWidth / this.engine.pixelRatio;
 
-    // ctx.fillStyle = this.backgroundColor;
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
     let loadingX = canvasWidth / 2 - 100;
@@ -178,7 +177,7 @@ export class StartLoader extends DefaultLoader {
     button.style.position = 'absolute';
     button.style.width = '100px';
     button.style.height = '50px';
-    button.style.top = '65%';
+    button.style.top = '55%';
     button.style.left = '45%';
 
     button.style.fontFamily = 'Pixelify Sans';
@@ -206,13 +205,13 @@ export class StartLoader extends DefaultLoader {
 
     title.style.width = '1000px';
     title.style.height = '100px';
-    title.style.top = '40%';
+    title.style.top = '15%';
     title.style.left = '50%';
     title.style.textAlign = 'center';
     title.style.transform = 'translate(-50%, -50%)';
     title.style.display = 'block';
     title.style.fontFamily = 'Pixelify Sans';
-    title.style.fontSize = '65px';
+    title.style.fontSize = '60px';
     title.style.zIndex = '1001';
 
     title.style.color = '#D9E3E0';
@@ -220,7 +219,7 @@ export class StartLoader extends DefaultLoader {
 
     const titleflexChild = document.createElement('div');
     titleflexChild.style.display = 'flex';
-    // titleflexChild.innerText = 'Catalog Chronicles';
+    titleflexChild.innerText = 'Catalog Chronicles';
     titleflexChild.style.justifyContent = 'center';
     titleflexChild.style.alignItems = 'center';
     titleflexChild.style.height = '100%';
@@ -249,26 +248,54 @@ export class StartLoader extends DefaultLoader {
     extitle.style.position = 'absolute';
     extitle.style.width = '500px';
     extitle.style.height = '100px';
-    extitle.style.top = '10px';
+    extitle.style.bottom = '10px';
     extitle.style.left = '50%';
     extitle.style.textAlign = 'center';
     extitle.style.transform = 'translateX(-50%)';
     extitle.style.display = 'block';
     extitle.style.fontFamily = 'Pixelify Sans';
     extitle.style.fontSize = '15px';
-    extitle.style.color = '#D9E3E0';
+    extitle.style.color = '#000';
     extitle.style.zIndex = '1001';
-    // extitle.innerText = 'Made with Excalibur.js';
-    // this._gameRootDiv.appendChild(extitle);
+    extitle.innerText = 'Made with Excalibur.js';
+    this._gameRootDiv.appendChild(extitle);
 
-    // const exIcon = document.createElement('img');
-    // exIcon.src = './ex-logo.png';
-    // exIcon.style.position = 'relative';
-    // exIcon.style.width = '20px';
-    // exIcon.style.height = '20px';
-    // exIcon.style.top = '4px';
-    // exIcon.style.left = '4px';
-    // extitle.appendChild(exIcon);
+    const exIcon = document.createElement('img');
+    exIcon.src = './ex-logo.png';
+    exIcon.style.position = 'relative';
+    exIcon.style.width = '20px';
+    exIcon.style.height = '20px';
+    exIcon.style.top = '4px';
+    exIcon.style.left = '4px';
+    extitle.appendChild(exIcon);
+    return extitle;
+  }
+
+  _createStudioAttribute(): HTMLDivElement {
+    //document.getElementById('excalibur-play') as HTMLButtonElement;
+    const extitle =
+      (document.getElementById('excalibur-play ') as HTMLDivElement) ||
+      document.createElement('div');
+    extitle.style.position = 'absolute';
+    extitle.style.width = '500px';
+    extitle.style.height = '100px';
+    extitle.style.bottom = '15%';
+    extitle.style.left = '50%';
+    extitle.style.textAlign = 'center';
+    extitle.style.transform = 'translateX(-50%)';
+    extitle.style.display = 'block';
+    extitle.style.fontFamily = 'Pixelify Sans';
+    extitle.style.fontSize = '15px';
+    extitle.style.zIndex = '1001';
+    this._gameRootDiv.appendChild(extitle);
+
+    const exIcon = document.createElement('img');
+    exIcon.src = './studio-logo.png';
+    exIcon.style.position = 'relative';
+    exIcon.style.width = '100%';
+    exIcon.style.top = '4px';
+    exIcon.style.left = '4px';
+    extitle.appendChild(exIcon);
     return extitle;
   }
 
