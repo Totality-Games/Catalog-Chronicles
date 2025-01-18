@@ -1,9 +1,7 @@
 import { Sound } from 'excalibur';
 import { Dialogues, SCENE_STATE } from '../constants';
-import { fetchFriendData } from '../api/client';
 
 // import helper functions
-import friendshipMeter from './helpers/friends/friendshipMeter';
 import city1Details from './helpers/friends/city1/city1Details';
 import city1Rows from './helpers/friends/city1/city1Rows';
 import city1DetailDivs from './helpers/friends/city1/city1DetailDivs';
