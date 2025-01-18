@@ -20,10 +20,14 @@ const game = new Engine({
   scenes: { ...allScenes },
 });
 
-const dataStuff = await apiFetch();
+async function dataStuff() {
+  const stuffData = await apiFetch();
+  return stuffData;
+}
 
-game.start().then(() => {
+game.start().then(async () => {
+  const playerData = await dataStuff();
   uiManager.init();
-  console.log(dataStuff.location);
+  console.log(playerData);
   game.goToScene('start');
 });
