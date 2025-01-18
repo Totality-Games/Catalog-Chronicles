@@ -1,5 +1,9 @@
 import { Sound } from 'excalibur';
 import { Dialogues, SCENE_STATE } from '../constants';
+import { fetchFriendData } from '../api/client';
+import friendshipMeter from './helpers/friends/friendshipMeter';
+import friendDetails from './helpers/friends/friendDetails';
+import friendsRow from './helpers/friends/friendsRow';
 
 export enum MENU {
   COLLECTIVES = 'COLLECTIVES',
@@ -376,129 +380,6 @@ class UIManager {
   }
 
   private createJournalFriends() {
-    // 3 helper functions
-    function friendshipMeter(friendship: number) {
-      switch (friendship) {
-        case 0:
-          return `
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-          `;
-        case 1:
-          return `
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-          `;
-        case 2:
-          return `
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-          `;
-        case 3:
-          return `
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-          `;
-        case 4:
-          return `
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart_empty.png" alt="Friendship Meter" />
-          `;
-        case 5:
-          return `
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-            <img src="/images/items/heart.png" alt="Friendship Meter" />
-          `;
-        default:
-          break;
-      }
-    }
-    function literacyMeter(literacy: number) {
-      switch (literacy) {
-        case 0:
-          return `
-          `;
-        case 1:
-          return `
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-          `;
-        case 2:
-          return `
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-          `;
-        case 3:
-          return `
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-          `;
-        case 4:
-          return `
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-          `;
-        case 5:
-          return `
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-            <img src="/images/items/book32.png" alt="Literacy Meter" />
-          `;
-        default:
-          break;
-      }
-    }
-    function friendsRow(
-      name: string,
-      occupation: string,
-      imgSrc: string,
-      friendship: number
-    ) {
-      return `
-          <div id="friend_single_city1_${name.toLowerCase()}" class="friend_single">
-            <h3>${name}</h3>
-            <p>${occupation}</p>
-            <div id="friend_single_info" class="friend_single_info">
-              <span>
-                <img src="${imgSrc}" alt="${name}" class="npc_image" />
-              </span>
-              <span>
-                <h4>Friendship</h4>
-                <span class="friend_stats">
-                  <span>
-                    <span class="friendship_meter">
-                      ${friendshipMeter(friendship)}
-                    </span>
-                  </span>
-                </span>
-              </span>
-            </div>
-          </div>
-`;
-    }
-
     // create friends rows
     const journal_friends = document.getElementById('journal_friends')!;
     journal_friends.innerHTML = `
@@ -508,102 +389,54 @@ class UIManager {
           <span id="see_all_friends" class="see_all_friends">See All Friends</span>
         </div>
         <div id="friends" class="friends">
-          ${friendsRow(
-            'Andrew',
-            'Farmer',
-            '/images/npcs/city1/catherine.png',
-            1
-          )}
+          ${friendsRow('Andrew', 'Farmer', '/images/npcs/city1/catherine.png')}
           ${friendsRow(
             'Catherine',
             'Housewife',
-            '/images/npcs/city1/catherine.png',
-            4
+            '/images/npcs/city1/catherine.png'
           )}
           ${friendsRow(
             'Jibblet',
             'Herbalist',
-            '/images/npcs/city1/catherine.png',
-            3
+            '/images/npcs/city1/catherine.png'
           )}
-          ${friendsRow(
-            'Jonathan',
-            'Bard',
-            '/images/npcs/city1/catherine.png',
-            2
-          )}
+          ${friendsRow('Jonathan', 'Bard', '/images/npcs/city1/catherine.png')}
           ${friendsRow(
             'JT',
             'Chicken Trainer',
-            '/images/npcs/city1/catherine.png',
-            2
+            '/images/npcs/city1/catherine.png'
           )}
-          ${friendsRow(
-            'Karath',
-            'Student',
-            '/images/npcs/city1/catherine.png',
-            0
-          )}
-          ${friendsRow(
-            'Matty',
-            'Teacher',
-            '/images/npcs/city1/catherine.png',
-            4
-          )}
+          ${friendsRow('Karath', 'Student', '/images/npcs/city1/catherine.png')}
+          ${friendsRow('Matty', 'Teacher', '/images/npcs/city1/catherine.png')}
           ${friendsRow(
             'Moses',
             'Adventurer',
-            '/images/npcs/city1/catherine.png',
-            1
+            '/images/npcs/city1/catherine.png'
           )}
           ${friendsRow(
             'Nektarios',
             'Rare Book Merchant',
-            '/images/npcs/city1/catherine.png',
-            5
+            '/images/npcs/city1/catherine.png'
           )}
           ${friendsRow(
             'Newberry',
             'Fisherman',
-            '/images/npcs/city1/catherine.png',
-            1
+            '/images/npcs/city1/catherine.png'
           )}
-          ${friendsRow(
-            'Orpheus',
-            'Farmer',
-            '/images/npcs/city1/catherine.png',
-            0
-          )}
-          ${friendsRow(
-            'Ryan',
-            'Musician',
-            '/images/npcs/city1/catherine.png',
-            0
-          )}
+          ${friendsRow('Orpheus', 'Farmer', '/images/npcs/city1/catherine.png')}
+          ${friendsRow('Ryan', 'Musician', '/images/npcs/city1/catherine.png')}
           ${friendsRow(
             'Tanner',
             'Financial Analyst',
-            '/images/npcs/city1/catherine.png',
-            2
+            '/images/npcs/city1/catherine.png'
           )}
           ${friendsRow(
             'Tsubaki',
             'Samurai',
-            '/images/npcs/city1/catherine.png',
-            3
+            '/images/npcs/city1/catherine.png'
           )}
-          ${friendsRow(
-            'Tsuki',
-            'Spinner',
-            '/images/npcs/city1/catherine.png',
-            3
-          )}
-          ${friendsRow(
-            'Victor',
-            'Priest',
-            '/images/npcs/city1/catherine.png',
-            2
-          )}
+          ${friendsRow('Tsuki', 'Spinner', '/images/npcs/city1/catherine.png')}
+          ${friendsRow('Victor', 'Priest', '/images/npcs/city1/catherine.png')}
         </div>
       </div>
       <div id="friend_single_city1_andrew_info" class="friend_single_city1_andrew_info"></div>
@@ -726,100 +559,16 @@ class UIManager {
       'friend_single_city1_victor'
     )!;
 
-    function friendDetails(
-      name: string,
-      occupation: string,
-      imgSrc: string,
-      friendship: number,
-      literacy: number,
-      currentlyReading: string,
-      currentlyCheckedOut: string[]
-    ) {
-      return `
-        <div class="friend_single_details">
-          <h3>${name}</h3>
-          <h5>Occupation: ${occupation}</h5>
-          <div class="friend_single_info">
-            <span>
-              <img src="${imgSrc}" alt="${name}" class="npc_image" />
-            </span>
-            <span class="friend_stats">
-              <span>
-                <h4>Friendship</h4>
-                <span class="friendship_meter">
-                  ${friendshipMeter(friendship)}
-                </span>
-              </span>
-              <span>
-                <h4>Literacy</h4>
-                <span class="literacy_meter">
-                ${literacyMeter(literacy)}
-                </span>
-              </span>
-            </span>
-          </div>
-            <p><b>Currently Reading:</b> ${currentlyReading}
-              <br />
-              <b>Current Books Checked Out:</b> ${currentlyCheckedOut
-                .map((b, i) => {
-                  if (i === currentlyCheckedOut.length - 1) return `${b}`;
-                  return `${b}, `;
-                })
-                .join('')}
-            </p>
-
-            <table>
-              <thead>
-                <td>Favorite Books:</td>
-                <td>Favorite Genres:</td>
-                <td>Activities:</td>
-              </thead>
-              <tbody>
-                <tr>
-                <td>Lord of the Rings: Fellowship of the Ring</td>
-                <td>???</td>
-                <td>Watering Plants</td>
-                </tr>
-                <tr>
-                <td>???</td>
-                <td>???</td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>???</td>
-                <td>???</td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>???</td>
-                <td></td>
-                <td></td>
-                </tr>
-                <tr>
-                <td>???</td>
-                <td></td>
-                <td></td>
-                </tr>
-              </tbody>
-            </table>
-        </div>      
-      `;
-    }
-
     /*
       NPC row onclick functions
       TODO: Add the other 13 NPC detail pages
       TODO: Use real data from server
     */
     friend_single_city1_andrew.onclick = function () {
-      friend_single_city1_andrew_info.innerHTML = friendDetails(
-        'Andrew of Helena',
-        'Farmer',
-        '/images/npcs/city1/catherine.png',
-        0,
-        1,
-        'Lord of the Rings: Fellowship of the Ring',
-        ['Lord of the Rings: Fellowship of the Ring']
+      friendDetails('Andrew', '/images/npcs/city1/catherine.png').then(
+        (res) => {
+          return (friend_single_city1_andrew_info.innerHTML = res);
+        }
       );
 
       const see_all_friends = document.getElementById('see_all_friends')!;
@@ -842,18 +591,10 @@ class UIManager {
       friend_single_city1_victor.style.display = 'none';
     };
     friend_single_city1_catherine.onclick = function () {
-      friend_single_city1_catherine_info.innerHTML = friendDetails(
-        'Catherine',
-        'Housewife',
-        '/images/npcs/city1/catherine.png',
-        4,
-        5,
-        'The Hobbit',
-        [
-          'The Winter Sea',
-          'The Hobbit',
-          'How to Win Friends & Influence People',
-        ]
+      friendDetails('Catherine', '/images/npcs/city1/catherine.png').then(
+        (res) => {
+          return (friend_single_city1_catherine_info.innerHTML = res);
+        }
       );
 
       const see_all_friends = document.getElementById('see_all_friends')!;
@@ -876,14 +617,10 @@ class UIManager {
       friend_single_city1_victor.style.display = 'none';
     };
     friend_single_city1_jibblet.onclick = function () {
-      friend_single_city1_jibblet_info.innerHTML = friendDetails(
-        'Jibblét',
-        'Herbalist',
-        '/images/npcs/city1/catherine.png',
-        1,
-        2,
-        `Gunnar's Daughter`,
-        [`Gunnar's Daughter`, `The Silmarrilion`]
+      friendDetails('Jibblet', '/images/npcs/city1/catherine.png').then(
+        (res) => {
+          return (friend_single_city1_jibblet_info.innerHTML = res);
+        }
       );
 
       const see_all_friends = document.getElementById('see_all_friends')!;
@@ -1154,6 +891,17 @@ class UIManager {
       // add content from journal_inventory
       const journal_friends = document.getElementById('journal_friends')!;
       journal_friends.style.display = 'block';
+
+      // populate friend data from api
+      const catherine_friendship_meter = document.getElementById(
+        'catherine_friendship_meter'
+      )!;
+
+      fetchFriendData('catherine').then((res) => {
+        catherine_friendship_meter.innerHTML = friendshipMeter(
+          res.friendshipMeter
+        );
+      });
     };
   }
 

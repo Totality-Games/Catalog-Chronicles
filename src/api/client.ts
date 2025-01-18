@@ -6,7 +6,6 @@ export const fetchPlayerData = async () => {
   });
 
   const playerData = await fetchedData.json().then((data) => {
-    console.log(data);
     return data;
   });
   return playerData;
@@ -19,8 +18,19 @@ export const fetchLibraryData = async () => {
   });
 
   const libraryData = await fetchedData.json().then((data) => {
-    console.log(data);
     return data;
   });
   return libraryData;
+};
+
+export const fetchFriendData = async (friend: string) => {
+  const fetchedData = await fetch(`${baseUrl}/friends/${friend}`, {
+    method: 'GET',
+  });
+
+  const friendData = await fetchedData.json().then((data) => {
+    return data;
+  });
+
+  return friendData;
 };
