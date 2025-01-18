@@ -1,6 +1,5 @@
-import { Engine, Sound } from 'excalibur';
+import { Sound } from 'excalibur';
 import { Dialogues, SCENE_STATE } from '../constants';
-import { fetchPlayerData } from '../api/client';
 
 export enum MENU {
   COLLECTIVES = 'COLLECTIVES',
