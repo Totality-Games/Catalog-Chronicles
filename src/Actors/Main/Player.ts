@@ -19,6 +19,7 @@ import { DIRECTIONS, SCENE_STATE } from '../../constants';
 import { Config } from '../../config';
 import { uiManager } from '../../Managers/UIManager';
 import { handleSceneExit, SceneNames } from '../../Scenes/allScenes';
+import { fetchPlayerData } from '../../api/client';
 
 const circle = new CircleCollider({
   radius: 11,
@@ -64,12 +65,15 @@ export class MainGuy extends Actor {
     this.direction = direction ?? DIRECTIONS.DOWN;
     this.resources = resources;
     this.playerState = SCENE_STATE.PLAYING;
-    console.log('Player created');
   }
 
   onInitialize(engine: Engine): void {
+    fetchPlayerData().then((playerData) => {
+      this.updateGold(playerData.playerGold);
+      uiManager.update_player_name(playerData.name);
+    });
+
     this.addAnimations();
-    this.updateGold(0);
     this.engine = engine;
 
     this.game_container = document.getElementById('game')!;

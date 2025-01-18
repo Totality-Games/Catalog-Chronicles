@@ -1,10 +1,13 @@
 const baseUrl = import.meta.env.VITE_API_ENDPOINT;
 
-export const apiFetch = async () => {
-  const fetchedPlayerDataRes = await fetch(`${baseUrl}/player`, {
+export const fetchPlayerData = async () => {
+  const fetchedData = await fetch(`${baseUrl}/player`, {
     method: 'GET',
   });
 
-  const playerData = fetchedPlayerDataRes.json();
+  const playerData = await fetchedData.json().then((data) => {
+    console.log(data);
+    return data;
+  });
   return playerData;
 };

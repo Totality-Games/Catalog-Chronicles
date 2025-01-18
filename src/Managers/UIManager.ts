@@ -27,7 +27,7 @@ class UIManager {
   talkingSound: Sound | undefined;
   constructor() {
     this.playerName = 'New Player';
-    this.playerGold = 999;
+    this.playerGold = 111;
     this.currentLibraryName = 'New Library';
     this.currentLibraryGold = 999;
     this.currentLibraryBookCount = 999;
@@ -98,7 +98,7 @@ class UIManager {
   private createPlayerInfoUI() {
     const player_info_container = document.getElementById('player_info')!;
     player_info_container.innerHTML = `
-      <h3>${this.playerName}</h3>
+      <h3 id="player_name">${this.playerName}</h3>
       <span class="player_gold" id="player_gold">
         <img
           src="/images/items/gold.png"
@@ -112,6 +112,9 @@ class UIManager {
 
   update_player_name(name: string) {
     this.playerName = name;
+
+    const player_gold_span = document.getElementById('player_name')!;
+    player_gold_span.innerText = this.playerName;
   }
 
   updatePlayerGoldInfoUI(goldAmount: number) {

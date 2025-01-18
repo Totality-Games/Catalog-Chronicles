@@ -8,7 +8,6 @@ import {
 
 import { uiManager } from './Managers/UIManager';
 import { allScenes } from './Scenes/allScenes';
-import { apiFetch } from './api/client';
 
 const game = new Engine({
   canvasElementId: 'game-canvas',
@@ -20,14 +19,7 @@ const game = new Engine({
   scenes: { ...allScenes },
 });
 
-async function dataStuff() {
-  const stuffData = await apiFetch();
-  return stuffData;
-}
-
 game.start().then(async () => {
-  const playerData = await dataStuff();
   uiManager.init();
-  console.log(playerData);
   game.goToScene('start');
 });
