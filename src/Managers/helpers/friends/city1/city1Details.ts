@@ -1,5 +1,5 @@
-import friendDetails from './friendDetails';
-import hideFriendRows from './hideFriendRows';
+import friendDetails from '../friendDetails';
+import hideFriendRows from '../hideFriendRows';
 
 export default function city1Details() {
   /*

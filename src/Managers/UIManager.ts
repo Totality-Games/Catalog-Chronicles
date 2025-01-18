@@ -4,17 +4,10 @@ import { fetchFriendData } from '../api/client';
 
 // import helper functions
 import friendshipMeter from './helpers/friends/friendshipMeter';
-import friendsRow from './helpers/friends/friendsRow';
-import city1Details from './helpers/friends/city1Details';
-
-export enum MENU {
-  COLLECTIVES = 'COLLECTIVES',
-  ITEMS = 'ITEMS',
-  MAP = 'MAP',
-  SETTINGS = 'SETTINGS',
-  BACK_MAIN_MENU = 'BACK_MAIN_MENU',
-  EXIT = 'EXIT',
-}
+import city1Details from './helpers/friends/city1/city1Details';
+import city1Rows from './helpers/friends/city1/city1Rows';
+import city1DetailDivs from './helpers/friends/city1/city1DetailDivs';
+import city1RowsFriendshipMeter from './helpers/friends/city1/city1RowsFriendshipMeter';
 
 class UIManager {
   game_state: SCENE_STATE;
@@ -391,72 +384,10 @@ class UIManager {
           <span id="see_all_friends" class="see_all_friends">See All Friends</span>
         </div>
         <div id="friends" class="friends">
-          ${friendsRow('Andrew', 'Farmer', '/images/npcs/city1/catherine.png')}
-          ${friendsRow(
-            'Catherine',
-            'Housewife',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow(
-            'Jibblet',
-            'Herbalist',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow('Jonathan', 'Bard', '/images/npcs/city1/catherine.png')}
-          ${friendsRow(
-            'JT',
-            'Chicken Trainer',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow('Karath', 'Student', '/images/npcs/city1/catherine.png')}
-          ${friendsRow('Matty', 'Teacher', '/images/npcs/city1/catherine.png')}
-          ${friendsRow(
-            'Moses',
-            'Adventurer',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow(
-            'Nektarios',
-            'Rare Book Merchant',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow(
-            'Newberry',
-            'Fisherman',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow('Orpheus', 'Farmer', '/images/npcs/city1/catherine.png')}
-          ${friendsRow('Ryan', 'Musician', '/images/npcs/city1/catherine.png')}
-          ${friendsRow(
-            'Tanner',
-            'Financial Analyst',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow(
-            'Tsubaki',
-            'Samurai',
-            '/images/npcs/city1/catherine.png'
-          )}
-          ${friendsRow('Tsuki', 'Spinner', '/images/npcs/city1/catherine.png')}
-          ${friendsRow('Victor', 'Priest', '/images/npcs/city1/catherine.png')}
+          ${city1Rows()}
         </div>
       </div>
-      <div id="friend_single_city1_andrew_info" class="friend_single_city1_andrew_info"></div>
-      <div id="friend_single_city1_catherine_info" class="friend_single_city1_catherine_info"></div>
-      <div id="friend_single_city1_jibblet_info" class="friend_single_city1_jibblet_info"></div>
-      <div id="friend_single_city1_jonathan_info" class="friend_single_city1_jonathan_info"></div>
-      <div id="friend_single_city1_jt_info" class="friend_single_city1_jt_info"></div>
-      <div id="friend_single_city1_karath_info" class="friend_single_city1_karath_info"></div>
-      <div id="friend_single_city1_matty_info" class="friend_single_city1_matty_info"></div>
-      <div id="friend_single_city1_moses_info" class="friend_single_city1_moses_info"></div>
-      <div id="friend_single_city1_nektarios_info" class="friend_single_city1_nektarios_info"></div>
-      <div id="friend_single_city1_newberry_info" class="friend_single_city1_newberry_info"></div>
-      <div id="friend_single_city1_orpheus_info" class="friend_single_city1_orpheus_info"></div>
-      <div id="friend_single_city1_ryan_info" class="friend_single_city1_ryan_info"></div>
-      <div id="friend_single_city1_tanner_info" class="friend_single_city1_tanner_info"></div>
-      <div id="friend_single_city1_tsubaki_info" class="friend_single_city1_tsubaki_info"></div>
-      <div id="friend_single_city1_tsuki_info" class="friend_single_city1_tsuki_info"></div>
-      <div id="friend_single_city1_victor_info" class="friend_single_city1_victor_info"></div>
+      ${city1DetailDivs()}
   `;
 
     /* 
@@ -680,16 +611,10 @@ class UIManager {
       const journal_friends = document.getElementById('journal_friends')!;
       journal_friends.style.display = 'block';
 
-      // populate friend data from api
-      const catherine_friendship_meter = document.getElementById(
-        'catherine_friendship_meter'
-      )!;
-
-      fetchFriendData('catherine').then((res) => {
-        catherine_friendship_meter.innerHTML = friendshipMeter(
-          res.friendshipMeter
-        );
-      });
+      // TODO: check city player is currently in
+      // then populate rows * friendship meters
+      // with corresponding helper function
+      city1RowsFriendshipMeter();
     };
   }
 

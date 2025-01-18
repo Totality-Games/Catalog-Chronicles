@@ -39,3 +39,23 @@ export type Dialogues = {
   text: string;
   isCharacter?: boolean;
 }[];
+
+// City1 Friends
+export enum CITY1_FRIENDS {
+  ANDREW = 'andrew',
+  CATHERINE = 'catherine',
+  JIBBLET = 'jibblet',
+  JONATHAN = 'jonathan',
+  JT = 'jt',
+  KARATH = 'karath',
+  MATTY = 'matty',
+  MOSES = 'moses',
+  NEKTARIOS = 'nektarios',
+  NEWBERRY = 'newberry',
+  ORPHEUS = 'orpheus',
+  RYAN = 'ryan',
+  TANNER = 'tanner',
+  TSUBAKI = 'tsubaki',
+  TSUKI = 'tsuki',
+  VICTOR = 'victor',
+}
