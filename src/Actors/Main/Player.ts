@@ -755,6 +755,6 @@ export class MainGuy extends Actor {
     if (newAmount < 0) return;
 
     this.playerGold += amount;
-    uiManager.updatePlayerGoldInfoUI(this.playerGold);
+    uiManager.updatePlayerGoldInfoUI(this.playerGold, this.playerGoldToDate);
   }
 }

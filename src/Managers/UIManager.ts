@@ -20,6 +20,7 @@ class UIManager {
   dialog_container!: HTMLElement;
   playerName: string;
   playerGold: number;
+  playerGoldToDate: number;
   currentLibraryName: string;
   currentLibraryGold: number;
   currentLibraryBookCount: number;
@@ -28,6 +29,7 @@ class UIManager {
   constructor() {
     this.playerName = 'New Player';
     this.playerGold = 111;
+    this.playerGoldToDate = 111;
     this.currentLibraryName = 'New Library';
     this.currentLibraryGold = 999;
     this.currentLibraryBookCount = 999;
@@ -117,9 +119,11 @@ class UIManager {
     player_gold_span.innerText = this.playerName;
   }
 
-  updatePlayerGoldInfoUI(goldAmount: number) {
+  updatePlayerGoldInfoUI(goldAmount: number, goldToDate: number) {
     this.playerGold = goldAmount;
+    this.playerGoldToDate = goldToDate;
 
+    // update player gold total in HUD
     const player_gold_span = document.getElementById('player_gold')!;
     player_gold_span.innerHTML = `
         <img
@@ -129,6 +133,12 @@ class UIManager {
         />
         ${this.playerGold}
     `;
+
+    // update player gold to date total in Journal
+    const journal_player_gold_to_date = document.getElementById(
+      'journal_player_gold_to_date'
+    )!;
+    journal_player_gold_to_date.innerText = `Player Gold Total to Date: ${this.playerGoldToDate}`;
   }
 
   /* 
@@ -948,7 +958,7 @@ class UIManager {
   private createJournalStats() {
     const journal_stats = document.getElementById('journal_stats')!;
     journal_stats.innerHTML = `
-      <p>Journal Stats</p>
+      <p id="journal_player_gold_to_date">Player Gold Total to Date: ${this.playerGoldToDate}</p>
   `;
   }
 

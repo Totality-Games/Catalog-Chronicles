@@ -203,8 +203,8 @@ export class StartLoader extends DefaultLoader {
     const title = document.createElement('div');
     title.style.position = 'absolute';
 
-    title.style.width = '70%';
-    title.style.height = '200px';
+    title.style.width = '100%';
+    title.style.height = '150px';
     title.style.top = '15%';
     title.style.left = '50%';
     title.style.textAlign = 'center';
