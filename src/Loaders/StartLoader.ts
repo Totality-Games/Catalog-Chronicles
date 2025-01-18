@@ -40,7 +40,7 @@ export class StartLoader extends DefaultLoader {
     this._gameRootDiv.style.background = `linear-gradient(
         rgba(0, 0, 0, 0.2),
         rgba(0, 0, 0, 0.2)
-      ),url(./Resources/Backgrounds/library_1.png) no-repeat`;
+      ),url(./images/library_7.png) no-repeat`;
     this._gameRootDiv.style.backgroundSize = 'cover';
     this._gameRootDiv.style.zIndex = '100';
   }
@@ -203,8 +203,8 @@ export class StartLoader extends DefaultLoader {
     const title = document.createElement('div');
     title.style.position = 'absolute';
 
-    title.style.width = '1000px';
-    title.style.height = '100px';
+    title.style.width = '70%';
+    title.style.height = '200px';
     title.style.top = '15%';
     title.style.left = '50%';
     title.style.textAlign = 'center';
@@ -215,16 +215,26 @@ export class StartLoader extends DefaultLoader {
     title.style.zIndex = '1001';
 
     title.style.color = '#D9E3E0';
+    title.style.backgroundColor = '#662a3a';
     this._gameRootDiv.appendChild(title);
 
     const titleflexChild = document.createElement('div');
     titleflexChild.style.display = 'flex';
+    titleflexChild.style.flexDirection = 'column';
     titleflexChild.innerText = 'Catalog Chronicles';
     titleflexChild.style.justifyContent = 'center';
     titleflexChild.style.alignItems = 'center';
     titleflexChild.style.height = '100%';
 
+    const titleflexChild2 = document.createElement('span');
+    titleflexChild2.style.display = 'flex';
+    titleflexChild2.innerText = 'A cozy cat library game';
+    titleflexChild2.style.justifyContent = 'center';
+    titleflexChild2.style.alignItems = 'center';
+    titleflexChild2.style.fontSize = '35px';
+
     title.appendChild(titleflexChild);
+    titleflexChild.appendChild(titleflexChild2);
 
     return title;
   }
@@ -248,7 +258,7 @@ export class StartLoader extends DefaultLoader {
     extitle.style.position = 'absolute';
     extitle.style.width = '500px';
     extitle.style.height = '100px';
-    extitle.style.bottom = '10px';
+    extitle.style.bottom = '0%';
     extitle.style.left = '50%';
     extitle.style.textAlign = 'center';
     extitle.style.transform = 'translateX(-50%)';
@@ -261,7 +271,7 @@ export class StartLoader extends DefaultLoader {
     this._gameRootDiv.appendChild(extitle);
 
     const exIcon = document.createElement('img');
-    exIcon.src = './ex-logo.png';
+    exIcon.src = './images/ex-logo.png';
     exIcon.style.position = 'relative';
     exIcon.style.width = '20px';
     exIcon.style.height = '20px';
@@ -279,7 +289,7 @@ export class StartLoader extends DefaultLoader {
     extitle.style.position = 'absolute';
     extitle.style.width = '500px';
     extitle.style.height = '100px';
-    extitle.style.bottom = '15%';
+    extitle.style.bottom = '14%';
     extitle.style.left = '50%';
     extitle.style.textAlign = 'center';
     extitle.style.transform = 'translateX(-50%)';
@@ -290,7 +300,7 @@ export class StartLoader extends DefaultLoader {
     this._gameRootDiv.appendChild(extitle);
 
     const exIcon = document.createElement('img');
-    exIcon.src = './studio-logo.png';
+    exIcon.src = './images/studio-logo.png';
     exIcon.style.position = 'relative';
     exIcon.style.width = '100%';
     exIcon.style.top = '4px';
