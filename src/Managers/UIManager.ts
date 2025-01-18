@@ -1,10 +1,10 @@
 import { Sound } from 'excalibur';
 import { Dialogues, SCENE_STATE } from '../constants';
 import { fetchFriendData } from '../api/client';
+
+// import helper functions
 import friendshipMeter from './helpers/friends/friendshipMeter';
-import friendDetails from './helpers/friends/friendDetails';
 import friendsRow from './helpers/friends/friendsRow';
-import hideFriendRows from './helpers/friends/hideFriendRows';
 import city1Details from './helpers/friends/city1Details';
 
 export enum MENU {
