@@ -21,7 +21,7 @@ import { LOCATIONS, SCENE_STATE } from '../../constants';
 import { musicManager } from '../../Managers/MusicManager';
 import { StartLoader } from '../../Loaders/StartLoader';
 import { uiManager } from '../../Managers/UIManager';
-import { fetchPlayerData } from '../../api/client';
+import { fetchLibraryData, fetchPlayerData } from '../../api/client';
 import { SceneNames } from '../allScenes';
 
 const SCALE = vec(3, 3);
@@ -48,8 +48,14 @@ export class StartScreen extends Scene {
 
         // if the scene is a library, then load library info into UI
         if (res.location === SceneNames.LIBRARY1) {
-          uiManager.displayLibraryInfoUI();
-          uiManager.update_current_library_info('library1Name', 150, 200);
+          fetchLibraryData().then((data) => {
+            uiManager.displayLibraryInfoUI();
+            uiManager.update_current_library_info(
+              data.name,
+              data.gold,
+              data.bookCount
+            );
+          });
         }
       });
     });

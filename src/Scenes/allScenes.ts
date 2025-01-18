@@ -11,6 +11,7 @@ import {
 import { city1Scene, City1SceneLoader } from './City1/Scene';
 import { startScreen, startScreenLoader } from './TitleMenu/Scene';
 import { uiManager } from '../Managers/UIManager';
+import { fetchLibraryData } from '../api/client';
 
 export const allScenes = {
   start: {
@@ -56,12 +57,14 @@ export const handleSceneExit = (engine: Engine, scene: SceneNames) => {
         musicManager.stopMusic();
       }
 
-      uiManager.displayLibraryInfoUI();
-      uiManager.update_current_library_info(
-        library1Scene.name,
-        library1Scene.gold,
-        library1Scene.bookCount
-      );
+      fetchLibraryData().then((data) => {
+        uiManager.displayLibraryInfoUI();
+        uiManager.update_current_library_info(
+          data.name,
+          data.gold,
+          data.bookCount
+        );
+      });
 
       engine.goToScene(scene);
       break;
