@@ -21,6 +21,8 @@ import { LOCATIONS, SCENE_STATE } from '../../constants';
 import { musicManager } from '../../Managers/MusicManager';
 import { StartLoader } from '../../Loaders/StartLoader';
 import { uiManager } from '../../Managers/UIManager';
+import { fetchPlayerData } from '../../api/client';
+import { SceneNames } from '../allScenes';
 
 const SCALE = vec(3, 3);
 
@@ -33,9 +35,23 @@ export class StartScreen extends Scene {
   override onInitialize(engine: Engine): void {
     this.game_container = document.getElementById('game')!;
     uiManager.update_state(SCENE_STATE.MENU);
-    uiManager.setupTitleMenuUI(engine, () => {
+    uiManager.setupTitleMenuUI(() => {
+      // this runs when player has pressed the Play button
       musicManager.stopMusic();
       uiManager.cleanupTitleMenuUI();
+
+      fetchPlayerData().then((res) => {
+        // when player clicks on Play button,
+        // we fetch the player data, including their last location
+        // then we start the player at their last location
+        engine.goToScene(res.location);
+
+        // if the scene is a library, then load library info into UI
+        if (res.location === SceneNames.LIBRARY1) {
+          uiManager.displayLibraryInfoUI();
+          uiManager.update_current_library_info('library1Name', 150, 200);
+        }
+      });
     });
 
     this.engine = engine;

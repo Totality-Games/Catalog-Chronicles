@@ -64,7 +64,7 @@ class UIManager {
     TITLE MENU
     2 methods
   */
-  setupTitleMenuUI(engine: Engine, sceneChangeCallback: () => void) {
+  setupTitleMenuUI(sceneChangeCallback: () => void) {
     this.title_menu.style.display = 'flex';
     this.title_menu.style.alignItems = 'center';
     this.title_menu.style.justifyContent = 'center';
@@ -85,13 +85,6 @@ class UIManager {
 
     play_game_span.onclick = function () {
       sceneChangeCallback();
-
-      fetchPlayerData().then((res) => {
-        // when player clicks on Play button,
-        // we fetch the player data, including their last location
-        // then we start the player at their last location
-        engine.goToScene(res.location);
-      });
     };
   }
 
